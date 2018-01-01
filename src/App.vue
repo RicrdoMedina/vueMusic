@@ -10,117 +10,60 @@
                 input.search(
                   type="text",
                   placeholder="Buscar canciones",
-                  v-model='searchQuery'
                 )
-                a.button 
+                a.button
                   icon(name="search" scale="1")
-        aside.content-link
-          .columns
-            .column
-              nav.nav-items
-                ul
-                  li
-                    a(href="#") Featured
-                  li 
-                    a(href="#") Top
-                  li 
-                    a(href="#") Popular
+        menu-options
         .container
           article.show-results
-            .wrapper-card
+            .wrapper-card(v-for="t in tracks")
               .card
                 .card-image
                   figure.image.is-4by3
-                    img(src='https://bulma.io/images/placeholders/1280x960.png', alt='Placeholder image')
+                    img(v-bind:src="t.image[2]['#text']", alt="Placeholder image")
                 .card-content
                   .media
                     .media-content
-                      p.title RockStar
-                      p.subtitle Paul Malone
+                      p.title {{ t.name }}
+                      p.subtitle {{ t.artist.name }}
                   .content
                     | Popular right now.
 
-            .wrapper-card
-              .card
-                .card-image
-                  figure.image.is-4by3
-                    img(src='https://bulma.io/images/placeholders/1280x960.png', alt='Placeholder image')
-                .card-content
-                  .media
-                    .media-content
-                      p.title RockStar
-                      p.subtitle Paul Malone
-                  .content
-                    | Popular right now.
-
-            .wrapper-card
-              .card
-                .card-image
-                  figure.image.is-4by3
-                    img(src='https://bulma.io/images/placeholders/1280x960.png', alt='Placeholder image')
-                .card-content
-                  .media
-                    .media-content
-                      p.title RockStar
-                      p.subtitle Paul Malone
-                  .content
-                    | Popular right now.
-              
-            .wrapper-card
-              .card
-                .card-image
-                  figure.image.is-4by3
-                    img(src='https://bulma.io/images/placeholders/1280x960.png', alt='Placeholder image')
-                .card-content
-                  .media
-                    .media-content
-                      p.title RockStar
-                      p.subtitle Paul Malone
-                  .content
-                    | Popular right now.
-
-            .wrapper-card
-              .card
-                .card-image
-                  figure.image.is-4by3
-                    img(src='https://bulma.io/images/placeholders/1280x960.png', alt='Placeholder image')
-                .card-content
-                  .media
-                    .media-content
-                      p.title RockStar
-                      p.subtitle Paul Malone
-                  .content
-                    | Popular right now.
-
-            .wrapper-card
-              .card
-                .card-image
-                  figure.image.is-4by3
-                    img(src='https://bulma.io/images/placeholders/1280x960.png', alt='Placeholder image')
-                .card-content
-                  .media
-                    .media-content
-                      p.title RockStar
-                      p.subtitle Paul Malone
-                  .content
-                    | Popular right now.
       vue-footer
 </template>
 
 <script>
 
+import trackService from '@/services/PopularTrack'
+
 import VueHeader from '@/components/layout/Header.vue'
 import VueFooter from '@/components/layout/Footer.vue'
+
+import MenuOptions from '@/components/MenuOptions.vue'
 
 export default {
   name: 'app',
   data () {
     return {
+      searchQuery: '',
+      tracks: []
     }
   },
   components: {
     VueHeader,
-    VueFooter
+    VueFooter,
+    MenuOptions
+  },
+  created () {
+    this.tracksPopular()
+  },
+  methods: {
+    tracksPopular () {
+      trackService.tracks()
+        .then(res => {
+          this.tracks = res.lovedtracks.track
+        })
+    }
   }
 }
 </script>
@@ -173,20 +116,28 @@ a,a:link,a:active,a:visited,a:focus,a:hover{
 }
 .wrapper-card .card-content .media{
   position: relative;
-  top: -50px;
-  width: 250px;
+  top: -63px;
+  width: 249px;
   left: -14px;
-  padding: .2rem .8rem;
+  box-sizing: border-box;
+}
+.media .media-content{
+  height: 60px;
+  background: #de592257;
+  padding: .4rem 0 0 .5rem;
 }
 .wrapper-card .card-content .content{
   position: relative;
-  top: -50px;
+  top: -65px;
 }
 .wrapper-card .card-content .title{
-  font-size: 1.2rem;
+  font-size: 1rem;
+  color:$white;
+  font-weight: 300;
 }
 .wrapper-card .card-content .subtitle{
   font-size: .9rem;
+  color:$white;
 }
 .section-main{
   flex: 1;

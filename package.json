@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "bulma": "^0.6.1",
+    "trae": "^1.4.2",
     "vue": "^2.5.11",
     "vue-awesome": "^2.3.4"
   },
