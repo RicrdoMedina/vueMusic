@@ -27,6 +27,7 @@
 }
 .header .icon-bars{
   color: rgb(222,89,34);
+  cursor:pointer;
 }
 .content-logo{
   width: 94px;
