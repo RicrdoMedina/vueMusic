@@ -25,8 +25,85 @@
                     a(href="#") Top
                   li 
                     a(href="#") Popular
-        article.show-items
-          
+        .container
+          article.show-results
+            .wrapper-card
+              .card
+                .card-image
+                  figure.image.is-4by3
+                    img(src='https://bulma.io/images/placeholders/1280x960.png', alt='Placeholder image')
+                .card-content
+                  .media
+                    .media-content
+                      p.title RockStar
+                      p.subtitle Paul Malone
+                  .content
+                    | Popular right now.
+
+            .wrapper-card
+              .card
+                .card-image
+                  figure.image.is-4by3
+                    img(src='https://bulma.io/images/placeholders/1280x960.png', alt='Placeholder image')
+                .card-content
+                  .media
+                    .media-content
+                      p.title RockStar
+                      p.subtitle Paul Malone
+                  .content
+                    | Popular right now.
+
+            .wrapper-card
+              .card
+                .card-image
+                  figure.image.is-4by3
+                    img(src='https://bulma.io/images/placeholders/1280x960.png', alt='Placeholder image')
+                .card-content
+                  .media
+                    .media-content
+                      p.title RockStar
+                      p.subtitle Paul Malone
+                  .content
+                    | Popular right now.
+              
+            .wrapper-card
+              .card
+                .card-image
+                  figure.image.is-4by3
+                    img(src='https://bulma.io/images/placeholders/1280x960.png', alt='Placeholder image')
+                .card-content
+                  .media
+                    .media-content
+                      p.title RockStar
+                      p.subtitle Paul Malone
+                  .content
+                    | Popular right now.
+
+            .wrapper-card
+              .card
+                .card-image
+                  figure.image.is-4by3
+                    img(src='https://bulma.io/images/placeholders/1280x960.png', alt='Placeholder image')
+                .card-content
+                  .media
+                    .media-content
+                      p.title RockStar
+                      p.subtitle Paul Malone
+                  .content
+                    | Popular right now.
+
+            .wrapper-card
+              .card
+                .card-image
+                  figure.image.is-4by3
+                    img(src='https://bulma.io/images/placeholders/1280x960.png', alt='Placeholder image')
+                .card-content
+                  .media
+                    .media-content
+                      p.title RockStar
+                      p.subtitle Paul Malone
+                  .content
+                    | Popular right now.
       vue-footer
 </template>
 
@@ -58,11 +135,12 @@ body{
   font-family:'Roboto', Times, serif;
 }
 a,a:link,a:active,a:visited,a:focus,a:hover{
-  color:#dbdbdb;
+  color: $color-vue;
 }
 #app{
-  background: url('https://images.unsplash.com/photo-1477346611705-65d1883cee1e?dpr=0.800000011920929&auto=format&fit=crop&w=1199&h=800&q=80&cs=tinysrgb&crop=') fixed no-repeat;
-  background-size: cover;
+  // background: url('https://images.unsplash.com/photo-1477346611705-65d1883cee1e?dpr=0.800000011920929&auto=format&fit=crop&w=1199&h=800&q=80&cs=tinysrgb&crop=') fixed no-repeat;
+  // background-size: cover;
+  background: $black;
 }
 .main{
   min-height: 100vh;
@@ -72,9 +150,47 @@ a,a:link,a:active,a:visited,a:focus,a:hover{
   display: flex;
   flex-direction: column;
 }
+.container{
+  margin-top:1rem;
+}
+.show-results{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; 
+}
+.show-results .wrapper-card{
+  width: 250px;
+  margin-top: 2rem;
+}
+.wrapper-card .card{
+  background-color: transparent;
+}
+.wrapper-card .card-content{
+  padding: .2rem .9rem;
+  height: 40px;
+  background: $background-vue;
+  color:$color-vue;
+}
+.wrapper-card .card-content .media{
+  position: relative;
+  top: -50px;
+  width: 250px;
+  left: -14px;
+  padding: .2rem .8rem;
+}
+.wrapper-card .card-content .content{
+  position: relative;
+  top: -50px;
+}
+.wrapper-card .card-content .title{
+  font-size: 1.2rem;
+}
+.wrapper-card .card-content .subtitle{
+  font-size: .9rem;
+}
 .section-main{
   flex: 1;
-  padding-top: 100px;
+  padding-top: 6.5rem;
 }
 .section-main form{
   text-align: center;
@@ -87,8 +203,8 @@ a,a:link,a:active,a:visited,a:focus,a:hover{
   border-top: solid $color-vue 1px;
   outline: 0;
   width: 400px;
-  padding: 0 .5em;
-  font-size: 16px;
+  padding: 0 .5rem;
+  font-size: 1rem;
   background: $background-vue;
 }
 .button{
@@ -110,10 +226,10 @@ a,a:link,a:active,a:visited,a:focus,a:hover{
 .nav-items ul li{
   display: inline-block;
   vertical-align: top;
-  padding:5px;
-  margin: 0 5px;
+  padding: .4rem;
+  margin: 0 .5rem;
   background: $background-vue;
-  color: $black;
+  color:$color-vue;
   min-width: 140px;
   cursor:pointer;
 }
@@ -127,6 +243,7 @@ a,a:link,a:active,a:visited,a:focus,a:hover{
   bottom: 0;
   left: 0;
   right: 0;
+  margin-top: 2rem;
   background: $background-vue;
   color:$color-vue;
 }
