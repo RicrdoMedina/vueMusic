@@ -6,8 +6,9 @@
           input.search(
             type="text",
             placeholder="Buscar canciones",
+            v-model='searchQuery'
           )
-          a.button
+          a.button(@click="search")
             icon(name="search" scale="1")
 </template>
 

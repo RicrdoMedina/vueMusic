@@ -3,7 +3,17 @@
     .wrapper
       vue-header
       section.section-main
-        search
+        .columns
+          .column
+            nav.nav-search
+              form
+                input.search(
+                  type="text",
+                  placeholder="Buscar canciones",
+                  v-model='searchQuery'
+                )
+                a.button(@click="search")
+                  icon(name="search" scale="1")
         menu-options
         .container
           article.show-results
@@ -14,13 +24,12 @@
 
 <script>
 
-import trackService from '@/services/PopularTrack'
+import trackService from '@/services/Tracks'
 
 import VueHeader from '@/components/layout/Header.vue'
 import VueFooter from '@/components/layout/Footer.vue'
 
 import MenuOptions from '@/components/MenuOptions.vue'
-import Search from '@/components/Search.vue'
 import CardTracksPopular from '@/components/CardTracksPopular.vue'
 
 export default {
@@ -35,7 +44,6 @@ export default {
     VueHeader,
     VueFooter,
     MenuOptions,
-    Search,
     CardTracksPopular
   },
   created () {
@@ -46,6 +54,15 @@ export default {
       trackService.tracks()
         .then(res => {
           this.tracks = res.lovedtracks.track
+        })
+    },
+    search () {
+      if (this.searchQuery === '') {}
+      console.log('hola')
+      trackService.search(this.searchQuery)
+        .then(res => {
+          console.dir(res.results.trackmatches.track)
+          this.tracks = res.results.trackmatches.track
         })
     }
   }
@@ -96,5 +113,29 @@ a,a:link,a:active,a:visited,a:focus,a:hover{
 .show-results .wrapper-card{
   width: 250px;
   margin-top: 2rem;
+  cursor: pointer;
+}
+.search{
+  height: 35px;
+  border-left: solid rgb(222,89,34) 1px;
+  border-bottom: solid rgb(222,89,34) 1px;
+  border-top: solid rgb(222,89,34) 1px;
+  outline: 0;
+  width: 400px;
+  padding: 0 .5rem;
+  font-size: 1.2rem;
+  background: #ffffff36;
+  color: rgb(222,89,34);
+}
+.button{
+  border-radius: unset;
+  background: rgb(222,89,34);
+  border: unset;
+  position: relative;
+  left: -2px;
+  height: 35px;
+}
+.button:hover,.button.focus{
+  border: unset; 
 }
 </style>

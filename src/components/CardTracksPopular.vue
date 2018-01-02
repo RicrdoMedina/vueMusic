@@ -7,9 +7,10 @@
       .media
         .media-content
           p.title {{ track.name }}
-          p.subtitle {{ track.artist.name }}
+          p.subtitle {{ track.artist.name ? track.artist.name : track.artist }}
       .content
-        | Popular right now.
+        img(src="../assets/listen.png")
+        | {{ track.listeners ? track.listeners + ' listeners ' : "Popular right now." }}
 </template>
 
 <script>
@@ -30,6 +31,20 @@ export default {
   height: 40px;
   background: #ffffff36;
   color:rgb(222,89,34);
+  -ms-transition:all 0.6s ease-out;
+  -moz-transition:all 0.6s ease-out;
+  -o-transition:all 0.6s ease-out;
+  -webkit-transition:all 0.6s ease-out;
+  transition:all 0.6s ease-out;
+  will-change: background;
+}
+.card:hover .card-content{
+  background:#fff;
+  -ms-transition:all 0.6s ease-in;
+  -moz-transition:all 0.6s ease-in;
+  -o-transition:all 0.6s ease-in;
+  -webkit-transition:all 0.6s ease-in;
+  transition:all 0.6s ease-in;
 }
 .card-content .media{
   position: relative;
@@ -46,6 +61,13 @@ export default {
 .card-content .content{
   position: relative;
   top: -65px;
+}
+.content img{
+  width: 20px;
+  display: inline;
+  margin-right: 15px;
+  position: relative;
+  top: 4px;
 }
 .title{
   font-size: 1rem;
