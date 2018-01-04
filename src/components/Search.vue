@@ -1,19 +1,88 @@
 <template lang="pug">
-  .columns
-    .column
-      nav.nav-search
-        form
-          input.search(
-            type="text",
-            placeholder="Buscar canciones",
-            v-model='searchQuery'
-          )
-          a.button(@click="search")
-            icon(name="search" scale="1")
+  main
+    section.section-main
+      .columns
+        .column
+          nav.nav-search
+            form
+              input.search(
+                type="text",
+                placeholder="Buscar canciones",
+                v-model='searchQuery'
+              )
+              a.button(@click="search")
+                icon(name="search" scale="1")
+      vm-menu-options
+      .container
+        article.show-results
+          .wrapper-card(v-for="t in tracks")
+             vm-card-tracks-popular(v-bind:track="t")
 </template>
+
+<script>
+
+import trackService from '@/services/Tracks'
+
+import VmMenuOptions from '@/components/MenuOptions.vue'
+import VmCardTracksPopular from '@/components/CardTracksPopular.vue'
+
+export default {
+  name: 'app',
+  data () {
+    return {
+      searchQuery: '',
+      tracks: []
+    }
+  },
+  components: {
+    VmMenuOptions,
+    VmCardTracksPopular
+  },
+  created () {
+    this.tracksPopular()
+  },
+  methods: {
+    tracksPopular () {
+      trackService.tracks()
+        .then(res => {
+          this.tracks = res.lovedtracks.track
+        })
+    },
+    search () {
+      if (this.searchQuery === '') {}
+      console.log('hola')
+      trackService.search(this.searchQuery)
+        .then(res => {
+          console.dir(res.results.trackmatches.track)
+          this.tracks = res.results.trackmatches.track
+        })
+    }
+  }
+}
+</script>
 
 <style lang="scss">
 
+.container{
+  margin-top:1rem;
+}
+.section-main{
+  flex: 1;
+  padding-top: 6.5rem;
+}
+.section-main form{
+  text-align: center;
+}
+.show-results{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; 
+}
+.show-results .wrapper-card{
+  width: 250px;
+  margin-top: 2rem;
+  cursor: pointer;
+}
 .search{
   height: 35px;
   border-left: solid rgb(222,89,34) 1px;
