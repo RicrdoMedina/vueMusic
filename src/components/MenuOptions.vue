@@ -5,9 +5,9 @@
           nav.nav-items
             ul
               li
-                a(href="#") Featured
+                router-link(to="top-artists") Artist
               li 
-                a(href="#") Top
+                router-link(to="top-tracks") Tracks
               li 
                 a(href="#") Popular
 </template>

@@ -34,9 +34,9 @@ a,a:link,a:active,a:visited,a:focus,a:hover{
   color: $color-vue;
 }
 #app{
-  // background: url('https://images.unsplash.com/photo-1477346611705-65d1883cee1e?dpr=0.800000011920929&auto=format&fit=crop&w=1199&h=800&q=80&cs=tinysrgb&crop=') fixed no-repeat;
-  // background-size: cover;
-  background: $black;
+  background: url('https://images.unsplash.com/photo-1477346611705-65d1883cee1e?dpr=0.800000011920929&auto=format&fit=crop&w=1199&h=800&q=80&cs=tinysrgb&crop=') fixed no-repeat;
+  background-size: cover;
+  // background: $black;
 }
 .wrapper{
   min-height: 100vh;
@@ -45,5 +45,9 @@ a,a:link,a:active,a:visited,a:focus,a:hover{
   border: 0;
   display: flex;
   flex-direction: column;
+}
+.section-main{
+  flex: 1;
+  padding-top: 6.5rem;
 }
 </style>

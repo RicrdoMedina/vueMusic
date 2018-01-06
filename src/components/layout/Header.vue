@@ -5,8 +5,9 @@
           nav.icon-bars
             icon(name="bars" scale="2")
         .column.is-4.has-text-centered
-          figure.content-logo
-            img.logo(src="src/assets/vue-logo.png")
+          router-link(to="/")
+            figure.content-logo
+              img.logo(src="src/assets/vue-logo.png")
         .column.is-4.has-text-centered 4
 </template>
 

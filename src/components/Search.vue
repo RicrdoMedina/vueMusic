@@ -14,7 +14,7 @@
                 icon(name="search" scale="1")
       vm-menu-options
       .container
-        article.show-results
+        .show-results
           .wrapper-card(v-for="t in tracks")
              vm-card-tracks-popular(v-bind:track="t")
 </template>
@@ -24,7 +24,7 @@
 import trackService from '@/services/Tracks'
 
 import VmMenuOptions from '@/components/MenuOptions.vue'
-import VmCardTracksPopular from '@/components/CardTracksPopular.vue'
+import VmCardTracksPopular from '@/components/CardTracks.vue'
 
 export default {
   name: 'app',
@@ -62,13 +62,8 @@ export default {
 </script>
 
 <style lang="scss">
-
 .container{
   margin-top:1rem;
-}
-.section-main{
-  flex: 1;
-  padding-top: 6.5rem;
 }
 .section-main form{
   text-align: center;

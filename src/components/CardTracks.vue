@@ -1,5 +1,5 @@
 <template lang="pug">
-  .card
+  article.card
     .card-image
       figure.image.is-4by3
         img(v-bind:src="track.image[2]['#text']", alt="Placeholder image")
