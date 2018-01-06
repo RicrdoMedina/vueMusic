@@ -1,0 +1,41 @@
+
+/*Gallery Tops Albums */
+.box-top-images{
+  height: 280px;
+}
+.box-top-images figure:first-child,.box-top-images figure{
+  width: 45%;
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+  float: left;
+  height: 280px;
+}
+.box-top-images figure{
+  width: 25%;
+  height: 125px;
+}
+.box-top-images figure:first-child img{
+  height: 250px;
+}
+.box-top-images figure:first-child figcaption{
+  top: -67px;
+  height: 60px;
+}
+.box-top-images figcaption{
+  position: relative;
+  top: -50px;
+  padding: 0 .2rem;
+  height: 43px;
+  background:rgba(0, 0, 0, 0.28);
+}
+.box-top-images figure:first-child .name, .box-top-images figure:first-child .listeners{
+  font-size: 1rem;
+}
+.box-top-images figcaption .name,.box-top-images figcaption .listeners{
+  font-size: .8rem;
+  color: #fff;
+}
+.box-top-images figcaption .listeners{
+  font-size: .7rem;
+} 

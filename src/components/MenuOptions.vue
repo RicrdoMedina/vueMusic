@@ -9,7 +9,7 @@
               li 
                 router-link(to="top-tracks") Tracks
               li 
-                a(href="#") Popular
+                router-link(to="top-albums") Albums
 </template>
 
 <style lang="scss">
