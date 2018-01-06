@@ -7,6 +7,18 @@ tracks.tracks = function () {
     .then(res => res.data)
 }
 
+tracks.geoGetTopTracks = function (q, d = 'venezuela') {
+  let country = q === undefined ? d : q
+  return vueMusic.get('/2.0/', {
+    params: {
+      method: 'geo.gettoptracks',
+      country,
+      api_key: '530008d1e1c32fb9159f1b10901f5032',
+      format: 'json'
+    }
+  }).then(res => res.data)
+}
+
 tracks.search = function (q) {
   return vueMusic.get('/2.0/', {
     params: {

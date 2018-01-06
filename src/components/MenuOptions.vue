@@ -8,8 +8,6 @@
                 router-link(to="top-artists") Artist
               li 
                 router-link(to="top-tracks") Tracks
-              li 
-                router-link(to="top-albums") Albums
 </template>
 
 <style lang="scss">
@@ -26,7 +24,7 @@
   margin: 0 .5rem;
   min-width: 140px;
   cursor:pointer;
-  background: #ffffff36;
+  background: rgba(0, 0, 0, 0.7);
   color:rgb(222,89,34);
 }
 </style>

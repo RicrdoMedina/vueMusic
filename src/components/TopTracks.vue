@@ -31,6 +31,17 @@
                 tr(v-for="trackAlbum in infoAlbum.tracks.track")
                   td {{ trackAlbum.name }}
                   td {{ trackAlbum.duration }}
+            article(v-else)
+              h3 Top Tracks
+              table(class='table is-striped is-fullwidth')
+                tr
+                  th Track
+                  th Playcount
+                  th Listeners
+                tr(v-for="track in infoAlbum")
+                  td {{ track.name }}
+                  td {{ track.playcount }}
+                  td {{ track.listeners }}
 </template>
 
 <script>
@@ -75,7 +86,16 @@ export default {
           return trackService.albumGetInfo(this.nameArtist, this.nameAlbum)
         })
         .then(res => {
-          this.infoAlbum = res.album
+          if (res.album && res.album.tracks.track[0]) {
+            // console.log('tracks')
+            this.infoAlbum = res.album
+          } else {
+            // console.log('no existe')
+            return trackService.artistGetTopTracks(this.nameArtist)
+          }
+        })
+        .then(res => {
+          this.infoAlbum = res.toptracks.track
         })
     },
     getRoute () {

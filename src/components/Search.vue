@@ -43,9 +43,9 @@ export default {
   },
   methods: {
     tracksPopular () {
-      trackService.tracks()
+      trackService.geoGetTopTracks()
         .then(res => {
-          this.tracks = res.lovedtracks.track
+          this.tracks = res.tracks.track
         })
     },
     search () {
@@ -87,7 +87,7 @@ export default {
   width: 400px;
   padding: 0 .5rem;
   font-size: 1.2rem;
-  background: #ffffff36;
+  background: rgba(0, 0, 0, 0.7);
   color: rgb(222,89,34);
 }
 .button{

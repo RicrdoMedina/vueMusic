@@ -15,7 +15,7 @@
   left: 0;
   right: 0;
   margin-top: 2rem;
-  background: #ffffff36;
+  background: rgba(0, 0, 0, 0.7);
   color:rgb(222,89,34);
 }
 </style>

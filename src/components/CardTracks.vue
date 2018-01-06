@@ -29,7 +29,7 @@ export default {
 .card-content{
   padding: .2rem .9rem;
   height: 40px;
-  background: #ffffff36;
+  background: rgba(0, 0, 0, 0.7);
   color:rgb(222,89,34);
   -ms-transition:all 0.6s ease-out;
   -moz-transition:all 0.6s ease-out;

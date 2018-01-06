@@ -21,7 +21,8 @@
   height: 70px;
   position: fixed;
   top:0;
-  background: #ffffff36;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
 }
 .header .column{
   padding: 25px 25px 0 25px;
