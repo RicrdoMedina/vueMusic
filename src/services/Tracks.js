@@ -1,11 +1,13 @@
-import vueMusic from './vue-music'
+import trae from 'trae'
+import configService from './config'
+
+const vueMusic = trae.create({
+  baseUrl: configService.apiUrl
+})
 
 const tracks = {}
 
-tracks.tracks = function () {
-  return vueMusic.get('/2.0/?method=user.getlovedtracks&user=rj&api_key=530008d1e1c32fb9159f1b10901f5032&format=json')
-    .then(res => res.data)
-}
+const apiKey = configService.apiKey
 
 tracks.geoGetTopTracks = function (q, d = 'venezuela') {
   let country = q === undefined ? d : q
@@ -13,7 +15,7 @@ tracks.geoGetTopTracks = function (q, d = 'venezuela') {
     params: {
       method: 'geo.gettoptracks',
       country,
-      api_key: '530008d1e1c32fb9159f1b10901f5032',
+      api_key: apiKey,
       format: 'json'
     }
   }).then(res => res.data)
@@ -24,7 +26,7 @@ tracks.search = function (q) {
     params: {
       method: 'track.search',
       track: q,
-      api_key: '530008d1e1c32fb9159f1b10901f5032',
+      api_key: apiKey,
       format: 'json'
     }
   }).then(res => res.data)
@@ -35,7 +37,7 @@ tracks.topArtists = function () {
   return vueMusic.get('/2.0/', {
     params: {
       method: 'chart.gettopartists',
-      api_key: '530008d1e1c32fb9159f1b10901f5032',
+      api_key: apiKey,
       limit: 10,
       format: 'json'
     }
@@ -47,7 +49,7 @@ tracks.artistGetInfo = function (q) {
     params: {
       method: 'artist.getinfo',
       artist: q,
-      api_key: '530008d1e1c32fb9159f1b10901f5032',
+      api_key: apiKey,
       format: 'json'
     }
   }).then(res => res.data)
@@ -59,7 +61,7 @@ tracks.artistGetTopAlbums = function (q) {
       method: 'artist.gettopalbums',
       artist: q,
       limit: 5,
-      api_key: '530008d1e1c32fb9159f1b10901f5032',
+      api_key: apiKey,
       format: 'json'
     }
   }).then(res => res.data)
@@ -71,7 +73,7 @@ tracks.artistGetTopTracks = function (q) {
       method: 'artist.gettoptracks',
       artist: q,
       limit: 10,
-      api_key: '530008d1e1c32fb9159f1b10901f5032',
+      api_key: apiKey,
       format: 'json'
     }
   }).then(res => res.data)
@@ -82,7 +84,7 @@ tracks.getTopTracks = function () {
   return vueMusic.get('/2.0/', {
     params: {
       method: 'chart.gettoptracks',
-      api_key: '530008d1e1c32fb9159f1b10901f5032',
+      api_key: apiKey,
       limit: 10,
       format: 'json'
     }
@@ -95,7 +97,7 @@ tracks.trackGetInfo = function (artist, track) {
       method: 'track.getInfo',
       artist,
       track,
-      api_key: '530008d1e1c32fb9159f1b10901f5032',
+      api_key: apiKey,
       format: 'json'
     }
   }).then(res => res.data)
@@ -108,7 +110,7 @@ tracks.albumGetInfo = function (artist, album) {
       method: 'album.getinfo',
       artist,
       album,
-      api_key: '530008d1e1c32fb9159f1b10901f5032',
+      api_key: apiKey,
       format: 'json'
     }
   }).then(res => res.data)
