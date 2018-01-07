@@ -50,7 +50,6 @@ export default {
     },
     search () {
       if (this.searchQuery === '') {}
-      console.log('hola')
       trackService.search(this.searchQuery)
         .then(res => {
           console.dir(res.results.trackmatches.track)

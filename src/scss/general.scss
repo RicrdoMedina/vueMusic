@@ -19,7 +19,7 @@ h3{
 .column.is-6{
   margin-top: 1.2rem;
 }
-.content-top-ten, .content-bio{
+.content-top-ten, .content-bio,.content-info-track{
   width: 100%;
   margin: 0 auto;
   padding: 0 .5rem;
@@ -29,6 +29,10 @@ h3{
   padding-bottom: 2rem;
   min-height: 1220px;
   overflow: hidden;
+}
+.content-info-track{
+  min-height: 400px;
+  padding: .5rem 2rem 4rem;
 }
 .content-bio{
   padding: .5rem 2rem;
