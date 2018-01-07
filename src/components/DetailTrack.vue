@@ -6,7 +6,7 @@
         .column.is-6
           .content-info-track
             article
-              figure
+              figure(class='content-image')
                 img(v-if="infoArtist && infoArtist.name", v-bind:src="infoArtist.image[5]['#text']", alt="Placeholder image")
                 figcaption
                   p.artist {{ infoArtist.name }}
@@ -14,11 +14,11 @@
                   span.listeners {{ infoTrack.listeners }} listeners
                   span.playcount {{ infoTrack.playcount }} playcount
             article.content-wiki(v-if="infoTrack && infoTrack.wiki")
-              h2 Wiki
+              h3 Wiki
               p.wiki {{ infoTrack.wiki.summary }}
 
             article
-              figure(v-if="infoTrack && infoTrack.name")
+              figure(class='content-image',v-if="infoTrack && infoTrack.name")
                 img(v-bind:src="infoTrack.album.image[3]['#text']", alt="Placeholder image")
                 figcaption
                   p.artist Album
@@ -38,7 +38,7 @@
         .column.is-6
           .content-bio
             article(v-if="infoArtist && infoArtist.name")
-              h2 Biography
+              h3 Biography
               p.bio {{ infoArtist.bio.summary }}
             article
               h3 Top Albums
@@ -130,20 +130,23 @@ export default {
 .content-info-track figure img{
   border-radius: 50%;
   width: 60%;
+  border: solid 6px rgba(222, 89, 34, 0.32)
 }
 .content-info-track figure figcaption{
   text-align: center;
 }
 .artist{
   font-size: 2rem;
-  color: #ddd;
+  color: rgba(210, 127, 92, 0.6313725490196078);
 }
 .track{
-  font-size: 1.5rem;
+  font-size: 2.5rem;
+  color: #de5922;
 }
 .content-info-track .listeners,.content-info-track .playcount{
   font-size: 1rem;
   margin-right: .6rem;
+  color: rgb(181, 181, 181);
 }
 .content-wiki p{
   text-align: justify;
@@ -169,5 +172,20 @@ export default {
   color:#fff;
   font-size: .9rem;
   margin: 0 .5rem 0 0;
-} 
+}
+.content-info-track .content-image img{
+  -ms-transition:all 0.6s ease-out;
+  -moz-transition:all 0.6s ease-out;
+  -o-transition:all 0.6s ease-out;
+  -webkit-transition:all 0.6s ease-out;
+  transition:all 0.6s ease-out;
+}
+.content-info-track .content-image:hover img{
+  -ms-transition:all 0.6s ease-in;
+  -moz-transition:all 0.6s ease-in;
+  -o-transition:all 0.6s ease-in;
+  -webkit-transition:all 0.6s ease-in;
+  transition:all 0.6s ease-in;
+  transform: scale(1.1);
+}
 </style>

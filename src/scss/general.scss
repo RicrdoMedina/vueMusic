@@ -5,16 +5,22 @@
 
 h1{
   text-align: center;
-  font-size: 3rem;
+  font-size: 1.8rem;
   color:rgb(222,89,34);
+   margin: 0 auto 2rem;
+  width: 30%;
+  background: rgba(0, 0, 0, 0.7);
 }
 h2{
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   padding: .8rem 0;
+  color: rgb(181, 181, 181);
 }
 h3{
   font-size: 1.2rem;
   padding: .8rem 0;
+  color: rgb(181, 181, 181);
+  font-weight: 500;
 }
 .column.is-6{
   margin-top: 1.2rem;
@@ -24,11 +30,24 @@ h3{
   margin: 0 auto;
   padding: 0 .5rem;
   min-height: 300px;
-  background: #fff;
-  color:#000;
+  background: rgba(0, 0, 0, 0.7);
+  color: rgb(181, 181, 181);
   padding-bottom: 2rem;
   min-height: 1220px;
   overflow: hidden;
+  -ms-transition:all 0.6s ease-out;
+  -moz-transition:all 0.6s ease-out;
+  -o-transition:all 0.6s ease-out;
+  -webkit-transition:all 0.6s ease-out;
+  transition:all 0.6s ease-out;
+}
+.content-bio.is-updated{
+  background: rgba(222, 89, 34, 0.72);
+  -ms-transition:all 0.6s ease-in;
+  -moz-transition:all 0.6s ease-in;
+  -o-transition:all 0.6s ease-in;
+  -webkit-transition:all 0.6s ease-in;
+  transition:all 0.6s ease-in;
 }
 .content-info-track{
   min-height: 400px;
@@ -38,7 +57,24 @@ h3{
   padding: .5rem 2rem;
 }
 .content-bio article{
-  margin: 0 auto 1.2rem; 
+  margin: 0 auto 1.2rem;
+  min-height: 300px;
+}
+.content-bio.is-updated article .wrapper-box{
+  -ms-transition:all 0.8s ease-out;
+  -moz-transition:all 0.8s ease-out;
+  -o-transition:all 0.8s ease-out;
+  -webkit-transition:all 0.8s ease-out;
+  transition:all 0.8s ease-out;
+  opacity: 1;
+}
+.content-bio.is-updated article .wrapper-box{
+  -ms-transition:all 0.8s ease-in;
+  -moz-transition:all 0.8s ease-in;
+  -o-transition:all 0.8s ease-in;
+  -webkit-transition:all 0.8s ease-in;
+  transition:all 0.8s ease-in;
+  opacity: 0;
 }
 .content-bio .bio{
   text-indent: .8rem;
@@ -50,9 +86,38 @@ h3{
   height: 260px;
   padding: .5rem 0;
   border-bottom: solid 1px #ccc;
+  cursor: pointer;
+}
+.content-top-ten article:first-child img{
+  border: solid 3px rgba(222, 89, 34, 0.32);
+  -ms-transition:all 0.6s ease-out;
+  -moz-transition:all 0.6s ease-out;
+  -o-transition:all 0.6s ease-out;
+  -webkit-transition:all 0.6s ease-out;
+  transition:all 0.6s ease-out;
+}
+.content-top-ten article:first-child:hover img{
+  transform: scale(1.1);
+  border: solid 3px rgb(222,89,34);
+  -ms-transition:all 0.6s ease-in;
+  -moz-transition:all 0.6s ease-in;
+  -o-transition:all 0.6s ease-in;
+  -webkit-transition:all 0.6s ease-in;
+  transition:all 0.6s ease-in;
 }
 .content-top-ten article:first-child .content-artist{
   border-bottom: none;
+}
+.content-top-ten article:first-child .content-artist:hover, .content-top-ten article:first-child .content-artist.is-active{
+  background: transparent;
+}
+.content-top-ten article:first-child .content-artist.is-active img{
+  border: solid 3px rgb(222,89,34);
+  -ms-transition:all 0.6s ease-in;
+  -moz-transition:all 0.6s ease-in;
+  -o-transition:all 0.6s ease-in;
+  -webkit-transition:all 0.6s ease-in;
+  transition:all 0.6s ease-in;
 }
 .content-top-ten article:first-child figure{
   position: absolute;
@@ -89,6 +154,30 @@ h3{
   align-items: center;
   border-bottom: solid 1px #ccc;
   padding-top: .3rem;
+  cursor: pointer;
+  -ms-transition:all 0.6s ease-out;
+  -moz-transition:all 0.6s ease-out;
+  -o-transition:all 0.6s ease-out;
+  -webkit-transition:all 0.6s ease-out;
+  transition:all 0.6s ease-out;
+  will-change: background;
+}
+
+.content-top-ten .content-artist:hover{
+  background: rgba(222, 89, 34, 0.32);
+  -ms-transition:all 0.6s ease-in;
+  -moz-transition:all 0.6s ease-in;
+  -o-transition:all 0.6s ease-in;
+  -webkit-transition:all 0.6s ease-in;
+  transition:all 0.6s ease-in;
+}
+.content-top-ten .content-artist.is-active{
+  background: rgba(222, 89, 34, 0.58);
+  -ms-transition:all 0.6s ease-in;
+  -moz-transition:all 0.6s ease-in;
+  -o-transition:all 0.6s ease-in;
+  -webkit-transition:all 0.6s ease-in;
+  transition:all 0.6s ease-in;
 }
 .content-top-ten .content-artist .box-number{
   width: 10%;
@@ -103,4 +192,17 @@ h3{
 .info .name{
   font-size: 1.2rem;
   font-weight: 600;
-} 
+}
+.content-top-ten .table, 
+.content-bio .table,
+.content-info-track .table, 
+.content-info-track .table th,
+.content-bio .table th{
+  background: transparent;
+  color: rgb(181, 181, 181);
+}
+.content-top-ten .table tr, 
+.content-bio .table tr,
+.content-info-track .table tr{
+  background: transparent;
+}

@@ -6,39 +6,38 @@
         .column.is-6
           .content-top-ten
             article(v-for="item in artists")
-              vm-card-tops(v-bind:item="item")
+              vm-card-tops(
+                            @select="setSelectedTrack", 
+                            v-bind:item="item",
+                            v-bind:class="{ 'is-active': item.url === selected }"
+                          )
             
         .column.is-6
-          .content-bio
+          .content-bio(v-bind:class="{ 'is-updated': isUpdated }")
             article
               h2 Biography
-              p.bio {{ bio }}
+              .wrapper-box
+                p.bio {{ bio }}
             article
               h3 Top Albums
-              .box-top-images
-                figure(v-for="album in albums")
-                  img(v-if="album && album.image[3]", v-bind:src="album.image[3]['#text']", alt="Placeholder image")
-                  figcaption
-                    p.name {{ album.name }}
-                    p.listeners {{ album.playcount }} playcount
+              .wrapper-box
+                vm-top-albums(v-bind:albums="albums")
             article
               h3 Top Tracks
-              table(class='table is-striped is-fullwidth')
-                tr
-                  th Track
-                  th Playcount
-                  th Listeners
-                tr(v-for="track in tracks")
-                  td {{ track.name }}
-                  td {{ track.playcount }}
-                  td {{ track.listeners }}
+              .wrapper-box
+                vm-table-top-tracks(v-bind:tracks="tracks")
                 
 </template>
 <script>
 import trackService from '@/services/Tracks'
 
 import VmMenuOptions from '@/components/MenuOptions.vue'
+
 import VmCardTops from '@/components/CardTops.vue'
+
+import VmTableTopTracks from '@/components/TableTopTracks.vue'
+
+import VmTopAlbums from '@/components/TopAlbums.vue'
 
 export default {
   name: 'app',
@@ -48,12 +47,16 @@ export default {
       nameArtistTop: '',
       bio: '',
       albums: [],
-      tracks: []
+      tracks: [],
+      selected: '',
+      isUpdated: false
     }
   },
   components: {
     VmMenuOptions,
-    VmCardTops
+    VmCardTops,
+    VmTableTopTracks,
+    VmTopAlbums
   },
   created () {
     this.getData()
@@ -77,6 +80,27 @@ export default {
         .then(res => {
           this.tracks = res.toptracks.track
         })
+    },
+    setSelectedTrack (id, track, artist) {
+      this.selected = id
+      this.nameArtistTop = artist
+
+      trackService.artistGetInfo(this.nameArtistTop)
+        .then(res => {
+          this.bio = res.artist.bio.summary
+          return trackService.artistGetTopAlbums(this.nameArtistTop)
+        })
+        .then(res => {
+          this.albums = res.topalbums.album
+          return trackService.artistGetTopTracks(this.nameArtistTop)
+        })
+        .then(res => {
+          this.tracks = res.toptracks.track
+        })
+      this.isUpdated = true
+      setTimeout(() => {
+        this.isUpdated = false
+      }, 3000)
     }
   }
 }

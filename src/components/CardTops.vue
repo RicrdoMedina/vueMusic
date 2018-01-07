@@ -1,5 +1,5 @@
 <template lang="pug">
-  .content-artist
+  .content-artist(@click="selectedTrack()")
     //- .box-number
     figure.photo-artist
       img(v-bind:src="item.image[2]['#text']", v-bind:alt="item.name")
@@ -14,6 +14,19 @@
 export default {
   props: {
     item: { type: Object, required: true }
+  },
+  methods: {
+    selectedTrack () {
+      let nameRoute = this.getRoute()
+      let id = this.item.url
+      let artist = nameRoute === 'top-artists' ? this.item.name : this.item.artist.name
+      let track = this.item.name ? this.item.name : ''
+      let args = [id, artist, track]
+      this.$emit('select', ...args)
+    },
+    getRoute () {
+      return this.$route.name
+    }
   }
 }
 </script>

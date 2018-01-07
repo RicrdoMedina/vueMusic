@@ -2,10 +2,12 @@
   table(class='table is-striped is-fullwidth')
     tr
       th Track
-      th Duration
+      th Playcount
+      th Listeners
     tr(v-for="track in tracks")
       td {{ track.name }}
-      td {{ track.duration }}
+      td {{ track.playcount }}
+      td {{ track.listeners }}
 </template>
 
 <script>
