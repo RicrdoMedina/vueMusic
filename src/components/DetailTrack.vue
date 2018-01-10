@@ -18,47 +18,29 @@
               p.wiki {{ infoTrack.wiki.summary }}
 
             article
-              figure(class='content-image',v-if="infoTrack && infoTrack.name")
-                img(v-bind:src="infoTrack.album.image[3]['#text']", alt="Placeholder image")
+              figure(class='content-image',v-if="album && album.name")
+                img(v-bind:src="album.image[3]['#text']", alt="Placeholder image")
                 figcaption
                   p.artist Album
-                  p.track {{ infoTrack.album.title }}
-                  span.listeners {{ albums.listeners }} listeners
-                  span.playcount {{ albums.playcount }} playcount
-            article
+                  p.track {{ album.name }}
+                  span.listeners {{ album.listeners }} listeners
+                  span.playcount {{ album.playcount }} playcount
+            article(v-if="album && album.tracks.track[0]")
               h3 Tracks
-              table(v-if="albums && albums.artist", class='table is-striped is-fullwidth')
-                tr
-                  th Track
-                  th Duration
-                tr(v-for="track in albums.tracks.track")
-                  td {{ track.name }}
-                  td {{ track.duration }}
+              vm-table-tracks(v-bind:tracks="album.tracks.track")
             
         .column.is-6
           .content-bio
-            article(v-if="infoArtist && infoArtist.name")
+            article(v-if="infoArtist && infoArtist.bio")
               h3 Biography
               p.bio {{ infoArtist.bio.summary }}
             article
               h3 Top Albums
-              .box-top-images
-                figure(v-for="album in topalbums")
-                  img(v-if="album && album.image[3]", v-bind:src="album.image[3]['#text']", alt="Placeholder image")
-                  figcaption
-                    p.name {{ album.name }}
-                    p.listeners {{ album.playcount }} playcount
+              vm-top-albums(v-bind:albums="topAlbums")
+
             article
               h3 Top Tracks
-              table(class='table is-striped is-fullwidth')
-                tr
-                  th Track
-                  th Playcount
-                  th Listeners
-                tr(v-for="track in topTracks")
-                  td {{ track.name }}
-                  td {{ track.playcount }}
-                  td {{ track.listeners }}
+              vm-table-top-tracks(v-bind:tracks="topTracks")
            
          
 </template>
@@ -67,17 +49,28 @@
 
 import trackService from '@/services/Tracks'
 
+import VmTableTopTracks from '@/components/TableTopTracks.vue'
+
+import VmTopAlbums from '@/components/TopAlbums.vue'
+
+import VmTableTracks from '@/components/TableTracks.vue'
+
 export default {
   name: 'app',
   data () {
     return {
       infoTrack: {},
       infoArtist: {},
-      topalbums: {},
+      topAlbums: {},
       topTracks: {},
-      albums: {},
+      album: {},
       nameAlbum: ''
     }
+  },
+  components: {
+    VmTableTopTracks,
+    VmTopAlbums,
+    VmTableTracks
   },
   created () {
     this.getData()
@@ -88,7 +81,7 @@ export default {
       const track = this.$route.params.track
       trackService.trackGetInfo(artist, track)
         .then(res => {
-          this.nameAlbum = res.track.album.title
+          this.nameAlbum = res.track.album === undefined ? 'No found' : res.track.album.title
           this.infoTrack = res.track
           return trackService.artistGetInfo(artist)
         })
@@ -97,7 +90,7 @@ export default {
           return trackService.artistGetTopAlbums(artist)
         })
         .then(res => {
-          this.topalbums = res.topalbums.album
+          this.topAlbums = res.topalbums.album
           return trackService.artistGetTopTracks(artist)
         })
         .then(res => {
@@ -105,7 +98,7 @@ export default {
           return trackService.albumGetInfo(artist, this.nameAlbum)
         })
         .then(res => {
-          this.albums = res.album
+          this.album = res.album
         })
     }
   }

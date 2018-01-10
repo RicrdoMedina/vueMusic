@@ -5,10 +5,11 @@
       .columns
         .column.is-6
           .content-top-ten
-            article(v-for="item in artists")
+            article(v-for="(item, index) in artists")
               vm-card-tops(
                             @select="setSelectedTrack", 
                             v-bind:item="item",
+                            v-bind:index="index",
                             v-bind:class="{ 'is-active': item.url === selected }"
                           )
             

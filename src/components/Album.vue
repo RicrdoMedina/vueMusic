@@ -3,7 +3,7 @@
     figure
       img(v-if="album && album.image[3]", v-bind:src="album.image[3]['#text']", alt="Placeholder image")
       figcaption
-        p.name(v-if="album && album.title") {{ album.title }}
+        p.name {{ album.name }}
         span.listeners {{ album.listeners }} listeners
         span.playcount {{ album.playcount }} playcount
 </template>

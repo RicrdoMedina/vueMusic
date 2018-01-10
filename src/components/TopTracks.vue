@@ -5,10 +5,11 @@
       .columns
         .column.is-6
           .content-top-ten
-            article(v-for="item in tracks")
+            article(v-for="(item, index) in tracks")
               vm-card-tops(
                             @select="setSelectedTrack", 
                             v-bind:item="item",
+                            v-bind:index="index",
                             v-bind:class="{ 'is-active': item.url === selected }"
                           )
             
@@ -25,20 +26,20 @@
               .wrapper-box
                 p.bio {{ bio }}
 
-            article(v-if="infoTrack.album && infoTrack.album.image[3]")
+            article(v-if="infoAlbum && infoAlbum.image")
               h3 Album
               .wrapper-box
-                vm-album(v-bind:album="infoTrack.album")
+                vm-album(v-bind:album="infoAlbum")
 
             article(v-else)
               h3 Top Albums
               .wrapper-box
                 vm-top-albums(v-bind:albums="albums")
 
-            article(v-if="infoAlbum.tracks && infoAlbum.tracks.track[0]")
+            article(v-if="infoAlbum && infoAlbum.tracks.track[0]")
               h3 Tracks
               .wrapper-box
-                vm-table-top-tracks(v-bind:tracks="infoAlbum.tracks.track")
+                vm-table-tracks(v-bind:tracks="infoAlbum.tracks.track")
 
             article(v-else)
               h3 Top Tracks
@@ -118,7 +119,7 @@ export default {
           return trackService.albumGetInfo(this.nameArtist, this.nameAlbum)
         })
         .then(res => {
-          this.infoAlbum = res.album && res.album.tracks.track[0] ? res.album : 'No found'
+          this.infoAlbum = res.album
           return trackService.artistGetTopAlbums(this.nameArtist)
         })
         .then(res => {

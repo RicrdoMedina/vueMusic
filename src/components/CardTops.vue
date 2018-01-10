@@ -1,6 +1,6 @@
 <template lang="pug">
   .content-artist(@click="selectedTrack()")
-    //- .box-number
+    .box-number {{ index + 1 }}
     figure.photo-artist
       img(v-bind:src="item.image[2]['#text']", v-bind:alt="item.name")
     .info
@@ -13,7 +13,8 @@
 <script>
 export default {
   props: {
-    item: { type: Object, required: true }
+    item: { type: Object, required: true },
+    index: { required: true }
   },
   methods: {
     selectedTrack () {

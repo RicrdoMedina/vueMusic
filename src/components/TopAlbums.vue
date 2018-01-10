@@ -10,7 +10,7 @@
 <script>
 export default {
   props: {
-    albums: { type: Array, required: true }
+    albums: { type: String, required: true }
   }
 }
 </script>
