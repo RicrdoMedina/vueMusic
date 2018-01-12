@@ -30,26 +30,25 @@ export default {
 
 .card{
   background-color: transparent;
+  -ms-transition:all 0.6s ease-out;
+  -moz-transition:all 0.6s ease-out;
+  -o-transition:all 0.6s ease-out;
+  -webkit-transition:all 0.6s ease-out;
+  transition:all 0.6s ease-out;
 }
 .card-content{
   padding: .2rem .9rem;
   height: 40px;
   background: rgba(0, 0, 0, 0.7);
   color:rgb(222,89,34);
-  -ms-transition:all 0.6s ease-out;
-  -moz-transition:all 0.6s ease-out;
-  -o-transition:all 0.6s ease-out;
-  -webkit-transition:all 0.6s ease-out;
-  transition:all 0.6s ease-out;
-  will-change: background;
 }
-.card:hover .card-content{
-  background:#fff;
+.card:hover{
   -ms-transition:all 0.6s ease-in;
   -moz-transition:all 0.6s ease-in;
   -o-transition:all 0.6s ease-in;
   -webkit-transition:all 0.6s ease-in;
   transition:all 0.6s ease-in;
+  transform: scale(1.1);
 }
 .card-content .media{
   position: relative;

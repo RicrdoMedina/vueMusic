@@ -12,7 +12,7 @@ Vue.use(VueRouter)
 
 Vue.component('icon', Icon)
 
-const router = new VueRouter({ routes })
+const router = new VueRouter({ routes, mode: 'history' })
 
 new Vue({
   el: '#app',
