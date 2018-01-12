@@ -15,6 +15,12 @@
             
         .column.is-6
           .content-bio(v-bind:class="{ 'is-updated': isUpdated }")
+            article.info.toptrack
+              .wrapper-box
+                figure(class='content-image')
+                  img(v-bind:src="photoArtist", alt="Placeholder image")
+                  .number-top # {{ ranking }}
+                p.artist-top {{ nameArtistTop }}
             article
               h2 Biography
               .wrapper-box
@@ -50,7 +56,9 @@ export default {
       albums: [],
       tracks: [],
       selected: '',
-      isUpdated: false
+      isUpdated: false,
+      photoArtist: '',
+      ranking: 1
     }
   },
   components: {
@@ -67,6 +75,7 @@ export default {
       trackService.topArtists()
         .then(res => {
           this.nameArtistTop = res.artists.artist[0].name
+          this.photoArtist = res.artists.artist[0].image[2]['#text']
           this.artists = res.artists.artist
           return trackService.artistGetInfo(this.nameArtistTop)
         })
@@ -82,18 +91,16 @@ export default {
           this.tracks = res.toptracks.track
         })
     },
-    setSelectedTrack (id, track, artist) {
+    setSelectedTrack (id, artist, track, photo, ranking) {
       this.selected = id
-      this.nameArtistTop = artist
-
-      trackService.artistGetInfo(this.nameArtistTop)
+      trackService.artistGetInfo(artist)
         .then(res => {
           this.bio = res.artist.bio.summary
-          return trackService.artistGetTopAlbums(this.nameArtistTop)
+          return trackService.artistGetTopAlbums(artist)
         })
         .then(res => {
           this.albums = res.topalbums.album
-          return trackService.artistGetTopTracks(this.nameArtistTop)
+          return trackService.artistGetTopTracks(artist)
         })
         .then(res => {
           this.tracks = res.toptracks.track
@@ -101,6 +108,9 @@ export default {
       this.isUpdated = true
       setTimeout(() => {
         this.isUpdated = false
+        this.nameArtistTop = artist
+        this.photoArtist = photo
+        this.ranking = ranking
       }, 3000)
     }
   }

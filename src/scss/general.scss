@@ -307,13 +307,13 @@ h3{
   font-size: 2rem;
   color: rgba(210, 127, 92, 0.6313725490196078);
 }
-.content-image .track,.info.toptrack .track{
+.content-image .track,.info.toptrack .track, .info.toptrack .artist-top{
   font-size: 2.5rem;
   color: #de5922;
 }
 .info.toptrack .artist{
   font-size: 1.2em;
 }
-.info.toptrack .track{
+.info.toptrack .track, .info.toptrack .artist-top{
   font-size: 1.5em;
 }
