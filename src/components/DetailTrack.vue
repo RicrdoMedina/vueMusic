@@ -120,22 +120,7 @@ export default {
   margin: 0 auto;
   text-align: center;
 }
-.content-info-track figure img{
-  border-radius: 50%;
-  width: 60%;
-  border: solid 6px rgba(222, 89, 34, 0.32)
-}
-.content-info-track figure figcaption{
-  text-align: center;
-}
-.artist{
-  font-size: 2rem;
-  color: rgba(210, 127, 92, 0.6313725490196078);
-}
-.track{
-  font-size: 2.5rem;
-  color: #de5922;
-}
+
 .content-info-track .listeners,.content-info-track .playcount{
   font-size: 1rem;
   margin-right: .6rem;
@@ -166,19 +151,5 @@ export default {
   font-size: .9rem;
   margin: 0 .5rem 0 0;
 }
-.content-info-track .content-image img{
-  -ms-transition:all 0.6s ease-out;
-  -moz-transition:all 0.6s ease-out;
-  -o-transition:all 0.6s ease-out;
-  -webkit-transition:all 0.6s ease-out;
-  transition:all 0.6s ease-out;
-}
-.content-info-track .content-image:hover img{
-  -ms-transition:all 0.6s ease-in;
-  -moz-transition:all 0.6s ease-in;
-  -o-transition:all 0.6s ease-in;
-  -webkit-transition:all 0.6s ease-in;
-  transition:all 0.6s ease-in;
-  transform: scale(1.1);
-}
+
 </style>
