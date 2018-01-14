@@ -2,7 +2,7 @@
   header.header(v-bind:class="{ 'is-active': isOpenMenu }")
     .columns
       .column
-        router-link(to="/")
+        router-link(:to="{ path: '/' }")
           figure.content-logo
             img.logo(src="src/assets/vue-logo.png")
       .column
@@ -102,9 +102,9 @@ export default {
 .menu{
   position: fixed;
   height: 100%;
-  background: rgba(0, 0, 0, 0.9);
-  width: 0;
-  right: 0;
+  background: #de5922cc;
+  width: 25%;
+  right: -25%;
   bottom: 0;
   z-index: 99999;
   -ms-transition:all 0.6s ease-out;
@@ -129,33 +129,27 @@ export default {
 .menu ul li a:link,
 {
   width: 100%;
-  padding: 25px 20px;
-  color: #de59228c;
-  border-bottom: solid 1px #de59228c;
+  padding: 23px 20px 23px 15px;
+  color: #dbdbdb;
+  border-bottom: solid 1px #dbdbdb;
   -ms-transition:all 0.3s ease-out;
   -moz-transition:all 0.3s ease-out;
   -o-transition:all 0.3s ease-out;
   -webkit-transition:all 0.3s ease-out;
   transition:all 0.3s ease-out;
   display: block;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
 }
 .menu ul li a:hover, .menu ul li a.router-link-exact-active.router-link-active{
-  padding-left: 35px;
-  color: rgb(222,89,34);
-  border-bottom: solid 1px rgb(222,89,34);
+  padding-left: 25px;
+  background: rgba(0, 0, 0, 0.7);
   -ms-transition:all 0.3s ease-in;
   -moz-transition:all 0.3s ease-in;
   -o-transition:all 0.3s ease-in;
   -webkit-transition:all 0.3s ease-in;
   transition:all 0.3s ease-in;
 }
-.menu ul li a.router-link-exact-active.router-link-active{
-  color: rgb(239,72,3);
-  border-bottom: solid 1px rgb(239,72,3);
-}
-
 .header .box-social-media{
   display: block;
   width: 100%;
@@ -165,7 +159,7 @@ export default {
   display: inline-block;
   margin-right: .8rem;
   cursor: pointer;
-  color: #de59228c;
+  color: #e8e8e8;
   -ms-transition:all 0.6s ease-out;
   -moz-transition:all 0.6s ease-out;
   -o-transition:all 0.6s ease-out;
@@ -178,7 +172,7 @@ export default {
   -o-transition:all 0.3s ease-in;
   -webkit-transition:all 0.3s ease-in;
   transition:all 0.3s ease-in;
-  color: rgb(222,89,34);
+  color: rgba(0, 0, 0, 0.7);
 }
 .header .box-social-media > div{
   display: inline;
@@ -191,10 +185,10 @@ export default {
   bottom: 20px;
 }
 .header .box-contact .email, .header .box-contact strong{
-  color: rgb(222,89,34);
+  color: #fff;
 }
 .header.is-active .menu{
-  width: 25%;
+  right: 0%;
   -ms-transition:all 0.6s ease-in;
   -moz-transition:all 0.6s ease-in;
   -o-transition:all 0.6s ease-in;
