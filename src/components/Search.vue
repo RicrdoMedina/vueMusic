@@ -12,7 +12,6 @@
               )
               a.button(@click="search")
                 icon(name="search" scale="1")
-      vm-menu-options
       .container
         .show-results
           .wrapper-card(v-for="t in tracks")
@@ -52,7 +51,6 @@ export default {
       if (this.searchQuery === '') {}
       trackService.search(this.searchQuery)
         .then(res => {
-          console.dir(res.results.trackmatches.track)
           this.tracks = res.results.trackmatches.track
         })
     }
