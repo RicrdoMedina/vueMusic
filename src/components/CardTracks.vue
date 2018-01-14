@@ -1,5 +1,5 @@
 <template lang="pug">
-  article.card(@click="goToTrack(track.artist.name,track.name)")
+  article.card(@click="goToTrack(track)")
     .card-image
       figure.image.is-4by3
         img(v-bind:src="track.image[2]['#text']", alt="Placeholder image")
@@ -19,7 +19,9 @@ export default {
     track: { type: Object, required: true }
   },
   methods: {
-    goToTrack (artist, track) {
+    goToTrack (objTrack) {
+      let track = objTrack.name
+      let artist = objTrack.artist.name === undefined ? objTrack.artist : objTrack.artist.name
       this.$router.push({ name: 'track', params: { artist, track } })
     }
   }

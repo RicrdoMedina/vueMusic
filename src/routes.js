@@ -7,7 +7,7 @@ const routes = [
   { path: '/', component: Search, name: 'search' },
   { path: '/top-artists', component: TopArtist, name: 'top-artists' },
   { path: '/top-tracks', component: TopTracks, name: 'top-tracks' },
-  { path: '/track/:artist/:track', component: DetailTrack, name: 'track' }
+  { path: '/:artist/:track', component: DetailTrack, name: 'track' }
 ]
 
 export default routes
