@@ -1,5 +1,6 @@
 <template lang="pug">
-  section.section-main
+  section.section-main(v-bind:class="{ 'is-loaded': isLoading }")
+    vm-loader
     .container
       h1.tittle Top Tracks
       .columns
@@ -23,52 +24,33 @@
                 p.track {{ nameTrack }}
                 p.artist {{ nameArtist }}
   
-            article(v-if="infoTrack.wiki && infoTrack.wiki.summary")
-              h2 Wiki 
+            article
+              h2 {{ info.tipo }}
               .wrapper-box
-                p.bio(v-if="infoTrack.wiki && infoTrack.wiki.summary") {{ infoTrack.wiki.summary }}
+                p.bio {{ info.descripcion }}
 
-            article(v-else)
-              h2 Biography
+            article
+              h3 {{ descriptionAlbum }}
               .wrapper-box
-                p.bio {{ bio }}
+                vm-albums(v-bind:albums="albums")
 
-            article(v-if="infoAlbum && infoAlbum.image")
-              h3 Album
+            article
+              h3 {{ tableTrack }}
               .wrapper-box
-                vm-album(v-bind:album="infoAlbum")
-
-            article(v-else)
-              h3 Top Albums
-              .wrapper-box
-                vm-top-albums(v-bind:albums="albums")
-
-            article(v-if="infoAlbum && infoAlbum.tracks.track[0]")
-              h3 Tracks
-              .wrapper-box
-                vm-table-tracks(v-bind:tracks="infoAlbum.tracks.track")
-
-            article(v-else)
-              h3 Top Tracks
-              .wrapper-box
-                vm-table-top-tracks(v-bind:tracks="toptracks")
+                vm-table-tracks(v-bind:tracks="artistTracks", v-bind:table="isTable")
 </template>
 
 <script>
 
 import trackService from '@/services/Tracks'
 
-import VmMenuOptions from '@/components/MenuOptions.vue'
+import VmLoader from '@/components/shared/Loader.vue'
 
 import VmCardTops from '@/components/CardTops.vue'
 
-import VmTableTopTracks from '@/components/TableTopTracks.vue'
-
 import VmTableTracks from '@/components/TableTracks.vue'
 
-import VmTopAlbums from '@/components/TopAlbums.vue'
-
-import VmAlbum from '@/components/Album.vue'
+import VmAlbums from '@/components/Albums.vue'
 
 export default {
   name: 'app',
@@ -78,24 +60,26 @@ export default {
       nameTrack: '',
       nameArtist: '',
       nameAlbum: '',
-      bio: '',
+      tableTrack: '',
+      info: {},
+      isTable: '',
+      descriptionAlbum: '',
       infoTrack: [],
       infoAlbum: [],
       albums: [],
-      toptracks: [],
+      artistTracks: [],
       selected: '',
       isUpdated: false,
+      isLoading: false,
       photoArtist: '',
       ranking: 1
     }
   },
   components: {
-    VmMenuOptions,
     VmCardTops,
-    VmTableTopTracks,
     VmTableTracks,
-    VmTopAlbums,
-    VmAlbum
+    VmAlbums,
+    VmLoader
   },
   created () {
     this.getAll()
@@ -135,15 +119,40 @@ export default {
           return trackService.artistGetTopAlbums(artist)
         })
         .then(res => {
-          this.albums = res.topalbums.album
+          if (this.infoAlbum && this.infoAlbum.name) {
+            let objAlbum = {}
+            objAlbum.name = this.infoAlbum.name
+            objAlbum.playcount = this.infoAlbum.playcount
+            objAlbum.image = this.infoAlbum.image
+            this.albums = new Array(objAlbum)
+            this.descriptionAlbum = 'Album'
+          } else {
+            this.albums = res.topalbums.album
+            this.descriptionAlbum = 'Top Albums'
+          }
           return trackService.artistGetTopTracks(artist)
         })
         .then(res => {
-          this.toptracks = res.toptracks.track
+          if (this.infoAlbum && this.infoAlbum.tracks.track[0]) {
+            this.artistTracks = this.infoAlbum.tracks.track
+            this.tableTrack = 'Tracks'
+            this.isTable = 1
+          } else {
+            this.artistTracks = res.toptracks.track
+            this.isTable = 0
+            this.tableTrack = 'Top Tracks'
+          }
           return trackService.artistGetInfo(artist)
         })
         .then(res => {
-          this.bio = res.artist.bio.summary
+          if (this.infoTrack.wiki && this.infoTrack.wiki.summary) {
+            this.info.tipo = 'Wiki'
+            this.info.descripcion = this.infoTrack.wiki.summary
+          } else {
+            this.info.descripcion = res.artist.bio.summary
+            this.info.tipo = 'Biography'
+          }
+          this.isLoading = true
         })
     },
     getRoute () {

@@ -1,5 +1,6 @@
 <template lang="pug">
-  section.section-main
+  section.section-main(v-bind:class="{ 'is-loaded': isLoading }")
+    vm-loader
     .container
       h1.tittle Top Artists
       .columns
@@ -28,23 +29,23 @@
             article
               h3 Top Albums
               .wrapper-box
-                vm-top-albums(v-bind:albums="albums")
+                vm-albums(v-bind:albums="albums")
             article
               h3 Top Tracks
               .wrapper-box
-                vm-table-top-tracks(v-bind:tracks="tracks")
+                vm-table-tracks(v-bind:tracks="tracks",  v-bind:table="isTable")
                 
 </template>
 <script>
 import trackService from '@/services/Tracks'
 
-import VmMenuOptions from '@/components/MenuOptions.vue'
+import VmLoader from '@/components/shared/Loader.vue'
 
 import VmCardTops from '@/components/CardTops.vue'
 
-import VmTableTopTracks from '@/components/TableTopTracks.vue'
+import VmTableTracks from '@/components/TableTracks.vue'
 
-import VmTopAlbums from '@/components/TopAlbums.vue'
+import VmAlbums from '@/components/Albums.vue'
 
 export default {
   name: 'app',
@@ -56,16 +57,18 @@ export default {
       albums: [],
       tracks: [],
       selected: '',
+      isTable: 0,
       isUpdated: false,
+      isLoading: false,
       photoArtist: '',
       ranking: 1
     }
   },
   components: {
-    VmMenuOptions,
     VmCardTops,
-    VmTableTopTracks,
-    VmTopAlbums
+    VmTableTracks,
+    VmAlbums,
+    VmLoader
   },
   created () {
     this.getData()
@@ -89,6 +92,7 @@ export default {
         })
         .then(res => {
           this.tracks = res.toptracks.track
+          this.isLoading = true
         })
     },
     setSelectedTrack (id, artist, track, photo, ranking) {

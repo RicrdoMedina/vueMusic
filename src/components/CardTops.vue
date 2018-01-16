@@ -14,7 +14,7 @@
 <script>
 export default {
   props: {
-    item: { type: Object, required: true },
+    item: { required: true },
     index: { required: true }
   },
   methods: {

@@ -1,5 +1,6 @@
 <template lang="pug">
-  section.section-main
+  section.section-main(v-bind:class="{ 'is-loaded': isLoading }")
+    vm-loader
     .container
       h1.tittle {{ infoTrack.name }}
       .columns
@@ -13,47 +14,45 @@
                   p.track {{ infoTrack.name }}
                   span.listeners {{ infoTrack.listeners }} listeners
                   span.playcount {{ infoTrack.playcount }} playcount
-            article.content-wiki(v-if="infoTrack && infoTrack.wiki")
+            article.content-wiki
               h3 Wiki
-              p.wiki {{ infoTrack.wiki.summary }}
+              p.wiki {{ wiki}}
 
             article
-              figure(class='content-image',v-if="album && album.name")
-                img(v-bind:src="album.image[3]['#text']", alt="Placeholder image")
+              figure(class='content-image')
+                img(v-bind:src="photoAlbum", alt="Placeholder image")
                 figcaption
                   p.artist Album
                   p.track {{ album.name }}
                   span.listeners {{ album.listeners }} listeners
                   span.playcount {{ album.playcount }} playcount
-            article(v-if="album && album.tracks.track[0]")
+            article
               h3 Tracks
-              vm-table-tracks(v-bind:tracks="album.tracks.track")
+              vm-table-tracks(v-bind:tracks="trackAlbum", v-bind:table="isTableTracks")
             
         .column.is-6
           .content-bio
-            article(v-if="infoArtist && infoArtist.bio")
+            article
               h3 Biography
-              p.bio {{ infoArtist.bio.summary }}
+              p.bio {{ bio }}
             article
               h3 Top Albums
-              vm-top-albums(v-bind:albums="topAlbums")
+              vm-albums(v-bind:albums="topAlbums")
 
             article
               h3 Top Tracks
-              vm-table-top-tracks(v-bind:tracks="topTracks")
-           
-         
+              vm-table-tracks(v-bind:tracks="topTracks", v-bind:table="isTableTopTracks")
 </template>
 
 <script>
 
 import trackService from '@/services/Tracks'
 
-import VmTableTopTracks from '@/components/TableTopTracks.vue'
-
-import VmTopAlbums from '@/components/TopAlbums.vue'
+import VmLoader from '@/components/shared/Loader.vue'
 
 import VmTableTracks from '@/components/TableTracks.vue'
+
+import VmAlbums from '@/components/Albums.vue'
 
 export default {
   name: 'app',
@@ -62,15 +61,22 @@ export default {
       infoTrack: {},
       infoArtist: {},
       topAlbums: {},
+      wiki: '',
+      bio: '',
+      photoAlbum: '',
       topTracks: {},
+      trackAlbum: {},
+      isTableTopTracks: 0,
+      isTableTracks: 1,
+      isLoading: false,
       album: {},
       nameAlbum: ''
     }
   },
   components: {
-    VmTableTopTracks,
-    VmTopAlbums,
-    VmTableTracks
+    VmTableTracks,
+    VmAlbums,
+    VmLoader
   },
   created () {
     this.getData()
@@ -83,10 +89,30 @@ export default {
         .then(res => {
           this.nameAlbum = res.track.album === undefined ? 'No found' : res.track.album.title
           this.infoTrack = res.track
+          if (this.infoTrack.wiki && this.infoTrack.wiki.summary) {
+            this.wiki = this.infoTrack.wiki.summary
+          } else {
+            this.wiki = 'this.infoTrack.wiki.summary'
+          }
+          return trackService.albumGetInfo(artist, this.nameAlbum)
+        })
+        .then(res => {
+          this.album = res.album
+          if (this.album.tracks && this.album.tracks.track) {
+            this.trackAlbum = this.album.tracks.track
+          } else {
+            this.trackAlbum = ''
+          }
+          this.photoAlbum = this.album.image[3]['#text']
           return trackService.artistGetInfo(artist)
         })
         .then(res => {
           this.infoArtist = res.artist
+          if (this.infoArtist.bio && this.infoArtist.bio.summary) {
+            this.bio = this.infoArtist.bio.summary
+          } else {
+            this.bio = 'this.infoArtist.bio.summary'
+          }
           return trackService.artistGetTopAlbums(artist)
         })
         .then(res => {
@@ -95,10 +121,7 @@ export default {
         })
         .then(res => {
           this.topTracks = res.toptracks.track
-          return trackService.albumGetInfo(artist, this.nameAlbum)
-        })
-        .then(res => {
-          this.album = res.album
+          this.isLoading = true
         })
     }
   }

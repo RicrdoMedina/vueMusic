@@ -1,6 +1,7 @@
 <template lang="pug">
   main
-    section.section-main
+    section.section-main(v-bind:class="{ 'is-loaded': isLoading }")
+      vm-loader
       .columns
         .column
           nav.nav-search
@@ -22,7 +23,8 @@
 
 import trackService from '@/services/Tracks'
 
-import VmMenuOptions from '@/components/MenuOptions.vue'
+import VmLoader from '@/components/shared/Loader.vue'
+
 import VmCardTracksPopular from '@/components/CardTracks.vue'
 
 export default {
@@ -30,12 +32,13 @@ export default {
   data () {
     return {
       searchQuery: '',
-      tracks: []
+      tracks: [],
+      isLoading: false
     }
   },
   components: {
-    VmMenuOptions,
-    VmCardTracksPopular
+    VmCardTracksPopular,
+    VmLoader
   },
   created () {
     this.tracksPopular()
@@ -45,6 +48,7 @@ export default {
       trackService.geoGetTopTracks()
         .then(res => {
           this.tracks = res.tracks.track
+          this.isLoading = true
         })
     },
     search () {
@@ -69,6 +73,7 @@ export default {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap; 
+  min-height: 65vh; 
 }
 .show-results .wrapper-card{
   width: 250px;
@@ -98,4 +103,5 @@ export default {
 .button:hover,.button.focus{
   border: unset; 
 }
+
 </style>

@@ -16,7 +16,7 @@
 <script>
 export default {
   props: {
-    track: { type: Object, required: true }
+    track: { required: true }
   },
   methods: {
     goToTrack (objTrack) {
