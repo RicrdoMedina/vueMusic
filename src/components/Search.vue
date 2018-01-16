@@ -4,15 +4,19 @@
       vm-loader
       .columns
         .column
-          nav.nav-search
-            form
-              input.search(
-                type="text",
-                placeholder="Buscar canciones",
-                v-model='searchQuery'
-              )
-              a.button(@click="search")
-                icon(name="search" scale="1")
+          .container
+            nav.nav-search
+              .content-box  Track
+              form
+                input#boxSearch.search(
+                  type="text",
+                  autofocus,
+                  v-model='searchQuery',
+                  v-focus
+                )
+                a.button(@click="search")
+                  icon(name="question" scale="2")
+              .content-box Top geo
       .container
         .show-results
           .wrapper-card(v-for="t in tracks")
@@ -40,11 +44,19 @@ export default {
     VmCardTracksPopular,
     VmLoader
   },
+  directives: {
+    focus: {
+      inserted: function (el) {
+        el.focus()
+      }
+    }
+  },
   created () {
     this.tracksPopular()
   },
   methods: {
     tracksPopular () {
+      console.log('hola')
       trackService.geoGetTopTracks()
         .then(res => {
           this.tracks = res.tracks.track
@@ -80,25 +92,53 @@ export default {
   margin-top: 2rem;
   cursor: pointer;
 }
+.nav-search{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  background: rgba(219, 88, 0, 0.774);
+  color: #fff;
+  font-size: 2rem;
+}
+.content-box{
+  margin: 0 .8rem;
+}
 .search{
-  height: 35px;
-  border-left: solid rgb(222,89,34) 1px;
-  border-bottom: solid rgb(222,89,34) 1px;
-  border-top: solid rgb(222,89,34) 1px;
+  height:50px;
   outline: 0;
   width: 400px;
   padding: 0 .5rem;
-  font-size: 1.2rem;
-  background: rgba(0, 0, 0, 0.7);
-  color: rgb(222,89,34);
+  font-size: 2rem;
+  color: #fff;
+  text-align: center;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #fff;
+  -ms-transition:all 0.6s ease-out;
+  -moz-transition:all 0.6s ease-out;
+  -o-transition:all 0.6s ease-out;
+  -webkit-transition:all 0.6s ease-out;
+  transition:all 0.6s ease-out;
+}
+.search:focus{
+  background: rgba(255, 255, 255, 0.219);
+  -ms-transition:all 0.6s ease-in;
+  -moz-transition:all 0.6s ease-in;
+  -o-transition:all 0.6s ease-in;
+  -webkit-transition:all 0.6s ease-in;
+  transition:all 0.6s ease-in;
+  color: #fff;
 }
 .button{
   border-radius: unset;
-  background: rgb(222,89,34);
+  background:transparent;
+  color: #fff;
   border: unset;
   position: relative;
-  left: -2px;
-  height: 35px;
+  height: 52px;
+  top: -1px;
+  width: 51px;
 }
 .button:hover,.button.focus{
   border: unset; 
