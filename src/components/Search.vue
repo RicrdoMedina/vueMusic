@@ -20,7 +20,7 @@
                   a.button(@click="search")
                     icon(name="question" scale="2")
                 .content-box Top geo
-              .box-result(v-if="total > 0") {{ total }} results found
+              .box-result(v-if="showTotal") {{ total }} results found
       .container
         .show-results
           .wrapper-card(v-for="t in tracks", v-bind:class="{ 'is-loaded': isLoadingTracks }")
@@ -42,6 +42,7 @@ export default {
       searchQuery: '',
       tracks: [],
       total: 0,
+      showTotal: false,
       isLoading: false,
       isLoadingTracks: false
     }
@@ -69,15 +70,29 @@ export default {
         })
     },
     search () {
-      if (this.searchQuery === '') return
-      this.isLoadingTracks = true
+      if (this.searchQuery === '') {
+        console.log('vacio')
+        return
+      }
+      if (/^\s/.test(this.searchQuery)) {
+        console.log('comienza con spaces')
+        return
+      }
       trackService.search(this.searchQuery)
         .then(res => {
-          this.tracks = res.results.trackmatches.track
-          this.total = this.tracks.length
-          setTimeout(() => {
-            this.isLoadingTracks = false
-          }, 3000)
+          let respon = res
+          if (respon['results']['opensearch:totalResults'] > 0) {
+            this.isLoadingTracks = true
+            this.tracks = respon.results.trackmatches.track
+            this.showTotal = true
+            this.total = this.tracks.length
+            setTimeout(() => {
+              this.isLoadingTracks = false
+            }, 3000)
+          } else {
+            this.showTotal = true
+            this.total = 0
+          }
         })
     }
   }
@@ -119,6 +134,7 @@ export default {
 }
 .box-result{
   margin-top:20px;
+  transition:all 0.6s ease-out;
 }
 .search{
   height:50px;

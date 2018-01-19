@@ -27,6 +27,7 @@ tracks.search = function (q) {
       method: 'track.search',
       track: q,
       api_key: apiKey,
+      limit: 100,
       format: 'json'
     }
   }).then(res => res.data)
