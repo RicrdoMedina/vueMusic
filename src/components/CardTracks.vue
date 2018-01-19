@@ -36,25 +36,44 @@ export default {
 
 .card{
   background: rgba(0, 0, 0, 0.7);
+  min-height: 235px;
   -ms-transition:all 0.6s ease-out;
   -moz-transition:all 0.6s ease-out;
   -o-transition:all 0.6s ease-out;
   -webkit-transition:all 0.6s ease-out;
   transition:all 0.6s ease-out;
-  min-height: 235px;
+}
+.card:hover {
+  background: rgba(100, 59, 59, 0.733);
+  -ms-transition:all 0.6s ease-in;
+  -moz-transition:all 0.6s ease-in;
+  -o-transition:all 0.6s ease-in;
+  -webkit-transition:all 0.6s ease-in;
+  transition:all 0.6s ease-in;
 }
 .card-content{
   padding: .2rem .9rem;
   height: 40px;
   color:rgb(222,89,34);
 }
-.card:hover{
+.card figure img{
+  -ms-transition:all 0.6s ease-out;
+  -moz-transition:all 0.6s ease-out;
+  -o-transition:all 0.6s ease-out;
+  -webkit-transition:all 0.6s ease-out;
+  transition:all 0.6s ease-out;
+}
+.card:hover figure img {
+  -webkit-transform:scale(1.3);
+  transform:scale(1.3);
   -ms-transition:all 0.6s ease-in;
   -moz-transition:all 0.6s ease-in;
   -o-transition:all 0.6s ease-in;
   -webkit-transition:all 0.6s ease-in;
   transition:all 0.6s ease-in;
-  transform: scale(1.1);
+}
+.card-image figure {
+  overflow:hidden;
 }
 .wrapper-card.is-loaded .card{
   background: #de5a228a;

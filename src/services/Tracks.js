@@ -86,7 +86,7 @@ tracks.getTopTracks = function () {
     params: {
       method: 'chart.gettoptracks',
       api_key: apiKey,
-      limit: 10,
+      limit: 50,
       format: 'json'
     }
   }).then(res => res.data)
