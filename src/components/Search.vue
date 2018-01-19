@@ -8,16 +8,16 @@
             .wrapper-search
               nav.nav-search
                 .content-box  Track
-                form
+                .content-box
                   input#boxSearch.search(
                     type="text",
                     autofocus,
                     autocomplete="off",
                     v-model='searchQuery',
-                    v-on:keyup="search",
+                    v-on:keyup.enter="search"
                     v-focus="true"
                   )
-                  a.button
+                  a.button(@click="search")
                     icon(name="question" scale="2")
                 .content-box Top geo
               .box-result(v-if="total > 0") {{ total }} results found
