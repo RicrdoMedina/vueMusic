@@ -44,7 +44,7 @@ export default {
   transition:all 0.6s ease-out;
 }
 .card:hover {
-  background: rgba(100, 59, 59, 0.733);
+  background: rgba(126, 68, 21, 0.733);
   -ms-transition:all 0.6s ease-in;
   -moz-transition:all 0.6s ease-in;
   -o-transition:all 0.6s ease-in;
@@ -52,7 +52,7 @@ export default {
   transition:all 0.6s ease-in;
 }
 .card-content{
-  padding: .2rem .9rem;
+  padding: .2rem 0;
   height: 40px;
   color:rgb(222,89,34);
 }
@@ -90,26 +90,31 @@ export default {
 .card-content .media{
   position: relative;
   top: -63px;
-  width: 249px;
-  left: -14px;
+  width: 250px;
   box-sizing: border-box;
 }
 .media .media-content{
-  height: 60px;
+  min-height: 60px;
   background: #de59229c;
   padding: .4rem 0 0 .5rem;
   background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .card-content .content{
   position: relative;
-  top: -76px;
+  top: -66px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .content img{
   width: 30px;
-  display: inline;
+  display: inline-block;
   margin-right: 15px;
   position: relative;
-  top: 9px;
 }
 .title{
   font-size: 1rem;
