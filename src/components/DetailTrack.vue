@@ -23,9 +23,9 @@
                 img(v-bind:src="photoAlbum", alt="Placeholder image")
                 figcaption
                   p.artist Album
-                  p.track {{ album.name }}
-                  span.listeners {{ album.listeners }} listeners
-                  span.playcount {{ album.playcount }} playcount
+                  p.track {{ album && album.name ? album.name : 'No avalaible' }}
+                  span.listeners {{ album && album.listeners ? album.listeners : 'No avalaible' }} listeners
+                  span.playcount {{ album && album.playcount ? album.playcount : 'No avalaible' }} playcount
             article
               h3 Tracks
               vm-table-tracks(v-bind:tracks="trackAlbum", v-bind:table="isTableTracks")
@@ -61,8 +61,8 @@ export default {
       infoTrack: {},
       infoArtist: {},
       topAlbums: {},
-      wiki: '',
-      bio: '',
+      wiki: 'No avalaible',
+      bio: 'No avalaible',
       photoAlbum: '',
       topTracks: {},
       trackAlbum: {},
@@ -70,7 +70,7 @@ export default {
       isTableTracks: 1,
       isLoading: false,
       album: {},
-      nameAlbum: ''
+      nameAlbum: 'No avalaible'
     }
   },
   components: {
@@ -91,27 +91,20 @@ export default {
           this.infoTrack = res.track
           if (this.infoTrack.wiki && this.infoTrack.wiki.summary) {
             this.wiki = this.infoTrack.wiki.summary
-          } else {
-            this.wiki = 'this.infoTrack.wiki.summary'
           }
           return trackService.albumGetInfo(artist, this.nameAlbum)
         })
         .then(res => {
-          this.album = res.album
-          if (this.album.tracks && this.album.tracks.track) {
-            this.trackAlbum = this.album.tracks.track
-          } else {
-            this.trackAlbum = ''
+          if (res.album && res.album.tracks) {
+            this.trackAlbum = res.album.tracks.track
+            this.photoAlbum = res.album.image[3]['#text']
           }
-          this.photoAlbum = this.album.image[3]['#text']
           return trackService.artistGetInfo(artist)
         })
         .then(res => {
           this.infoArtist = res.artist
           if (this.infoArtist.bio && this.infoArtist.bio.summary) {
             this.bio = this.infoArtist.bio.summary
-          } else {
-            this.bio = 'this.infoArtist.bio.summary'
           }
           return trackService.artistGetTopAlbums(artist)
         })
@@ -122,6 +115,9 @@ export default {
         .then(res => {
           this.topTracks = res.toptracks.track
           this.isLoading = true
+        })
+        .catch(error => {
+          console.log(error)
         })
     }
   }
