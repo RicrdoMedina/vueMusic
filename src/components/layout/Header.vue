@@ -2,10 +2,10 @@
   header.header(v-bind:class="{ 'is-active': isOpenMenu }")
     .columns
       .column
-        router-link(:to="{ path: '/' }")
+        router-link(:to="{ path: '/' }", class="main-logo")
           figure.content-logo
             img.logo(src="src/assets/vue-logo.png")
-      .column
+
         .content-icon-menu
           .icon-bars(@click="openMenu")
             icon(name="bars" scale="2" class="open")
@@ -79,6 +79,10 @@ export default {
 }
 .header .column{
   padding: 20px 4px 0 35px
+}
+.header .column .main-logo{
+  position: fixed;
+  left: 45%;
 }
 .header .icon-bars{
   color: rgb(222,89,34);
