@@ -5,7 +5,7 @@
       .columns
         .column
           .container
-            .wrapper-search
+            .wrapper-search(v-bind:class="{ 'is-loaded': isLoadingTracks }")
               nav.nav-search
                 .content-box  Track
                 .content-box
@@ -19,8 +19,13 @@
                   )
                   a.button(@click="search")
                     icon(name="question" scale="2")
-                .content-box Top geo
+              .content-select-countries
+                  label Popular right now
+                  .box-select-countries
+                    select.countries(v-model="selectedCountry")
+                      option(v-for="country in countries", v-bind:value="country.value") {{ country.name }}
               .box-result(v-if="showTotal") {{ total }} results found
+              .loader
       .container
         .show-results
           .wrapper-card(v-for="t in tracks", v-bind:class="{ 'is-loaded': isLoadingTracks }")
@@ -41,6 +46,14 @@ export default {
     return {
       searchQuery: '',
       tracks: [],
+      countries: [
+        {name: 'Argentina', value: 'argentina'},
+        {name: 'Colombia', value: 'colombia'},
+        {name: 'Mexico', value: 'mexico'},
+        {name: 'España', value: 'spain'},
+        {name: 'Portugal', value: 'portugal'}
+      ],
+      selectedCountry: 'spain',
       total: 0,
       showTotal: false,
       isLoading: false,
@@ -55,17 +68,23 @@ export default {
     this.tracksPopular()
   },
   directives: {
-    focus: {
-      inserted: function (el) {
-        el.focus()
-      }
+    focus: function (el) {
+      el.focus()
+    }
+  },
+  watch: {
+    selectedCountry () {
+      this.tracksPopular()
     }
   },
   methods: {
     tracksPopular () {
-      trackService.geoGetTopTracks()
+      this.isLoadingTracks = true
+      this.showTotal = false
+      trackService.geoGetTopTracks(this.selectedCountry)
         .then(res => {
           this.tracks = res.tracks.track
+          this.isLoadingTracks = false
           this.isLoading = true
         })
     },
@@ -78,20 +97,22 @@ export default {
         console.log('comienza con spaces')
         return
       }
+      this.isLoadingTracks = true
+      this.showTotal = false
       trackService.search(this.searchQuery)
         .then(res => {
           let respon = res
           if (respon['results']['opensearch:totalResults'] > 0) {
-            this.isLoadingTracks = true
             this.tracks = respon.results.trackmatches.track
-            this.showTotal = true
             this.total = this.tracks.length
             setTimeout(() => {
               this.isLoadingTracks = false
+              this.showTotal = true
             }, 3000)
           } else {
-            this.showTotal = true
+            this.isLoadingTracks = false
             this.total = 0
+            this.showTotal = true
           }
         })
     }
@@ -100,6 +121,9 @@ export default {
 </script>
 
 <style lang="scss">
+
+@import 'src/scss/loader-box-search.scss';
+
 .container{
   margin-top:1rem;
 }
@@ -110,7 +134,6 @@ export default {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap; 
-  min-height: 65vh; 
 }
 .show-results .wrapper-card{
   width: 250px;
@@ -121,7 +144,9 @@ export default {
   background: #de5a22cc;
   color: #fff;
   text-align: center;
-  padding: 20px ;
+  padding: 35px 20px 20px;
+  min-height: 150px;
+  position: relative;
 }
 .nav-search{
   display: flex;
@@ -131,6 +156,38 @@ export default {
 }
 .content-box{
   margin: 0 .8rem;
+}
+.content-select-countries{
+  display: flex;
+  width: 300px;
+  float: right;
+  justify-content: flex-end;
+  height: 25px;
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  font-size: .9rem;
+}
+.content-select-countries label{
+  margin-right: .5rem;
+  display: inline-block;
+}
+.content-select-countries .box-select-countries{
+ display: inline-block; 
+ width: 142px;
+ padding: 0;
+ margin: 0;
+}
+.content-select-countries .box-select-countries select{
+ border: none;
+ display: inline-block; 
+ width: 140px;
+  padding: 0;
+ margin: 0;
+ background:rgba(0, 0, 0, 0.7);
+ color: #fff;
+ outline: 0;
+ font-size: 1rem;
 }
 .box-result{
   margin-top:20px;
