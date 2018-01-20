@@ -22,7 +22,7 @@
               .content-select-countries
                   label Popular right now
                   .box-select-countries
-                    select.countries(v-model="selectedCountry")
+                    select.countries#countries(v-model="selectedCountry")
                       option(v-for="country in countries", v-bind:value="country.value") {{ country.name }}
               .box-result(v-if="showTotal") {{ total }} results found
               .loader
@@ -47,6 +47,7 @@ export default {
       searchQuery: '',
       tracks: [],
       countries: [
+        {name: ' Seleccione ', value: false},
         {name: 'Argentina', value: 'argentina'},
         {name: 'Colombia', value: 'colombia'},
         {name: 'Mexico', value: 'mexico'},
@@ -74,7 +75,10 @@ export default {
   },
   watch: {
     selectedCountry () {
-      this.tracksPopular()
+      if (this.selectedCountry) {
+        this.tracksPopular()
+        this.searchQuery = ''
+      }
     }
   },
   methods: {
@@ -88,7 +92,7 @@ export default {
           this.isLoading = true
         })
     },
-    search () {
+    search (event) {
       if (this.searchQuery === '') {
         console.log('vacio')
         return
@@ -96,6 +100,10 @@ export default {
       if (/^\s/.test(this.searchQuery)) {
         console.log('comienza con spaces')
         return
+      }
+      if (event.key === 'Enter') {
+        console.log('enter key was pressed!')
+        this.selectedCountry = false
       }
       this.isLoadingTracks = true
       this.showTotal = false
@@ -184,10 +192,25 @@ export default {
  width: 140px;
   padding: 0;
  margin: 0;
- background:rgba(0, 0, 0, 0.7);
+ background:rgba(0, 0, 0, 0.205);
  color: #fff;
  outline: 0;
  font-size: 1rem;
+ cursor: pointer;
+ -ms-transition:all 0.6s ease-out;
+-moz-transition:all 0.6s ease-out;
+-o-transition:all 0.6s ease-out;
+-webkit-transition:all 0.6s ease-out;
+transition:all 0.6s ease-out;
+}
+.content-select-countries .box-select-countries select:hover, 
+.content-select-countries .box-select-countries select:focus{
+  background:rgba(0, 0, 0, 0.7);
+  -ms-transition:all 0.6s ease-in;
+  -moz-transition:all 0.6s ease-in;
+  -o-transition:all 0.6s ease-in;
+  -webkit-transition:all 0.6s ease-in;
+  transition:all 0.6s ease-in;
 }
 .box-result{
   margin-top:20px;
