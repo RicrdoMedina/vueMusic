@@ -1,6 +1,6 @@
 <template lang="pug">
   main
-    section.section-main(v-bind:class="{ 'is-loaded': isLoading }")
+    section#sectionMain.section-main(v-bind:class="{ 'is-loaded': isLoading }")
       vm-loader
       .columns
         .column
@@ -28,10 +28,11 @@
               .loader
 
       .container
-        h2.title-main 
-          icon(name="share" scale="1") 
-          | &nbsp; {{ titleMain }}
         .wrapper-results
+          .title-main 
+            h2
+              icon(name="share" scale="1") 
+              | &nbsp; {{ titleMain }}
           .show-results
             .wrapper-card(v-for="t in tracks", v-bind:class="{ 'is-loaded': isLoadingTracks }")
               vm-card-tracks-popular(v-bind:track="t")
@@ -107,11 +108,6 @@ export default {
       }
     }
   },
-  mounted () {
-    setTimeout(() => {
-      console.log('holaaaa!')
-    }, 1000)
-  },
   methods: {
     tracksPopular (pageNum) {
       this.isLoadingTracks = true
@@ -123,6 +119,7 @@ export default {
           this.total = Number(res['tracks']['@attr']['totalPages'])
           this.isLoadingTracks = false
           this.isLoading = true
+          this.fadeIn()
           this.titleMain = `Tracks Populares ${this.selectedCountry}`
         })
     },
@@ -169,6 +166,12 @@ export default {
             // this.showTotal = true
           }
         })
+    },
+    fadeIn () {
+      setTimeout(() => {
+        console.log('holaaaa!')
+        document.getElementById('sectionMain').classList.add('fadeIn')
+      }, 4000)
     }
   }
 }
@@ -193,7 +196,6 @@ export default {
 }
 .title-main{
   width: 100%;
-  background:rgba(0, 0, 0, 0.7);
   color: #de5a22cc;
   padding: 1.2rem 1rem .8rem;
   font-size: 1.2rem;
@@ -215,6 +217,30 @@ export default {
   padding: 35px 20px 20px;
   min-height: 150px;
   position: relative;
+}
+.nav-search
+,.title-main h2
+,.show-results
+,.content-select-countries
+,.pagination{
+  opacity: 0;
+  -ms-transition:all 0.6s ease-out;
+  -moz-transition:all 0.6s ease-out;
+  -o-transition:all 0.6s ease-out;
+  -webkit-transition:all 0.6s ease-out;
+  transition:all 0.6s ease-out;
+}
+.fadeIn .nav-search
+,.fadeIn .title-main h2
+,.fadeIn .show-results
+,.fadeIn .content-select-countries
+,.fadeIn .pagination{
+  opacity: 1;
+  -ms-transition:all 0.6s ease-in;
+  -moz-transition:all 0.6s ease-in;
+  -o-transition:all 0.6s ease-in;
+  -webkit-transition:all 0.6s ease-in;
+  transition:all 0.6s ease-in;
 }
 .nav-search{
   display: flex;
