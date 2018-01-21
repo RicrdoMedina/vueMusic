@@ -26,15 +26,37 @@
                       option(v-for="country in countries", v-bind:value="country.value") {{ country.name }}
               .box-result(v-if="showTotal") {{ total }} results found
               .loader
+
       .container
-        .show-results
-          .wrapper-card(v-for="t in tracks", v-bind:class="{ 'is-loaded': isLoadingTracks }")
-             vm-card-tracks-popular(v-bind:track="t")
+        h2.title-main 
+          icon(name="share" scale="1") 
+          | &nbsp; {{ titleMain }}
+        .wrapper-results
+          .show-results
+            .wrapper-card(v-for="t in tracks", v-bind:class="{ 'is-loaded': isLoadingTracks }")
+              vm-card-tracks-popular(v-bind:track="t")
+
+
+          nav.pagination(role="navigation" aria-label="pagination")
+            paginate(
+              v-bind:page-count="100",
+              ref="paginate",
+              v-bind:click-handler="goToPage",
+              v-bind:prev-text="'Prev'",
+              v-bind:next-text="'Next'",
+              v-bind:container-class="'pagination-list'",
+              v-bind:page-link-class="'pagination-link'",
+              v-bind:disabled-class="'pagination-ellipsis'",
+              v-bind:active-class="'is-current'",
+              v-bind:prevLinkClass="'pagination-previous'",
+              v-bind:nextLinkClass="'pagination-next'")
 </template>
 
 <script>
 
 import trackService from '@/services/Tracks'
+
+import Paginate from 'vuejs-paginate'
 
 import VmLoader from '@/components/shared/Loader.vue'
 
@@ -46,16 +68,18 @@ export default {
     return {
       searchQuery: '',
       tracks: [],
+      titleMain: '',
       countries: [
         {name: ' Seleccione ', value: false},
         {name: 'Argentina', value: 'argentina'},
         {name: 'Colombia', value: 'colombia'},
         {name: 'Mexico', value: 'mexico'},
-        {name: 'España', value: 'spain'},
+        {name: 'Spain', value: 'spain'},
         {name: 'Portugal', value: 'portugal'}
       ],
       selectedCountry: 'spain',
       total: 0,
+      totalPages: 0,
       showTotal: false,
       isLoading: false,
       isLoadingTracks: false
@@ -63,7 +87,8 @@ export default {
   },
   components: {
     VmCardTracksPopular,
-    VmLoader
+    VmLoader,
+    Paginate
   },
   created () {
     this.tracksPopular()
@@ -78,19 +103,35 @@ export default {
       if (this.selectedCountry) {
         this.tracksPopular()
         this.searchQuery = ''
+        this.$refs.paginate.selected = 0
       }
     }
   },
+  mounted () {
+    setTimeout(() => {
+      console.log('holaaaa!')
+    }, 1000)
+  },
   methods: {
-    tracksPopular () {
+    tracksPopular (pageNum) {
       this.isLoadingTracks = true
       this.showTotal = false
-      trackService.geoGetTopTracks(this.selectedCountry)
+      trackService.geoGetTopTracks(this.selectedCountry, pageNum)
         .then(res => {
           this.tracks = res.tracks.track
+          this.totalPages = Number(res['tracks']['@attr']['totalPages'])
+          this.total = Number(res['tracks']['@attr']['totalPages'])
           this.isLoadingTracks = false
           this.isLoading = true
+          this.titleMain = `Tracks Populares ${this.selectedCountry}`
         })
+    },
+    goToPage (pageNum) {
+      if (this.searchQuery === '') {
+        this.tracksPopular(pageNum)
+      } else {
+        this.getTracks(pageNum)
+      }
     },
     search (event) {
       if (this.searchQuery === '') {
@@ -105,22 +146,27 @@ export default {
         console.log('enter key was pressed!')
         this.selectedCountry = false
       }
+      this.$refs.paginate.selected = 0
+      this.getTracks()
+    },
+    getTracks (pageNum) {
       this.isLoadingTracks = true
       this.showTotal = false
-      trackService.search(this.searchQuery)
+      trackService.search(this.searchQuery, pageNum)
         .then(res => {
           let respon = res
           if (respon['results']['opensearch:totalResults'] > 0) {
             this.tracks = respon.results.trackmatches.track
             this.total = this.tracks.length
+            this.titleMain = `Results found ${this.searchQuery}`
             setTimeout(() => {
               this.isLoadingTracks = false
-              this.showTotal = true
+              // this.showTotal = true
             }, 3000)
           } else {
             this.isLoadingTracks = false
             this.total = 0
-            this.showTotal = true
+            // this.showTotal = true
           }
         })
     }
@@ -141,11 +187,25 @@ export default {
 .show-results{
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  border-top: 1px solid #de5a22cc;
+}
+.title-main{
+  width: 100%;
+  background:rgba(0, 0, 0, 0.7);
+  color: #de5a22cc;
+  padding: 1.2rem 1rem .8rem;
+  font-size: 1.2rem;
+  margin:0;
+}
+.wrapper-results{
+  background: rgba(0, 0, 0, 0.7);
+  padding: 0 1rem 1.2rem;
 }
 .show-results .wrapper-card{
   width: 250px;
-  margin-top: 2rem;
+  margin-top: 1.2rem;
   cursor: pointer;
 }
 .wrapper-search{
@@ -174,7 +234,7 @@ export default {
   position: absolute;
   bottom: 10px;
   right: 20px;
-  font-size: .9rem;
+  font-size: 1rem;
 }
 .content-select-countries label{
   margin-right: .5rem;
@@ -190,7 +250,7 @@ export default {
  border: none;
  display: inline-block; 
  width: 140px;
-  padding: 0;
+ padding: 0 0 0 .3rem;
  margin: 0;
  background:rgba(0, 0, 0, 0.205);
  color: #fff;
@@ -233,7 +293,7 @@ transition:all 0.6s ease-out;
   -webkit-transition:all 0.6s ease-out;
   transition:all 0.6s ease-out;
 }
-.search:focus,.wrapper-search:hover .search{
+.search:focus,.nav-search:hover .search{
   background: rgba(0, 0, 0, 0.7);
   -ms-transition:all 0.6s ease-in;
   -moz-transition:all 0.6s ease-in;
@@ -267,5 +327,48 @@ transition:all 0.6s ease-out;
 .button:hover,.button:focus{
   border: unset; 
 }
-
+.pagination-list li.is-current a{
+  color: #fff;
+  background: #de5a22cc;
+  -ms-transition:all 0.6s ease-in;
+  -moz-transition:all 0.6s ease-in;
+  -o-transition:all 0.6s ease-in;
+  -webkit-transition:all 0.6s ease-in;
+  transition:all 0.6s ease-in;
+}
+.pagination-list .pagination-ellipsis .pagination-previous,
+.pagination-list .pagination-ellipsis .pagination-next{
+  color: #b5b5b5;
+  background: rgba(109, 106, 106, 0.801);
+  -ms-transition:all 0.6s ease-in;
+  -moz-transition:all 0.6s ease-in;
+  -o-transition:all 0.6s ease-in;
+  -webkit-transition:all 0.6s ease-in;
+  transition:all 0.6s ease-in;
+}
+.pagination-previous:hover, .pagination-next:hover{
+  color: #fff;
+  -ms-transition:all 0.6s ease-in;
+  -moz-transition:all 0.6s ease-in;
+  -o-transition:all 0.6s ease-in;
+  -webkit-transition:all 0.6s ease-in;
+  transition:all 0.6s ease-in;
+}
+.pagination-list li a{
+  background: rgba(0, 0, 0, 0.5);
+  -ms-transition:all 0.6s ease-out;
+  -moz-transition:all 0.6s ease-out;
+  -o-transition:all 0.6s ease-out;
+  -webkit-transition:all 0.6s ease-out;
+  transition:all 0.6s ease-out;
+}
+.pagination-list li a.pagination-link:hover{
+  color: #fff;
+  background: #de5a229d;
+  -ms-transition:all 0.6s ease-in;
+  -moz-transition:all 0.6s ease-in;
+  -o-transition:all 0.6s ease-in;
+  -webkit-transition:all 0.6s ease-in;
+  transition:all 0.6s ease-in;
+}
 </style>

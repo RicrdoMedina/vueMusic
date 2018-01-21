@@ -9,25 +9,28 @@ const tracks = {}
 
 const apiKey = configService.apiKey
 
-tracks.geoGetTopTracks = function (q, d = 'venezuela') {
-  let country = q === undefined ? d : q
+tracks.geoGetTopTracks = function (q, page = 1, limit = 60) {
+  let country = q
   return vueMusic.get('/2.0/', {
     params: {
       method: 'geo.gettoptracks',
       country,
+      limit,
+      page,
       api_key: apiKey,
       format: 'json'
     }
   }).then(res => res.data)
 }
 
-tracks.search = function (q) {
+tracks.search = function (q, page = 1, limit = 60) {
   return vueMusic.get('/2.0/', {
     params: {
       method: 'track.search',
       track: q,
+      limit,
+      page,
       api_key: apiKey,
-      limit: 100,
       format: 'json'
     }
   }).then(res => res.data)

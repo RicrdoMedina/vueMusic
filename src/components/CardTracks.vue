@@ -35,7 +35,7 @@ export default {
 @import 'src/scss/loader-card.scss';
 
 .card{
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.4);
   min-height: 235px;
   -ms-transition:all 0.6s ease-out;
   -moz-transition:all 0.6s ease-out;
@@ -44,7 +44,7 @@ export default {
   transition:all 0.6s ease-out;
 }
 .card:hover {
-  background: rgba(126, 68, 21, 0.733);
+  background: #de5a228f;
   -ms-transition:all 0.6s ease-in;
   -moz-transition:all 0.6s ease-in;
   -o-transition:all 0.6s ease-in;
@@ -72,11 +72,19 @@ export default {
   -webkit-transition:all 0.6s ease-in;
   transition:all 0.6s ease-in;
 }
+.card:hover .content{
+  color: #fff;
+  -ms-transition:all 0.6s ease-in;
+  -moz-transition:all 0.6s ease-in;
+  -o-transition:all 0.6s ease-in;
+  -webkit-transition:all 0.6s ease-in;
+  transition:all 0.6s ease-in;
+}
 .card-image figure {
   overflow:hidden;
 }
 .wrapper-card.is-loaded .card{
-  background: #de5a228a;
+  background: #de5a2265;
   -ms-transition:all 0.6s ease-in;
   -moz-transition:all 0.6s ease-in;
   -o-transition:all 0.6s ease-in;
@@ -109,6 +117,11 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  -ms-transition:all 0.6s ease-out;
+  -moz-transition:all 0.6s ease-out;
+  -o-transition:all 0.6s ease-out;
+  -webkit-transition:all 0.6s ease-out;
+  transition:all 0.6s ease-out;
 }
 .content img{
   width: 30px;
