@@ -2,6 +2,7 @@
   #app
     .wrapper
       vm-header
+      vm-menu
       router-view
       vm-footer
 </template>
@@ -9,13 +10,15 @@
 <script>
 
 import VmHeader from '@/components/layout/Header.vue'
+import VmMenu from '@/components/layout/Menu.vue'
 import VmFooter from '@/components/layout/Footer.vue'
 
 export default {
   name: 'app',
   components: {
     VmHeader,
-    VmFooter
+    VmFooter,
+    VmMenu
   }
 }
 </script>

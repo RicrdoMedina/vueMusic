@@ -81,6 +81,9 @@ export default {
   created () {
     this.getData()
   },
+  mounted () {
+    this.$bus.$emit('open-menu', true)
+  },
   methods: {
     getData () {
       const artist = this.$route.params.artist

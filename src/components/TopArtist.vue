@@ -73,6 +73,9 @@ export default {
   created () {
     this.getData()
   },
+  mounted () {
+    this.$bus.$emit('open-menu', true)
+  },
   methods: {
     getData () {
       trackService.topArtists()

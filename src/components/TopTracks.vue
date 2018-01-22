@@ -84,6 +84,9 @@ export default {
   created () {
     this.getAll()
   },
+  mounted () {
+    this.$bus.$emit('open-menu', true)
+  },
   methods: {
     getAll () {
       trackService.getTopTracks()

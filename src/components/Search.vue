@@ -108,6 +108,9 @@ export default {
       }
     }
   },
+  mounted () {
+    this.$bus.$emit('open-menu', true)
+  },
   methods: {
     tracksPopular (pageNum) {
       this.isLoadingTracks = true
@@ -169,7 +172,6 @@ export default {
     },
     fadeIn () {
       setTimeout(() => {
-        console.log('holaaaa!')
         document.getElementById('sectionMain').classList.add('fadeIn')
       }, 4000)
     }
@@ -196,10 +198,12 @@ export default {
 }
 .title-main{
   width: 100%;
-  color: #de5a22cc;
   padding: 1.2rem 1rem .8rem;
   font-size: 1.2rem;
   margin:0;
+}
+.title-main h2{
+  color: #de5a22cc;
 }
 .wrapper-results{
   background: rgba(0, 0, 0, 0.7);
@@ -224,11 +228,11 @@ export default {
 ,.content-select-countries
 ,.pagination{
   opacity: 0;
-  -ms-transition:all 0.6s ease-out;
-  -moz-transition:all 0.6s ease-out;
-  -o-transition:all 0.6s ease-out;
-  -webkit-transition:all 0.6s ease-out;
-  transition:all 0.6s ease-out;
+  -ms-transition:all 1s ease-out;
+  -moz-transition:all 1s ease-out;
+  -o-transition:all 1s ease-out;
+  -webkit-transition:all 1s ease-out;
+  transition:all 1s ease-out;
 }
 .fadeIn .nav-search
 ,.fadeIn .title-main h2
@@ -236,11 +240,11 @@ export default {
 ,.fadeIn .content-select-countries
 ,.fadeIn .pagination{
   opacity: 1;
-  -ms-transition:all 0.6s ease-in;
-  -moz-transition:all 0.6s ease-in;
-  -o-transition:all 0.6s ease-in;
-  -webkit-transition:all 0.6s ease-in;
-  transition:all 0.6s ease-in;
+  -ms-transition:all 1s ease-in;
+  -moz-transition:all 1s ease-in;
+  -o-transition:all 1s ease-in;
+  -webkit-transition:all 1s ease-in;
+  transition:all 1s ease-in;
 }
 .nav-search{
   display: flex;
