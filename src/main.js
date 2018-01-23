@@ -16,7 +16,14 @@ Vue.use(VueRouter)
 
 Vue.component('icon', Icon)
 
-const router = new VueRouter({ routes, mode: 'history' })
+const router = new VueRouter({
+  routes,
+  mode: 'history',
+  scrollBehavior (to, from, savedPosition) {
+    // return desired position
+    return {x: 0, y: 0}
+  }
+})
 
 new Vue({
   el: '#app',
