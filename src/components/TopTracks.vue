@@ -89,7 +89,8 @@ export default {
   },
   methods: {
     getAll () {
-      trackService.getTopTracks()
+      let limit = 15
+      trackService.getTopTracks(limit)
         .then(res => {
           this.nameTrack = res.tracks.track[0].name
           this.nameArtist = res.tracks.track[0].artist.name

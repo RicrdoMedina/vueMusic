@@ -37,12 +37,12 @@ tracks.search = function (q, page = 1, limit = 60) {
 }
 
 // Top Artists
-tracks.topArtists = function () {
+tracks.topArtists = function (limit = 15) {
   return vueMusic.get('/2.0/', {
     params: {
       method: 'chart.gettopartists',
       api_key: apiKey,
-      limit: 10,
+      limit,
       format: 'json'
     }
   }).then(res => res.data)
@@ -84,12 +84,12 @@ tracks.artistGetTopTracks = function (q) {
 }
 
 // Top Tracks
-tracks.getTopTracks = function () {
+tracks.getTopTracks = function (limit = 50) {
   return vueMusic.get('/2.0/', {
     params: {
       method: 'chart.gettoptracks',
       api_key: apiKey,
-      limit: 50,
+      limit,
       format: 'json'
     }
   }).then(res => res.data)

@@ -6,7 +6,7 @@
         th Duration
       tr(v-for="track in tracks")
         td {{ track.name }}
-        td {{ track.duration }}
+        td {{ track.duration | sg-to-mm }}
     table(v-else,class="table is-striped is-fullwidth")
       tr
         th Track
