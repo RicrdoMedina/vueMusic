@@ -14,8 +14,8 @@
         th Listeners
       tr(v-for="track in tracks")
         td {{ track.name }}
-        td {{ track.playcount }}
-        td {{ track.listeners }}
+        td {{ track.playcount | int-to-dec }}
+        td {{ track.listeners | int-to-dec }}
 </template>
 
 <script>

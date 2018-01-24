@@ -12,7 +12,7 @@
             p.subtitle {{ track.artist.name ? track.artist.name : track.artist }}
         .content
           img(src="../assets/listen.png")
-          | {{ track.listeners ? track.listeners + ' listeners ' : "Popular right now." }}
+          | {{ track.listeners | int-to-dec }} listeners
 </template>
 
 <script>

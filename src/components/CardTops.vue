@@ -7,8 +7,8 @@
     .info
       p.name(v-if="item.artist && item.artist.name") {{ item.name + ' - ' + item.artist.name }}
       p.name(v-else) {{ item.name }}
-      span.listeners {{ item.listeners }} listeners
-      span.playcount {{ item.playcount }} playcount 
+      span.listeners {{ item.listeners | int-to-dec }} listeners
+      span.playcount {{ item.playcount | int-to-dec }} playcount 
 </template>
 
 <script>

@@ -12,8 +12,8 @@
                 figcaption
                   p.artist {{ infoArtist.name }}
                   p.track {{ infoTrack.name }}
-                  span.listeners {{ infoTrack.listeners }} listeners
-                  span.playcount {{ infoTrack.playcount }} playcount
+                  span.listeners {{ infoTrack.listeners | int-to-dec }} listeners
+                  span.playcount {{ infoTrack.playcount | int-to-dec }} playcount
             article.content-wiki
               h3 Wiki
               p.wiki {{ wiki}}
@@ -24,8 +24,8 @@
                 figcaption
                   p.artist Album
                   p.track {{ album && album.name ? album.name : 'No avalaible' }}
-                  span.listeners {{ album && album.listeners ? album.listeners : 'No avalaible' }} listeners
-                  span.playcount {{ album && album.playcount ? album.playcount : 'No avalaible' }} playcount
+                  span.listeners {{ albumListeners | int-to-dec }} listeners
+                  span.playcount {{ albumPlaycount | int-to-dec }} playcount
             article
               h3 Tracks
               vm-table-tracks(v-bind:tracks="trackAlbum", v-bind:table="isTableTracks")
@@ -70,6 +70,8 @@ export default {
       isTableTracks: 1,
       isLoading: false,
       album: {},
+      albumListeners: 0,
+      albumPlaycount: 0,
       nameAlbum: 'No avalaible'
     }
   },
@@ -99,6 +101,9 @@ export default {
         })
         .then(res => {
           if (res.album && res.album.tracks) {
+            this.album = res.album
+            this.albumListeners = this.album.listeners
+            this.albumPlaycount = this.album.playcount
             this.trackAlbum = res.album.tracks.track
             this.photoAlbum = res.album.image[3]['#text']
           }
