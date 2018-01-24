@@ -9,13 +9,14 @@ import routes from '@/routes'
 import 'vue-awesome/icons'
 
 import sgToMm from '@/filters/sg-to-mm'
-
+import capitalizeFirstLetter from '@/filters/capitalize-first-letter'
 import intToDec from '@/filters/int-to-dec'
 
 import Icon from 'vue-awesome/components/Icon'
 
 Vue.use(EventBus)
 Vue.use(sgToMm)
+Vue.use(capitalizeFirstLetter)
 Vue.use(intToDec)
 Vue.use(VueRouter)
 

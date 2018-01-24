@@ -32,7 +32,7 @@
           .title-main 
             h2
               icon(name="share" scale="1") 
-              | &nbsp; {{ titleMain }}
+              | &nbsp; {{ titleMain | capitalize-first-letter }}
           .show-results
             .wrapper-card(v-for="t in tracks", v-bind:class="{ 'is-loaded': isLoadingTracks }")
               vm-card-tracks-popular(v-bind:track="t")
@@ -69,7 +69,7 @@ export default {
     return {
       searchQuery: '',
       tracks: [],
-      titleMain: '',
+      titleMain: 'Tracks Populares Spain',
       countries: [
         {name: ' Seleccione ', value: false},
         {name: 'Argentina', value: 'argentina'},
