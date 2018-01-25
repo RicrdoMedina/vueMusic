@@ -24,7 +24,7 @@
                   .box-select-countries
                     select.countries#countries(v-model="selectedCountry")
                       option(v-for="country in countries", v-bind:value="country.value") {{ country.name }}
-              .box-result(v-if="showTotal") {{ total }} results found
+              .box-result
               .loader
 
       .container
@@ -57,6 +57,10 @@
 
 import trackService from '@/services/Tracks'
 
+import fadeInMixin from '@/mixins/FadeIn'
+
+import closeMenuMixin from '@/mixins/CloseMenu'
+
 import Paginate from 'vuejs-paginate'
 
 import VmLoader from '@/components/shared/Loader.vue'
@@ -79,13 +83,11 @@ export default {
         {name: 'Portugal', value: 'portugal'}
       ],
       selectedCountry: 'spain',
-      total: 0,
-      totalPages: 0,
-      showTotal: false,
       isLoading: false,
       isLoadingTracks: false
     }
   },
+  mixins: [fadeInMixin, closeMenuMixin],
   components: {
     VmCardTracksPopular,
     VmLoader,
@@ -108,18 +110,12 @@ export default {
       }
     }
   },
-  mounted () {
-    this.$bus.$emit('open-menu', true)
-  },
   methods: {
     tracksPopular (pageNum) {
       this.isLoadingTracks = true
-      this.showTotal = false
       trackService.geoGetTopTracks(this.selectedCountry, pageNum)
         .then(res => {
           this.tracks = res.tracks.track
-          this.totalPages = Number(res['tracks']['@attr']['totalPages'])
-          this.total = Number(res['tracks']['@attr']['totalPages'])
           this.isLoadingTracks = false
           this.isLoading = true
           this.fadeIn()
@@ -134,46 +130,26 @@ export default {
       }
     },
     search (event) {
-      if (this.searchQuery === '') {
-        console.log('vacio')
-        return
-      }
-      if (/^\s/.test(this.searchQuery)) {
-        console.log('comienza con spaces')
-        return
-      }
-      if (event.key === 'Enter') {
-        console.log('enter key was pressed!')
-        this.selectedCountry = false
-      }
+      if ((this.searchQuery === '') || (/^\s/.test(this.searchQuery))) return
+      if (event.key === 'Enter') this.selectedCountry = false
       this.$refs.paginate.selected = 0
       this.getTracks()
     },
     getTracks (pageNum) {
       this.isLoadingTracks = true
-      this.showTotal = false
       trackService.search(this.searchQuery, pageNum)
         .then(res => {
           let respon = res
           if (respon['results']['opensearch:totalResults'] > 0) {
             this.tracks = respon.results.trackmatches.track
-            this.total = this.tracks.length
             this.titleMain = `Results found ${this.searchQuery}`
             setTimeout(() => {
               this.isLoadingTracks = false
-              // this.showTotal = true
             }, 3000)
           } else {
             this.isLoadingTracks = false
-            this.total = 0
-            // this.showTotal = true
           }
         })
-    },
-    fadeIn () {
-      setTimeout(() => {
-        document.getElementById('sectionMain').classList.add('fadeIn')
-      }, 4000)
     }
   }
 }
