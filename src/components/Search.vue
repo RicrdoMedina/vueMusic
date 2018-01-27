@@ -4,7 +4,6 @@
       vm-loader
       .columns
         .column
-          .container
             .wrapper-search(v-bind:class="{ 'is-loaded': isLoadingTracks }")
               nav.nav-search
                 .content-box  Track
@@ -194,7 +193,7 @@ export default {
   color: #fff;
   text-align: center;
   padding: 35px 20px 20px;
-  min-height: 150px;
+  min-height: 170px;
   position: relative;
 }
 .nav-search

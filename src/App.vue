@@ -55,7 +55,7 @@ a,a:link,a:active,a:visited,a:focus,a:hover{
 }
 .section-main{
   flex: 1;
-  padding-top: 5.5rem;
+  padding-top: 4.4rem;
 }
 
 </style>

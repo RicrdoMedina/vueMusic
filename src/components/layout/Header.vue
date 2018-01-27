@@ -33,7 +33,7 @@ export default {
   height: 70px;
   position: fixed;
   top:0;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.9);
   z-index: 9999;
   -ms-transition:all 0.6s ease-out;
   -moz-transition:all 0.6s ease-out;
