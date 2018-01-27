@@ -35,18 +35,11 @@ export default {
   top:0;
   background: rgba(0, 0, 0, 0.9);
   z-index: 9999;
-  -ms-transition:all 0.6s ease-out;
-  -moz-transition:all 0.6s ease-out;
-  -o-transition:all 0.6s ease-out;
-  -webkit-transition:all 0.6s ease-out;
   transition:all 0.6s ease-out;
+  will-change: auto;
 }
 .header.is-open-menu{
   width: 75%;
-  -ms-transition:all 0.6s ease-in;
-  -moz-transition:all 0.6s ease-in;
-  -o-transition:all 0.6s ease-in;
-  -webkit-transition:all 0.6s ease-in;
   transition:all 0.6s ease-in;
 }
 .header .column{
@@ -78,19 +71,11 @@ export default {
 .header .close, .header.is-open-menu .open{
   display:none;
   opacity: 0;
-  -ms-transition:all 0.6s ease-out;
-  -moz-transition:all 0.6s ease-out;
-  -o-transition:all 0.6s ease-out;
-  -webkit-transition:all 0.6s ease-out;
   transition:all 0.6s ease-out;
 }
 .header.is-open-menu .close, .header .open{
   display:inline-block;
   opacity: 1;
-  -ms-transition:all 0.6s ease-in;
-  -moz-transition:all 0.6s ease-in;
-  -o-transition:all 0.6s ease-in;
-  -webkit-transition:all 0.6s ease-in;
   transition:all 0.6s ease-in;
 }
 </style>

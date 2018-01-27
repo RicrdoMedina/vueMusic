@@ -75,11 +75,8 @@ export default {
   display: block;
   bottom: 0;
   z-index: 99999;
-  -ms-transition:all 0.6s ease-out;
-  -moz-transition:all 0.6s ease-out;
-  -o-transition:all 0.6s ease-out;
-  -webkit-transition:all 0.6s ease-out;
   transition:all 0.6s ease-out;
+  will-change: auto;
 }
 .menu ul{
   display: block;
@@ -100,10 +97,6 @@ export default {
   padding: 23px 20px 23px 15px;
   color: #dbdbdb;
   border-bottom: solid 1px #dbdbdb;
-  -ms-transition:all 0.3s ease-out;
-  -moz-transition:all 0.3s ease-out;
-  -o-transition:all 0.3s ease-out;
-  -webkit-transition:all 0.3s ease-out;
   transition:all 0.3s ease-out;
   display: block;
   font-size: 1rem;
@@ -113,10 +106,6 @@ export default {
 .menu ul li a:hover, .menu ul li a.router-link-exact-active.router-link-active{
   padding-left: 25px;
   background: rgba(0, 0, 0, 0.7);
-  -ms-transition:all 0.3s ease-in;
-  -moz-transition:all 0.3s ease-in;
-  -o-transition:all 0.3s ease-in;
-  -webkit-transition:all 0.3s ease-in;
   transition:all 0.3s ease-in;
 }
 .menu .box-social-media{
@@ -129,17 +118,9 @@ export default {
   margin-right: .8rem;
   cursor: pointer;
   color: #e8e8e8;
-  -ms-transition:all 0.6s ease-out;
-  -moz-transition:all 0.6s ease-out;
-  -o-transition:all 0.6s ease-out;
-  -webkit-transition:all 0.6s ease-out;
   transition:all 0.6s ease-out;
 }
 .menu .box-social-media a:hover{
-  -ms-transition:all 0.3s ease-in;
-  -moz-transition:all 0.3s ease-in;
-  -o-transition:all 0.3s ease-in;
-  -webkit-transition:all 0.3s ease-in;
   transition:all 0.3s ease-in;
   color: rgba(0, 0, 0, 0.7);
 }
@@ -158,10 +139,6 @@ export default {
 }
 .menu.is-active{
   right: 0%;
-  -ms-transition:all 0.6s ease-in;
-  -moz-transition:all 0.6s ease-in;
-  -o-transition:all 0.6s ease-in;
-  -webkit-transition:all 0.6s ease-in;
   transition:all 0.6s ease-in;
 }
 </style>

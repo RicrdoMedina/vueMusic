@@ -1,5 +1,5 @@
 <template lang="pug">
-  .box-top-images
+  .box-top-images(v-bind:class="{ 'unique-album': albums.length === 1 }")
     figure(v-for="album in albums")
       img(v-if="album && album.image[3]", v-bind:src="album.image[3]['#text']", alt="Placeholder image")
       figcaption

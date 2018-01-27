@@ -11,7 +11,7 @@
             p.title {{ track.name }}
             p.subtitle {{ track.artist.name ? track.artist.name : track.artist }}
         .content
-          img(src="../assets/listen.png")
+          img(src="../assets/play-music.png")
           | {{ track.listeners | int-to-dec }} listeners
 </template>
 
@@ -37,18 +37,11 @@ export default {
 .card{
   background: rgba(0, 0, 0, 0.4);
   min-height: 235px;
-  -ms-transition:all 0.6s ease-out;
-  -moz-transition:all 0.6s ease-out;
-  -o-transition:all 0.6s ease-out;
-  -webkit-transition:all 0.6s ease-out;
   transition:all 0.6s ease-out;
+  will-change: auto;
 }
 .card:hover {
   background: #de5a228f;
-  -ms-transition:all 0.6s ease-in;
-  -moz-transition:all 0.6s ease-in;
-  -o-transition:all 0.6s ease-in;
-  -webkit-transition:all 0.6s ease-in;
   transition:all 0.6s ease-in;
 }
 .card-content{
@@ -57,27 +50,15 @@ export default {
   color:rgb(222,89,34);
 }
 .card figure img{
-  -ms-transition:all 0.6s ease-out;
-  -moz-transition:all 0.6s ease-out;
-  -o-transition:all 0.6s ease-out;
-  -webkit-transition:all 0.6s ease-out;
   transition:all 0.6s ease-out;
+  will-change: auto;
 }
 .card:hover figure img {
-  -webkit-transform:scale(1.3);
   transform:scale(1.3);
-  -ms-transition:all 0.6s ease-in;
-  -moz-transition:all 0.6s ease-in;
-  -o-transition:all 0.6s ease-in;
-  -webkit-transition:all 0.6s ease-in;
   transition:all 0.6s ease-in;
 }
 .card:hover .content{
   color: #fff;
-  -ms-transition:all 0.6s ease-in;
-  -moz-transition:all 0.6s ease-in;
-  -o-transition:all 0.6s ease-in;
-  -webkit-transition:all 0.6s ease-in;
   transition:all 0.6s ease-in;
 }
 .card-image figure {
@@ -85,10 +66,6 @@ export default {
 }
 .wrapper-card.is-loaded .card{
   background: #de5a2265;
-  -ms-transition:all 0.6s ease-in;
-  -moz-transition:all 0.6s ease-in;
-  -o-transition:all 0.6s ease-in;
-  -webkit-transition:all 0.6s ease-in;
   transition:all 0.6s ease-in;
 }
 .wrapper-card.is-loaded .card:hover{
@@ -102,7 +79,8 @@ export default {
   box-sizing: border-box;
 }
 .media .media-content{
-  min-height: 60px;
+  height: 60px;
+  overflow: hidden;
   background: #de59229c;
   padding: .4rem 0 0 .5rem;
   background: rgba(0, 0, 0, 0.7);
@@ -117,11 +95,9 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  -ms-transition:all 0.6s ease-out;
-  -moz-transition:all 0.6s ease-out;
-  -o-transition:all 0.6s ease-out;
-  -webkit-transition:all 0.6s ease-out;
   transition:all 0.6s ease-out;
+  will-change: auto;
+  font-style: oblique;
 }
 .content img{
   width: 30px;

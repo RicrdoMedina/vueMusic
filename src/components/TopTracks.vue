@@ -167,30 +167,21 @@ export default {
 <style lang="scss">
 
 @import 'src/scss/general.scss';
-
 @import 'src/scss/TopArtists/GalleryTopAlbums.scss';
-
 
 .box-hero .tittle span,
 .content-top-ten article,
 .content-bio > *
 {
   opacity: 0;
-  -ms-transition:all 1s ease-out;
-  -moz-transition:all 1s ease-out;
-  -o-transition:all 1s ease-out;
-  -webkit-transition:all 1s ease-out;
   transition:all 1s ease-out;
+  will-change: auto;
 }
 .fadeIn .box-hero .tittle span,
 .fadeIn .content-top-ten article,
 .fadeIn .content-bio > *
 {
   opacity: 1;
-  -ms-transition:all 1s ease-in;
-  -moz-transition:all 1s ease-in;
-  -o-transition:all 1s ease-in;
-  -webkit-transition:all 1s ease-in;
   transition:all 1s ease-in;
 }
 .album figure{

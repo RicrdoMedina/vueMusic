@@ -49,18 +49,10 @@
 
 a,a:link,a:active,a:visited,a:focus,a:hover{
   color: #fff;
-  -ms-transition:all 0.6s ease-out;
-  -moz-transition:all 0.6s ease-out;
-  -o-transition:all 0.6s ease-out;
-  -webkit-transition:all 0.6s ease-out;
   transition:all 0.6s ease-out;
 }
 a:hover{
-  color:#de5a229a;
-  -ms-transition:all 0.6s ease-in;
-  -moz-transition:all 0.6s ease-in;
-  -o-transition:all 0.6s ease-in;
-  -webkit-transition:all 0.6s ease-in;
+  color:#f092049a;
   transition:all 0.6s ease-in;
 }
 .box-main{
@@ -124,6 +116,9 @@ a:hover{
   bottom: -60px;
   right: 20px;
   font-size: 1rem;
+}
+.nota, .more-info{
+  font-style: oblique;
 }
 .box-social-media{
   display: flex;
