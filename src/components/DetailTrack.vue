@@ -1,9 +1,10 @@
 <template lang="pug">
   section#sectionMain.section-main(v-bind:class="{ 'is-loaded': isLoading }")
     vm-loader
-    .container
+    .box-hero
       h1.tittle 
         span {{ infoTrack.name }}
+    .container
       .columns
         .column.is-6
           .content-info-track
@@ -141,7 +142,7 @@ export default {
 @import 'src/scss/general.scss';
 
 @import 'src/scss/TopArtists/GalleryTopAlbums.scss';
-.container .tittle span,
+.box-hero.tittle span,
 .content-info-track article,
 .content-bio > *
 {
@@ -152,7 +153,7 @@ export default {
   -webkit-transition:all 1s ease-out;
   transition:all 1s ease-out;
 }
-.fadeIn .container .tittle span,
+.fadeIn .box-hero .tittle span,
 .fadeIn .content-info-track article,
 .fadeIn .content-bio > *
 {

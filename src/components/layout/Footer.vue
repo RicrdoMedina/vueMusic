@@ -16,6 +16,7 @@
   right: 0;
   margin: 0;
   background: #de5a22a6;
+  background-image: url("../../assets/green-dust-and-scratches.png");
   width: 100%;
   font-size: .9rem;
   display: flex;

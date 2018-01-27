@@ -5,11 +5,11 @@
 
 h1{
   text-align: center;
-  font-size: 1.8rem;
-  color:rgb(222,89,34);
+  font-size: 2.5rem;
+  color:#fff;
    margin: 0 auto 2rem;
   width: 30%;
-  background: rgba(0, 0, 0, 0.7);
+  font-family: 'Dancing Script', cursive, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 h2{
   font-size: 1.3rem;
@@ -22,24 +22,41 @@ h3{
   color: rgb(181, 181, 181);
   font-weight: 500;
 }
+.box-hero{
+  background: #de5a22cc;
+  width: 100%;
+  padding: 1rem 3rem .5rem;
+  -ms-transition:all 0.6s ease-out;
+  -moz-transition:all 0.6s ease-out;
+  -o-transition:all 0.6s ease-out;
+  -webkit-transition:all 0.6s ease-out;
+  transition:all 0.6s ease-out;
+}
 .column.is-6{
   margin-top: 1.2rem;
 }
 .content-top-ten, .content-bio,.content-info-track{
   width: 100%;
-  margin: 0 auto;
+  margin: 2rem auto;
   padding: 0 .5rem;
-  min-height: 300px;
-  background: rgba(0, 0, 0, 0.7);
+  min-height: 1790px;
+  background: rgba(0, 0, 0, 0.8);
   color: rgb(181, 181, 181);
   padding-bottom: 2rem;
-  min-height: 1220px;
   overflow: hidden;
   -ms-transition:all 0.6s ease-out;
   -moz-transition:all 0.6s ease-out;
   -o-transition:all 0.6s ease-out;
   -webkit-transition:all 0.6s ease-out;
   transition:all 0.6s ease-out;
+}
+.fadeIn .box-hero{
+  background-image: url("../assets/green-dust-and-scratches.png");
+}
+.fadeIn .content-top-ten,
+.fadeIn .content-bio,
+.fadeIn .content-info-track{
+  background-image: url("../assets/45-degree-fabric-dark-body.png");
 }
 .content-bio.is-updated{
   background: rgba(222, 89, 34, 0.72);
@@ -50,7 +67,6 @@ h3{
   transition:all 0.6s ease-in;
 }
 .content-info-track{
-  min-height: 400px;
   padding: .5rem 2rem 4rem;
 }
 .content-bio{

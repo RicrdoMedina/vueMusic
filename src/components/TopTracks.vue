@@ -1,9 +1,10 @@
 <template lang="pug">
   section#sectionMain.section-main(v-bind:class="{ 'is-loaded': isLoading }")
     vm-loader
-    .container
+    .box-hero
       h1.tittle 
         span Top Tracks
+    .container
       .columns
         .column.is-6
           .content-top-ten
@@ -168,7 +169,9 @@ export default {
 @import 'src/scss/general.scss';
 
 @import 'src/scss/TopArtists/GalleryTopAlbums.scss';
-.container .tittle span,
+
+
+.box-hero .tittle span,
 .content-top-ten article,
 .content-bio > *
 {
@@ -179,7 +182,7 @@ export default {
   -webkit-transition:all 1s ease-out;
   transition:all 1s ease-out;
 }
-.fadeIn .container .tittle span,
+.fadeIn .box-hero .tittle span,
 .fadeIn .content-top-ten article,
 .fadeIn .content-bio > *
 {

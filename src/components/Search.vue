@@ -71,7 +71,7 @@ export default {
     return {
       searchQuery: '',
       tracks: [],
-      titleMain: 'Tracks Populares Spain',
+      titleMain: 'Tracks Populars Spain',
       countries: [
         {name: ' Seleccione ', value: false},
         {name: 'Argentina', value: 'argentina'},
@@ -117,7 +117,7 @@ export default {
           this.isLoadingTracks = false
           this.isLoading = true
           this.fadeIn()
-          this.titleMain = `Tracks Populares ${this.selectedCountry}`
+          this.titleMain = `Tracks Populars ${this.selectedCountry}`
         })
     },
     goToPage (pageNum) {
@@ -181,7 +181,13 @@ export default {
 }
 .wrapper-results{
   background: rgba(0, 0, 0, 0.7);
-  padding: 0 1rem 1.2rem;
+  padding: 1rem 1rem 1.2rem;
+  margin: 2.5rem auto 2rem;
+  -ms-transition:all 1s ease-out;
+  -moz-transition:all 1s ease-out;
+  -o-transition:all 1s ease-out;
+  -webkit-transition:all 1s ease-out;
+  transition:all 1s ease-out;
 }
 .show-results .wrapper-card{
   width: 250px;
@@ -220,6 +226,18 @@ export default {
   -webkit-transition:all 1s ease-in;
   transition:all 1s ease-in;
 }
+.fadeIn .wrapper-results{
+  background-image: url("../assets/45-degree-fabric-dark-body.png");
+  -ms-transition:all 1s ease-in;
+  -moz-transition:all 1s ease-in;
+  -o-transition:all 1s ease-in;
+  -webkit-transition:all 1s ease-in;
+  transition:all 1s ease-in
+}
+.fadeIn .nav-search{
+  background-image: url("../assets/green-dust-and-scratches.png");
+}
+
 .nav-search{
   display: flex;
   align-items: center;

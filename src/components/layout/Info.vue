@@ -15,8 +15,12 @@
               a About me
 
       .column
-
-
+        .content-nota
+          h4 Nota
+          p.nota Se uso la API Rest de last.fm como servicio de consulta para proporcionar la información de todo el client site.
+          .more-info
+            span more info:
+            a(href="https://www.last.fm/api", target="_blank") &nbsp; https://www.last.fm/api
       .column.is-3
         .info
           h4 info 
@@ -52,7 +56,7 @@ a,a:link,a:active,a:visited,a:focus,a:hover{
   transition:all 0.6s ease-out;
 }
 a:hover{
-  color:#de5922cc;
+  color:#de5a229a;
   -ms-transition:all 0.6s ease-in;
   -moz-transition:all 0.6s ease-in;
   -o-transition:all 0.6s ease-in;
@@ -67,6 +71,7 @@ a:hover{
   right: 0;
   margin-top: 2.8rem;
   background: rgba(0, 0, 0, 0.7);
+  background-image: url("../../assets/dark-mosaic-footer.png");
   color:rgb(222,89,34);
   width: 100%;
   font-size: 1.1rem;
@@ -102,6 +107,23 @@ a:hover{
 .follow-me{
   margin-top: 1rem;
   margin-bottom: .5rem;
+}
+.content-nota{
+  margin-top:1.4rem;
+  padding: 0 1rem 0 0;
+  position: relative;
+}
+.nota{
+  text-align: justify;
+  margin-top:1rem;
+  color:#fff;
+  font-size: 1rem;
+}
+.more-info{
+  position: absolute;
+  bottom: -60px;
+  right: 20px;
+  font-size: 1rem;
 }
 .box-social-media{
   display: flex;
