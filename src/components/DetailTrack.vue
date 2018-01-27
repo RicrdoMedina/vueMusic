@@ -1,8 +1,9 @@
 <template lang="pug">
-  section.section-main(v-bind:class="{ 'is-loaded': isLoading }")
+  section#sectionMain.section-main(v-bind:class="{ 'is-loaded': isLoading }")
     vm-loader
     .container
-      h1.tittle {{ infoTrack.name }}
+      h1.tittle 
+        span {{ infoTrack.name }}
       .columns
         .column.is-6
           .content-info-track
@@ -48,6 +49,10 @@
 
 import trackService from '@/services/Tracks'
 
+import fadeInMixin from '@/mixins/FadeIn'
+
+import closeMenuMixin from '@/mixins/CloseMenu'
+
 import VmLoader from '@/components/shared/Loader.vue'
 
 import VmTableTracks from '@/components/TableTracks.vue'
@@ -75,6 +80,7 @@ export default {
       nameAlbum: 'No avalaible'
     }
   },
+  mixins: [fadeInMixin, closeMenuMixin],
   components: {
     VmTableTracks,
     VmAlbums,
@@ -82,9 +88,6 @@ export default {
   },
   created () {
     this.getData()
-  },
-  mounted () {
-    this.$bus.$emit('open-menu', true)
   },
   methods: {
     getData () {
@@ -123,6 +126,7 @@ export default {
         .then(res => {
           this.topTracks = res.toptracks.track
           this.isLoading = true
+          this.fadeIn()
         })
         .catch(error => {
           console.log(error)
@@ -137,7 +141,28 @@ export default {
 @import 'src/scss/general.scss';
 
 @import 'src/scss/TopArtists/GalleryTopAlbums.scss';
-
+.container .tittle span,
+.content-info-track article,
+.content-bio > *
+{
+  opacity: 0;
+  -ms-transition:all 1s ease-out;
+  -moz-transition:all 1s ease-out;
+  -o-transition:all 1s ease-out;
+  -webkit-transition:all 1s ease-out;
+  transition:all 1s ease-out;
+}
+.fadeIn .container .tittle span,
+.fadeIn .content-info-track article,
+.fadeIn .content-bio > *
+{
+  opacity: 1;
+  -ms-transition:all 1s ease-in;
+  -moz-transition:all 1s ease-in;
+  -o-transition:all 1s ease-in;
+  -webkit-transition:all 1s ease-in;
+  transition:all 1s ease-in;
+}
 .content-info-track article{
   margin-top: 1.5rem;
 }

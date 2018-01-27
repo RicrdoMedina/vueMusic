@@ -1,8 +1,9 @@
 <template lang="pug">
-  section.section-main(v-bind:class="{ 'is-loaded': isLoading }")
+  section#sectionMain.section-main(v-bind:class="{ 'is-loaded': isLoading }")
     vm-loader
     .container
-      h1.tittle Top Artists
+      h1.tittle
+        span Top Artists
       .columns
         .column.is-6
           .content-top-ten
@@ -39,6 +40,14 @@
 <script>
 import trackService from '@/services/Tracks'
 
+import fadeInMixin from '@/mixins/FadeIn'
+
+import loaderMixin from '@/mixins/Loader'
+
+import closeMenuMixin from '@/mixins/CloseMenu'
+
+import dataTopsMixin from '@/mixins/DataTops'
+
 import VmLoader from '@/components/shared/Loader.vue'
 
 import VmCardTops from '@/components/CardTops.vue'
@@ -53,17 +62,10 @@ export default {
     return {
       artists: [],
       nameArtistTop: '',
-      bio: '',
-      albums: [],
-      tracks: [],
-      selected: '',
-      isTable: 0,
-      isUpdated: false,
-      isLoading: false,
-      photoArtist: '',
-      ranking: 1
+      bio: ''
     }
   },
+  mixins: [fadeInMixin, loaderMixin, dataTopsMixin, closeMenuMixin],
   components: {
     VmCardTops,
     VmTableTracks,
@@ -72,9 +74,6 @@ export default {
   },
   created () {
     this.getData()
-  },
-  mounted () {
-    this.$bus.$emit('open-menu', true)
   },
   methods: {
     getData () {
@@ -96,6 +95,7 @@ export default {
         .then(res => {
           this.tracks = res.toptracks.track
           this.isLoading = true
+          this.fadeIn()
         })
     },
     setSelectedTrack (id, artist, track, photo, ranking) {
@@ -129,5 +129,28 @@ export default {
 @import 'src/scss/general.scss';
 
 @import 'src/scss/TopArtists/GalleryTopAlbums.scss';
+
+.container .tittle span,
+.content-top-ten article,
+.content-bio > *
+{
+  opacity: 0;
+  -ms-transition:all 1s ease-out;
+  -moz-transition:all 1s ease-out;
+  -o-transition:all 1s ease-out;
+  -webkit-transition:all 1s ease-out;
+  transition:all 1s ease-out;
+}
+.fadeIn .container .tittle span,
+.fadeIn .content-top-ten article,
+.fadeIn .content-bio > *
+{
+  opacity: 1;
+  -ms-transition:all 1s ease-in;
+  -moz-transition:all 1s ease-in;
+  -o-transition:all 1s ease-in;
+  -webkit-transition:all 1s ease-in;
+  transition:all 1s ease-in;
+}
 
 </style>

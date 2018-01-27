@@ -4,6 +4,7 @@
       vm-header
       vm-menu
       router-view
+      vm-info
       vm-footer
 </template>
 
@@ -11,6 +12,7 @@
 
 import VmHeader from '@/components/layout/Header.vue'
 import VmMenu from '@/components/layout/Menu.vue'
+import VmInfo from '@/components/layout/Info.vue'
 import VmFooter from '@/components/layout/Footer.vue'
 
 export default {
@@ -18,6 +20,7 @@ export default {
   components: {
     VmHeader,
     VmFooter,
+    VmInfo,
     VmMenu
   }
 }
@@ -26,12 +29,13 @@ export default {
 <style lang="scss">
 @import 'src/scss/main.scss';
 @import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
 
 $color-vue : rgb(222,89,34);
 $background-vue : #ffffff36;
 
 body{
-  font-family:'Roboto', Times, serif;
+  font-family:'Roboto', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 a,a:link,a:active,a:visited,a:focus,a:hover{
   color: $color-vue;

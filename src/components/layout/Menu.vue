@@ -21,7 +21,7 @@
             icon(name="google-plus-square" scale="2")
       .box-contact
         .email 
-          strong Email: 
+          strong email: 
           | rcrdmedina6@gmail.com
 </template>
 
@@ -69,6 +69,7 @@ export default {
   position: fixed;
   height: 100%;
   background: #de5922cc;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   width: 25%;
   right: -25%;
   display: block;
@@ -107,6 +108,7 @@ export default {
   display: block;
   font-size: 1rem;
   font-weight: bold;
+  text-transform: uppercase;
 }
 .menu ul li a:hover, .menu ul li a.router-link-exact-active.router-link-active{
   padding-left: 25px;

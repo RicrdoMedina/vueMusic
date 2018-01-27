@@ -17,14 +17,13 @@
                     v-on:keyup.enter="search"
                     v-focus="true"
                   )
-                  a.button(@click="search")
-                    icon(name="question" scale="2")
+                  a.button(@click="search") ?
               .content-select-countries
                   label Popular right now
                   .box-select-countries
                     select.countries#countries(v-model="selectedCountry")
                       option(v-for="country in countries", v-bind:value="country.value") {{ country.name }}
-              .box-result(v-if="showTotal") {{ total }} results found
+              .box-result
               .loader
 
       .container
@@ -57,6 +56,10 @@
 
 import trackService from '@/services/Tracks'
 
+import fadeInMixin from '@/mixins/FadeIn'
+
+import closeMenuMixin from '@/mixins/CloseMenu'
+
 import Paginate from 'vuejs-paginate'
 
 import VmLoader from '@/components/shared/Loader.vue'
@@ -79,13 +82,11 @@ export default {
         {name: 'Portugal', value: 'portugal'}
       ],
       selectedCountry: 'spain',
-      total: 0,
-      totalPages: 0,
-      showTotal: false,
       isLoading: false,
       isLoadingTracks: false
     }
   },
+  mixins: [fadeInMixin, closeMenuMixin],
   components: {
     VmCardTracksPopular,
     VmLoader,
@@ -108,18 +109,12 @@ export default {
       }
     }
   },
-  mounted () {
-    this.$bus.$emit('open-menu', true)
-  },
   methods: {
     tracksPopular (pageNum) {
       this.isLoadingTracks = true
-      this.showTotal = false
       trackService.geoGetTopTracks(this.selectedCountry, pageNum)
         .then(res => {
           this.tracks = res.tracks.track
-          this.totalPages = Number(res['tracks']['@attr']['totalPages'])
-          this.total = Number(res['tracks']['@attr']['totalPages'])
           this.isLoadingTracks = false
           this.isLoading = true
           this.fadeIn()
@@ -134,46 +129,26 @@ export default {
       }
     },
     search (event) {
-      if (this.searchQuery === '') {
-        console.log('vacio')
-        return
-      }
-      if (/^\s/.test(this.searchQuery)) {
-        console.log('comienza con spaces')
-        return
-      }
-      if (event.key === 'Enter') {
-        console.log('enter key was pressed!')
-        this.selectedCountry = false
-      }
+      if ((this.searchQuery === '') || (/^\s/.test(this.searchQuery))) return
+      if (event.key === 'Enter') this.selectedCountry = false
       this.$refs.paginate.selected = 0
       this.getTracks()
     },
     getTracks (pageNum) {
       this.isLoadingTracks = true
-      this.showTotal = false
       trackService.search(this.searchQuery, pageNum)
         .then(res => {
           let respon = res
           if (respon['results']['opensearch:totalResults'] > 0) {
             this.tracks = respon.results.trackmatches.track
-            this.total = this.tracks.length
             this.titleMain = `Results found ${this.searchQuery}`
             setTimeout(() => {
               this.isLoadingTracks = false
-              // this.showTotal = true
             }, 3000)
           } else {
             this.isLoadingTracks = false
-            this.total = 0
-            // this.showTotal = true
           }
         })
-    },
-    fadeIn () {
-      setTimeout(() => {
-        document.getElementById('sectionMain').classList.add('fadeIn')
-      }, 4000)
     }
   }
 }
@@ -250,10 +225,12 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  
 }
 .content-box{
   margin: 0 .8rem;
+  font-size: 2.2rem;
+  font-family: 'Dancing Script', cursive, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 .content-select-countries{
   display: flex;
@@ -269,6 +246,8 @@ export default {
 .content-select-countries label{
   margin-right: .5rem;
   display: inline-block;
+  font-size: 1.2rem;
+  font-family: 'Dancing Script', cursive, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 .content-select-countries .box-select-countries{
  display: inline-block; 
@@ -331,7 +310,7 @@ transition:all 0.6s ease-out;
   -webkit-transition:all 0.6s ease-in;
   transition:all 0.6s ease-in;
 }
-.wrapper-search:hover .button{
+.wrapper-search:hover .content-box .button{
   color: rgba(0, 0, 0, 0.7);
   -ms-transition:all 0.6s ease-in;
   -moz-transition:all 0.6s ease-in;
@@ -339,7 +318,7 @@ transition:all 0.6s ease-out;
   -webkit-transition:all 0.6s ease-in;
   transition:all 0.6s ease-in;
 }
-.button{
+.content-box .button{
   border-radius: unset;
   background:transparent;
   color: #fff;
@@ -353,8 +332,10 @@ transition:all 0.6s ease-out;
   -o-transition:all 0.6s ease-out;
   -webkit-transition:all 0.6s ease-out;
   transition:all 0.6s ease-out;
+  font-size: 2.2rem;
+  font-weight: bold;
 }
-.button:hover,.button:focus{
+.content-box .button:hover,.content-box .button:focus{
   border: unset; 
 }
 .pagination-list li.is-current a{
