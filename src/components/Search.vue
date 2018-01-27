@@ -31,6 +31,7 @@
             h2
               icon(name="share" scale="1") 
               | &nbsp; {{ titleMain | capitalize-first-letter }}
+            span.number-page {{numberPage}} / 100
           .show-results
             .wrapper-card(v-for="t in tracks", v-bind:class="{ 'is-loaded': isLoadingTracks }")
               vm-card-tracks-popular(v-bind:track="t")
@@ -72,6 +73,7 @@ export default {
       searchQuery: '',
       tracks: [],
       titleMain: 'Tracks Populars Spain',
+      numberPage: 1,
       countries: [
         {name: ' Seleccione ', value: false},
         {name: 'Argentina', value: 'argentina'},
@@ -105,6 +107,7 @@ export default {
         this.tracksPopular()
         this.searchQuery = ''
         this.$refs.paginate.selected = 0
+        this.numberPage = 1
       }
     }
   },
@@ -123,14 +126,17 @@ export default {
     goToPage (pageNum) {
       if (this.searchQuery === '') {
         this.tracksPopular(pageNum)
+        this.numberPage = pageNum
       } else {
         this.getTracks(pageNum)
+        this.numberPage = pageNum
       }
     },
     search (event) {
       if ((this.searchQuery === '') || (/^\s/.test(this.searchQuery))) return
       if (event.key === 'Enter') this.selectedCountry = false
       this.$refs.paginate.selected = 0
+      this.numberPage = 1
       this.getTracks()
     },
     getTracks (pageNum) {
@@ -179,6 +185,12 @@ export default {
 .title-main h2{
   color: #de5a22cc;
 }
+.number-page{
+  position: absolute;
+  right: 20px;
+  top: 35px;
+  color: #fff;
+}
 .wrapper-results{
   background: rgba(0, 0, 0, 0.7);
   padding: 1rem 1rem 1.2rem;
@@ -206,7 +218,8 @@ export default {
 ,.title-main h2
 ,.show-results
 ,.content-select-countries
-,.pagination{
+,.pagination
+,.number-page{
   opacity: 0;
   -ms-transition:all 1s ease-out;
   -moz-transition:all 1s ease-out;
@@ -218,7 +231,8 @@ export default {
 ,.fadeIn .title-main h2
 ,.fadeIn .show-results
 ,.fadeIn .content-select-countries
-,.fadeIn .pagination{
+,.fadeIn .pagination,
+.fadeIn .number-page{
   opacity: 1;
   -ms-transition:all 1s ease-in;
   -moz-transition:all 1s ease-in;
