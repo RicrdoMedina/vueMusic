@@ -25,6 +25,8 @@ export default {
 
 <style lang="scss">
 
+@import 'src/scss/media-queries.scss';
+
 .header{
   width: 100%;
   margin: 0 auto;

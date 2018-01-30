@@ -163,6 +163,8 @@ export default {
 
 @import 'src/scss/loader-box-search.scss';
 
+@import 'src/scss/media-queries.scss';
+
 .container{
   margin-top:1rem;
 }

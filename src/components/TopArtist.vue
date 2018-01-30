@@ -5,8 +5,8 @@
       h1.tittle
         span Top Artists
     .container
-      .columns
-        .column.is-6
+      .columns.is-mobile.is-table.is-desktop
+        .column.is-12-mobile.is-12-tablet.is-5-desktop
           .content-top-ten
             article(v-for="(item, index) in artists")
               vm-card-tops(
@@ -16,7 +16,8 @@
                             v-bind:class="{ 'is-active': item.url === selected }"
                           )
             
-        .column.is-6
+        #containerInfo.column.is-10-mobile.is-10-tablet.is-7-desktop
+          .close(@click="closeModalInfo()") Cerrar
           .content-bio(v-bind:class="{ 'is-updated': isUpdated }")
             article.info.toptrack
               .wrapper-box
@@ -113,13 +114,27 @@ export default {
         .then(res => {
           this.tracks = res.toptracks.track
         })
-      this.isUpdated = true
+      if (this.mediaQuery()) {
+        document.getElementById('containerInfo').classList.add('fixed')
+        console.log('if')
+      } else {
+        console.log('else')
+        this.isUpdated = true
+      }
       setTimeout(() => {
-        this.isUpdated = false
         this.nameArtistTop = artist
         this.photoArtist = photo
         this.ranking = ranking
+        this.isUpdated = false
       }, 3000)
+    },
+    mediaQuery () {
+      let queryMedia = window.matchMedia('(max-width:1023px)')
+      if (queryMedia.matches) return true
+      return false
+    },
+    closeModalInfo () {
+      document.getElementById('containerInfo').classList.remove('fixed')
     }
   }
 }
@@ -130,6 +145,8 @@ export default {
 @import 'src/scss/general.scss';
 
 @import 'src/scss/TopArtists/GalleryTopAlbums.scss';
+
+@import 'src/scss/media-queries.scss';
 
 .box-hero .tittle span,
 .content-top-ten article,

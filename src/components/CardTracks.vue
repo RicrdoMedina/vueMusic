@@ -33,6 +33,7 @@ export default {
 <style lang="scss" scoped>
 
 @import 'src/scss/loader-card.scss';
+@import 'src/scss/media-queries.scss';
 
 .card{
   background: rgba(0, 0, 0, 0.4);

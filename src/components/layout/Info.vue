@@ -46,7 +46,7 @@
 </template>
 
 <style lang="scss" scoped>
-
+@import 'src/scss/media-queries.scss';
 a,a:link,a:active,a:visited,a:focus,a:hover{
   color: #fff;
   transition:all 0.6s ease-out;

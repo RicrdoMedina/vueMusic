@@ -4,10 +4,10 @@
     .box-hero
       h1.tittle 
         span {{ infoTrack.name }}
-    .container
+    .container.detail-track
       .columns
-        .column.is-6
-          .content-info-track
+        .column.is-12-mobile.is-12-tablet.is-6-desktop
+          .content-info-track.detail
             article
               figure(class='content-image')
                 img(v-if="infoArtist && infoArtist.name", v-bind:src="infoArtist.image[5]['#text']", alt="Placeholder image")
@@ -32,8 +32,8 @@
               h3 Tracks
               vm-table-tracks(v-bind:tracks="trackAlbum", v-bind:table="isTableTracks")
             
-        .column.is-6
-          .content-bio
+        .column.is-12-mobile.is-12-tablet.is-6-desktop
+          .content-bio.detail
             article
               h3 Biography
               p.bio {{ bio }}
@@ -141,6 +141,7 @@ export default {
 
 @import 'src/scss/general.scss';
 @import 'src/scss/TopArtists/GalleryTopAlbums.scss';
+@import 'src/scss/media-queries.scss';
 
 .box-hero.tittle span,
 .content-info-track article,

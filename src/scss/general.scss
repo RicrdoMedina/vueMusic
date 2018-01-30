@@ -44,6 +44,7 @@ h3{
   transition:all 0.6s ease-out;
   will-change: auto;
 }
+
 .fadeIn .content-top-ten,
 .fadeIn .content-bio,
 .fadeIn .content-info-track,
@@ -180,6 +181,7 @@ h3{
 .content-top-ten article .info span{
   margin: 0 1rem 0 0;
   font-style: oblique;
+  font-size: 1rem;
 }
 .content-top-ten .content-artist{
   display: flex;
@@ -190,7 +192,11 @@ h3{
   transition:all 0.6s ease-out;
   will-change: auto;
 }
-
+#containerInfo .close{
+  display:none;
+  cursor: pointer;
+  font-size: 2rem;
+}
 .content-top-ten .content-artist:hover{
   background: rgba(222, 89, 34, 0.32);
   transition:all 0.6s ease-in;
@@ -240,7 +246,7 @@ h3{
   width: 55px;
   position: absolute;
   bottom: 25px;
-  right: 128px;
+  right: 28%;
   height: 55px;
   display: flex;
   align-items: center;
@@ -286,4 +292,11 @@ h3{
 }
 .info.toptrack .track, .info.toptrack .artist-top{
   font-size: 1.5em;
+}
+.section-main .content-bio.detail, 
+.section-main .content-info-track {
+  width: 100%;
+  height: unset;
+  min-height: unset;
+  overflow-y: unset;
 }

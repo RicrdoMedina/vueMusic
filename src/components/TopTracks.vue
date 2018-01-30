@@ -5,8 +5,8 @@
       h1.tittle 
         span Top Tracks
     .container
-      .columns
-        .column.is-6
+      .columns.is-mobile.is-table.is-desktop
+        .column.is-12-mobile.is-12-tablet.is-5-desktop
           .content-top-ten
             article(v-for="(item, index) in tracks")
               vm-card-tops(
@@ -16,7 +16,8 @@
                             v-bind:class="{ 'is-active': item.url === selected }"
                           )
             
-        .column.is-6
+        #containerInfo.column.is-10-mobile.is-10-tablet.is-7-desktop
+          .close(@click="closeModalInfo()") Cerrar
           .content-bio(v-bind:class="{ 'is-updated': isUpdated }")
             article.info.toptrack
               .wrapper-box
@@ -100,9 +101,13 @@ export default {
         })
     },
     setSelectedTrack (id, artist, track, photo, ranking) {
-      this.isUpdated = true
       this.selected = id
       this.getData(artist, track)
+      if (this.mediaQuery()) {
+        document.getElementById('containerInfo').classList.add('fixed')
+      } else {
+        this.isUpdated = true
+      }
       setTimeout(() => {
         this.isUpdated = false
         this.nameArtist = artist
@@ -110,6 +115,14 @@ export default {
         this.photoArtist = photo
         this.ranking = ranking
       }, 3000)
+    },
+    mediaQuery () {
+      let queryMedia = window.matchMedia('(max-width:1023px)')
+      if (queryMedia.matches) return true
+      return false
+    },
+    closeModalInfo () {
+      document.getElementById('containerInfo').classList.remove('fixed')
     },
     getData (artist, track) {
       trackService.trackGetInfo(artist, track)
@@ -168,6 +181,7 @@ export default {
 
 @import 'src/scss/general.scss';
 @import 'src/scss/TopArtists/GalleryTopAlbums.scss';
+@import 'src/scss/media-queries.scss';
 
 .box-hero .tittle span,
 .content-top-ten article,

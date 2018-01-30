@@ -30,6 +30,7 @@ export default {
 @import 'src/scss/main.scss';
 @import url("https://fonts.googleapis.com/css?family=Roboto");
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+@import 'src/scss/media-queries.scss';
 
 $color-vue : rgb(222,89,34);
 $background-vue : #ffffff36;
