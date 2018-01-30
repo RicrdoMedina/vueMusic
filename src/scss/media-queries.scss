@@ -1,8 +1,18 @@
-/* Smartphones (portrait & landscape) */
+@media only screen 
+and (min-width : 320px) 
+and (max-width : 400px) {
+  .box-top-images figure img {
+    height: 100%;
+    width: 100%;
+  }
+  .section-main .box-top-images figure:first-child, .section-main .box-top-images figure {
+    width: 90%;
+    height: 200px;
+  }
+}
 @media only screen 
 and (min-width : 320px) 
 and (max-width : 540px) {
-  /********** TopTracks, TopArtist ************/
   .content-top-ten .content-artist figure{
     width: 30%;
   }
@@ -34,10 +44,6 @@ and (max-width : 540px) {
   .content-bio article {
     min-height: unset;
   }
-  #containerInfo.fixed .close{
-    left: 70%;
-    font-size: 1rem;
-  }
   .box-top-images.unique-album figure {
     width: 100%;
   }
@@ -64,120 +70,14 @@ and (max-width : 540px) {
   .box-top-images {
     height: auto;
   }
-
-
-
-
-  #sectionMain.section-main .content-info-track.detail,
-  #sectionMain.section-main .content-bio.detail{
-    width: 100%;
+  #containerInfo.fixed .close {
+    width: 70px;
+    height: 70px;
   }
-  .content-image .track{
-    font-size: 1.3rem;
-  }
-  .section-main .content-bio.detail{
-    margin: 4rem 0 0;
-  }
-  .section-main .content-info-track{
-    margin: 3rem 0 1rem;
-  }
-  /**************** Search ************/
-  .nav-search .content-box:first-child,
-  .wrapper-search .box-result{
-    display: none;
-  }
-  .nav-search .search{
-    width: 84%;
-  }
-
-  .nav-search .content-box .button{
-    background:#fff;
-    color:rgba(0, 0, 0, 0.7);
-    height: 50px;
-    top:0;
-  }
-
-  .section-main .content-select-countries{
-    bottom: 20px;
-  }
-  .section-main .title-main{
-    margin-bottom: 2rem;
-  }
-  .section-main .wrapper-results .number-page {
-    position: static;
-    right: unset;
-    top: unset;
-    text-align: right;
-    color: #fff;
-    display: block;
-    height: 0;
-    padding: 0;
-  }
-  .section-main .show-results .wrapper-card{
-    margin: 2.5rem auto 1rem;
-    width: 70%;
-  }
-
-  /**************** CardTracks  ****************/
-  .section-main .card-content .media{
-    position: relative;
-    top: -63px;
-    width: auto;
-    box-sizing: border-box;
-  }
-  .section-main .card-content{
-    height: 50px;
-  }
-
-
-
-  /**************** Header ****************/
-  .header.is-open-menu{
-    width: 100%;
-  }
-  .header .content-icon-menu {
-    background: #000;
-    width: 20%;
-    position: fixed;
-    left: 80%;
-    height: 86px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition:all 0.6s ease-out;
-    will-change: auto;
-  }
-  .header .content-icon-menu .icon-bars{
-    width: 100%;
-    height: 73px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .header.is-open-menu .content-icon-menu {
-    left: 0;
-    transition:all 0.6s ease-in;
-  }
-
-  /************* Menu ****************/
-  .menu{
-    width: 80%;
-    right: -80%;
-    background: #de5922;
-  }
-
-
-
-
-
 }
 @media only screen 
 and (min-width : 540px) 
 and (max-width : 767px) {
-  /********** TopTracks, TopArtist ************/
-  #containerInfo.fixed .close{
-    left: 75%;
-  }
   .content-top-ten .content-artist figure{
     width: 20%;
   }
@@ -190,46 +90,27 @@ and (max-width : 767px) {
   .info .number-top{
     right: 26%;
   }
-  #containerInfo.fixed .close{
-    font-size: 1rem;
-  }
   .content-top-ten article:first-child .info {
     bottom: 0;
+  }
+  #containerInfo.fixed .close {
+    width: 70px;
+    height: 70px;
   }
 }
 @media only screen 
 and (min-width : 541px) 
 and (max-width : 960px) {
-  /**************** Header ****************/
-  .header.is-open-menu{
-    width: 60%;
-  }
-
-  /************* Menu ****************/
-  .menu{
-    width: 40%;
-    right: -40%;
-  }
-  /**************** Search ************/
-  .section-main .show-results {
-    justify-content: space-around;
-  }
-
-  /********** TopTracks, TopArtist ************/
   .content-artist {
     font-size: .9rem;
   }
   .info.toptrack .content-image img {
     width: 60%;
   }
-
 }
-
 
 @media only screen 
 and (max-width : 767px) {
-  
-  /********** TopTracks, TopArtist ************/
   .content-top-ten .content-artist {
     display: inline-block;
     text-align: center;
@@ -249,72 +130,10 @@ and (max-width : 767px) {
   .content-top-ten article:first-child figure{
     position: static;
   }
-  /******** Search ***************/
-  .section-main .wrapper-search{
-    min-height: 200px;
-    padding: 3rem .3rem 1.4rem;
-  }
-  .nav-search .content-box{
-    display: flex;
-  }
-  .nav-search .search{
-    width: 90%;
-  }
-  
-  /************* Info ****************/
-  .box-main .navigate,
-  .box-main .info{
-     margin: .8rem auto 0;
-     padding: 2rem 2rem 0;
-     text-align: center;
-   }
-   .box-main .navigate{
-     margin-top: .4rem;
-   }
-   .box-main .info{
-     margin-top: 2rem;
-   }
-   .box-main .navigate h4,
-   .box-main .content-nota h4,
-   .box-main .info h4{
-     font-size: 2.8rem;
-     margin-bottom: 2rem;
-   }
-   .box-main .navigate h4{
-     margin-bottom: 1.3rem;
-   }
-   .box-main .navigate ul li{
-     font-size: 1.2rem;
-     margin-bottom: .4rem;
-   }
-   .box-main .content-nota{
-     margin-top: .8rem;
-     padding: 0 2rem;
-     text-align: center;
-   }
-   .box-main .info .mail{
-     font-size: 1.1rem;
-   }
-   .box-main .info .box-social-media{
-     display: flex;
-     align-items: center;
-     justify-content: center;
-   }
 }
-
-
-@media only screen 
-and (max-width : 960px) {
-  .header .column .main-logo{
-    left: 5%;
-  }
-}
-
-
 @media only screen 
 and (min-width : 768px) 
 and (max-width : 1024px) {
-  /********** TopTracks, TopArtist ************/
   #containerInfo{
     padding: .5rem 3rem 3rem;
   }
@@ -323,10 +142,6 @@ and (max-width : 1024px) {
   }
   .content-top-ten{
     width: 80%;
-  }
-  #containerInfo.fixed .close{
-    left: 80%;
-    font-size: 1.2rem;
   }
   .info .number-top{
     right: 32%;
@@ -337,22 +152,6 @@ and (max-width : 1024px) {
 }
 @media only screen 
 and (max-width : 1024px) {
-  .box-hero .tittle{
-    width: 90%;
-  }
-  .section-main .container.detail-track .columns{
-    display: block;
-  }
-
-  .section-main .content-info-track.detail,
-  .section-main .content-bio.detail{
-    width: 80%;
-    margin: 2rem auto 1rem;
-  }
-  .section-main .content-info-track.detail{
-    margin: 4rem auto 1rem;
-  }
-  /********** TopTracks, TopArtist ************/
   #containerInfo{
     opacity: 1;
     transition:all 0.6s ease-out;
@@ -378,21 +177,9 @@ and (max-width : 1024px) {
     z-index: 99999;
     transition:all 0.6s ease-in;
   }
-  #containerInfo.fixed .close{
-    display: block;
-    color: #fff;
-    background: rgba(222, 89, 34, 0.58);
-    text-align: right;
-    margin-top: 1rem;
-    top: 64px;
-    padding: .5rem 1rem;
-    display: inline-block;
-    position: relative;
-    z-index: 999999999;
-  }
   .content-bio, .content-info-track {
     width: 100%;
-    margin: 0 auto;
+    margin: 5rem auto;
     height: 500px;
     min-height: unset;
     overflow-y: scroll;

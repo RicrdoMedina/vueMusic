@@ -163,8 +163,6 @@ export default {
 
 @import 'src/scss/loader-box-search.scss';
 
-@import 'src/scss/media-queries.scss';
-
 .container{
   margin-top:1rem;
 }
@@ -360,4 +358,65 @@ export default {
   background: #de5a229d;
   transition:all 0.6s ease-in;
 }
+
+@media only screen 
+and (min-width : 320px) 
+and (max-width : 540px) {
+  .nav-search .content-box:first-child,
+  .wrapper-search .box-result{
+    display: none;
+  }
+  .nav-search .search{
+    width: 84%;
+  }
+  .nav-search .content-box .button{
+    background:#fff;
+    color:rgba(0, 0, 0, 0.7);
+    height: 50px;
+    top:0;
+  }
+  .section-main .content-select-countries{
+    bottom: 20px;
+  }
+  .section-main .title-main{
+    margin-bottom: 2rem;
+  }
+  .section-main .wrapper-results .number-page {
+    position: static;
+    right: unset;
+    top: unset;
+    text-align: right;
+    color: #fff;
+    display: block;
+    height: 0;
+    padding: 0;
+  }
+  .section-main .show-results .wrapper-card{
+    margin: 2.5rem auto 1rem;
+    width: 70%;
+  }
+}
+
+@media only screen 
+and (min-width : 541px) 
+and (max-width : 960px) {
+  .section-main .show-results {
+    justify-content: space-around;
+  }
+
+}
+@media only screen 
+and (max-width : 767px) {
+  .section-main .wrapper-search{
+    min-height: 200px;
+    padding: 3rem .3rem 1.4rem;
+  }
+  .nav-search .content-box{
+    display: flex;
+  }
+  .nav-search .search{
+    width: 90%;
+  }
+}
+
 </style>

@@ -24,9 +24,6 @@ export default {
 </script>
 
 <style lang="scss">
-
-@import 'src/scss/media-queries.scss';
-
 .header{
   width: 100%;
   margin: 0 auto;
@@ -79,5 +76,51 @@ export default {
   display:inline-block;
   opacity: 1;
   transition:all 0.6s ease-in;
+}
+
+@media only screen 
+and (min-width : 320px) 
+and (max-width : 540px) {
+  .header.is-open-menu{
+    width: 100%;
+  }
+  .header .content-icon-menu {
+    background: #000;
+    width: 20%;
+    position: fixed;
+    left: 80%;
+    height: 86px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:all 0.6s ease-out;
+    will-change: auto;
+  }
+  .header .content-icon-menu .icon-bars{
+    width: 100%;
+    height: 73px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .header.is-open-menu .content-icon-menu {
+    left: 0;
+    transition:all 0.6s ease-in;
+  }
+}
+
+@media only screen 
+and (min-width : 541px) 
+and (max-width : 960px) {
+  .header.is-open-menu{
+    width: 60%;
+  }
+}
+
+@media only screen 
+and (max-width : 960px) {
+  .header .column .main-logo{
+    left: 5%;
+  }
 }
 </style>

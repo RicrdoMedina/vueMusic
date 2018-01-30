@@ -17,7 +17,8 @@
                           )
             
         #containerInfo.column.is-10-mobile.is-10-tablet.is-7-desktop
-          .close(@click="closeModalInfo()") Cerrar
+          .icon-bars(@click="closeModalInfo()", class="close") 
+            icon(name="times" scale="2")
           .content-bio(v-bind:class="{ 'is-updated': isUpdated }")
             article.info.toptrack
               .wrapper-box

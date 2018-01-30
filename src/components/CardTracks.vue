@@ -33,7 +33,6 @@ export default {
 <style lang="scss" scoped>
 
 @import 'src/scss/loader-card.scss';
-@import 'src/scss/media-queries.scss';
 
 .card{
   background: rgba(0, 0, 0, 0.4);
@@ -116,4 +115,17 @@ export default {
   color:#fff;
 }
 
+@media only screen 
+and (min-width : 320px) 
+and (max-width : 540px) {
+  .section-main .card-content .media{
+    position: relative;
+    top: -63px;
+    width: auto;
+    box-sizing: border-box;
+  }
+  .section-main .card-content{
+    height: 50px;
+  }
+}
 </style>

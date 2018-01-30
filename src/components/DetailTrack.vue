@@ -142,7 +142,6 @@ export default {
 @import 'src/scss/general.scss';
 @import 'src/scss/TopArtists/GalleryTopAlbums.scss';
 @import 'src/scss/media-queries.scss';
-
 .box-hero.tittle span,
 .content-info-track article,
 .content-bio > *
@@ -199,4 +198,39 @@ export default {
   margin: 0 .5rem 0 0;
 }
 
+@media only screen 
+and (min-width : 320px) 
+and (max-width : 540px) {
+  #sectionMain.section-main .content-info-track.detail,
+  #sectionMain.section-main .content-bio.detail{
+    width: 100%;
+  }
+  .content-image .track{
+    font-size: 1.3rem;
+  }
+  .section-main .content-bio.detail{
+    margin: 4rem 0 0;
+  }
+  .section-main .content-info-track{
+    margin: 3rem 0 1rem;
+  }
+}
+
+@media only screen 
+and (max-width : 1024px) {
+  .box-hero .tittle{
+    width: 90%;
+  }
+  .section-main .container.detail-track .columns{
+    display: block;
+  }
+  .section-main .content-info-track.detail,
+  .section-main .content-bio.detail{
+    width: 80%;
+    margin: 2rem auto 1rem;
+  }
+  .section-main .content-info-track.detail{
+    margin: 4rem auto 1rem;
+  }
+}
 </style>

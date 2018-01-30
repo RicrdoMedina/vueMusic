@@ -192,11 +192,6 @@ h3{
   transition:all 0.6s ease-out;
   will-change: auto;
 }
-#containerInfo .close{
-  display:none;
-  cursor: pointer;
-  font-size: 2rem;
-}
 .content-top-ten .content-artist:hover{
   background: rgba(222, 89, 34, 0.32);
   transition:all 0.6s ease-in;
@@ -299,4 +294,28 @@ h3{
   height: unset;
   min-height: unset;
   overflow-y: unset;
+}
+#containerInfo .close{
+  display:none;
+  cursor: pointer;
+  font-size: 2rem;
+  transition:all 0.6s ease-out;
+  will-change: auto;
+}
+#containerInfo.fixed .close {
+  color: #fff;
+  display: flex;
+  background: rgb(222, 89, 34);
+  text-align: right;
+  margin-top: 0;
+  top: 0;
+  right: 0;
+  padding: .5rem 1rem;
+  position: absolute;
+  z-index: 999999999;
+  width: 100px;
+  height: 70px;
+  align-items: center;
+  justify-content: center;
+  transition:all 0.6s ease-in;
 }

@@ -46,7 +46,6 @@
 </template>
 
 <style lang="scss" scoped>
-@import 'src/scss/media-queries.scss';
 a,a:link,a:active,a:visited,a:focus,a:hover{
   color: #fff;
   transition:all 0.6s ease-out;
@@ -125,5 +124,46 @@ a:hover{
 }
 .box-social-media a{
   margin-right: .9rem;
+}
+@media only screen 
+and (max-width : 767px) {
+  .box-main .navigate,
+  .box-main .info{
+     margin: .8rem auto 0;
+     padding: 2rem 2rem 0;
+     text-align: center;
+   }
+   .box-main .navigate{
+     margin-top: .4rem;
+   }
+   .box-main .info{
+     margin-top: 2rem;
+   }
+   .box-main .navigate h4,
+   .box-main .content-nota h4,
+   .box-main .info h4{
+     font-size: 2.8rem;
+     margin-bottom: 2rem;
+   }
+   .box-main .navigate h4{
+     margin-bottom: 1.3rem;
+   }
+   .box-main .navigate ul li{
+     font-size: 1.2rem;
+     margin-bottom: .4rem;
+   }
+   .box-main .content-nota{
+     margin-top: .8rem;
+     padding: 0 2rem;
+     text-align: center;
+   }
+   .box-main .info .mail{
+     font-size: 1.1rem;
+   }
+   .box-main .info .box-social-media{
+     display: flex;
+     align-items: center;
+     justify-content: center;
+   }
 }
 </style>

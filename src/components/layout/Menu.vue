@@ -141,4 +141,24 @@ export default {
   right: 0%;
   transition:all 0.6s ease-in;
 }
+
+@media only screen 
+and (min-width : 320px) 
+and (max-width : 540px) {
+  .menu{
+    width: 80%;
+    right: -80%;
+    background: #de5922;
+  }
+}
+
+@media only screen 
+and (min-width : 541px) 
+and (max-width : 960px) {
+  .menu{
+    width: 40%;
+    right: -40%;
+  }
+}
+
 </style>
