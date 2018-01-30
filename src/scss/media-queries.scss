@@ -152,9 +152,12 @@ and (max-width : 1024px) {
 }
 @media only screen 
 and (max-width : 1024px) {
+  .section-main .tittle{
+    width: 90%;
+  }
   #containerInfo{
     opacity: 1;
-    transition:all 0.6s ease-out;
+    transition:all .6s ease-out;
     will-change: auto;
   }
   #containerInfo{
@@ -169,13 +172,13 @@ and (max-width : 1024px) {
     height: 100%;
     width: 100%;
     background: rgba(0, 0, 0, 0.788);
-    transition:all 0.6s ease-out;
+    transition:all .6s ease-out;
     will-change: auto;
   }
   #containerInfo.fixed{
     opacity: 1;
     z-index: 99999;
-    transition:all 0.6s ease-in;
+    transition:all .6s ease-in;
   }
   .content-bio, .content-info-track {
     width: 100%;
@@ -184,5 +187,36 @@ and (max-width : 1024px) {
     min-height: unset;
     overflow-y: scroll;
     background: #000;
+    right: -100%;
+    position: relative;
+    transition:all .6s ease-out;
+    will-change: auto;
+  }
+  #containerInfo.fixed .content-bio,
+  #containerInfo.fixed .content-info-track,{
+    right: 0%;
+    transition:all .6s ease-in;
+  }
+  #containerInfo .content-bio.is-updated,
+  #containerInfo .content-info-track.is-updated{
+    overflow-y: hidden;
+  }
+  #containerInfo .content-bio.is-updated > article,
+  #containerInfo .content-info-track.is-updated > article{
+    opacity: 0;
+    transition:all .6s ease-out;
+    will-change: auto;
+  }
+  #containerInfo .content-bio .wrapper-box,
+  #containerInfo .content-info-track .wrapper-box{
+    opacity: 1;
+    transition:all .6s ease-in;
+  }
+}
+@media only screen 
+and (min-width : 1024px) {
+  .content-bio.is-updated{
+    background: rgba(222, 89, 34, 0.72);
+    transition:all .6s ease-in;
   }
 }

@@ -142,7 +142,7 @@ export default {
 @import 'src/scss/general.scss';
 @import 'src/scss/TopArtists/GalleryTopAlbums.scss';
 @import 'src/scss/media-queries.scss';
-.box-hero.tittle span,
+.box-hero .tittle span,
 .content-info-track article,
 .content-bio > *
 {

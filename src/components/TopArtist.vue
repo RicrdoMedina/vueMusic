@@ -20,6 +20,7 @@
           .icon-bars(@click="closeModalInfo()", class="close") 
             icon(name="times" scale="2")
           .content-bio(v-bind:class="{ 'is-updated': isUpdated }")
+            .loader
             article.info.toptrack
               .wrapper-box
                 figure(class='content-image')
@@ -103,6 +104,13 @@ export default {
     },
     setSelectedTrack (id, artist, track, photo, ranking) {
       this.selected = id
+      let maxWidth = 'max-width:1023px'
+      if (this.mediaQuery(maxWidth)) {
+        setTimeout(() => {
+          document.getElementById('containerInfo').classList.add('fixed')
+        }, 1000)
+      }
+      this.isUpdated = true
       trackService.artistGetInfo(artist)
         .then(res => {
           this.bio = res.artist.bio.summary
@@ -114,23 +122,16 @@ export default {
         })
         .then(res => {
           this.tracks = res.toptracks.track
+          setTimeout(() => {
+            this.nameArtistTop = artist
+            this.photoArtist = photo
+            this.ranking = ranking
+            this.isUpdated = false
+          }, 3000)
         })
-      if (this.mediaQuery()) {
-        document.getElementById('containerInfo').classList.add('fixed')
-        console.log('if')
-      } else {
-        console.log('else')
-        this.isUpdated = true
-      }
-      setTimeout(() => {
-        this.nameArtistTop = artist
-        this.photoArtist = photo
-        this.ranking = ranking
-        this.isUpdated = false
-      }, 3000)
     },
-    mediaQuery () {
-      let queryMedia = window.matchMedia('(max-width:1023px)')
+    mediaQuery (maxWidth) {
+      let queryMedia = window.matchMedia('(' + maxWidth + ')')
       if (queryMedia.matches) return true
       return false
     },
@@ -146,6 +147,8 @@ export default {
 @import 'src/scss/general.scss';
 
 @import 'src/scss/TopArtists/GalleryTopAlbums.scss';
+
+@import 'src/scss/loader-card.scss';
 
 @import 'src/scss/media-queries.scss';
 

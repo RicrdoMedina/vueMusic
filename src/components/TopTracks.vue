@@ -20,6 +20,7 @@
           .icon-bars(@click="closeModalInfo()", class="close") 
             icon(name="times" scale="2")
           .content-bio(v-bind:class="{ 'is-updated': isUpdated }")
+            .loader
             article.info.toptrack
               .wrapper-box
                 figure(class='content-image')
@@ -94,38 +95,40 @@ export default {
       let limit = 15
       trackService.getTopTracks(limit)
         .then(res => {
-          this.nameTrack = res.tracks.track[0].name
-          this.nameArtist = res.tracks.track[0].artist.name
-          this.photoArtist = res.tracks.track[0].image[2]['#text']
+          let track = res.tracks.track[0].name
+          let artist = res.tracks.track[0].artist.name
+          let photo = res.tracks.track[0].image[2]['#text']
+          let ranking = 1
           this.tracks = res.tracks.track
-          this.getData(this.nameArtist, this.nameTrack)
+          this.getData(artist, track, photo, ranking)
         })
     },
     setSelectedTrack (id, artist, track, photo, ranking) {
       this.selected = id
-      this.getData(artist, track)
-      if (this.mediaQuery()) {
-        document.getElementById('containerInfo').classList.add('fixed')
-      } else {
-        this.isUpdated = true
+      this.getData(artist, track, photo, ranking)
+      let maxWidth = 'max-width:1023px'
+      if (this.mediaQuery(maxWidth)) {
+        setTimeout(() => {
+          document.getElementById('containerInfo').classList.add('fixed')
+        }, 1000)
       }
-      setTimeout(() => {
-        this.isUpdated = false
-        this.nameArtist = artist
-        this.nameTrack = track
-        this.photoArtist = photo
-        this.ranking = ranking
-      }, 3000)
+      this.isUpdated = true
     },
-    mediaQuery () {
-      let queryMedia = window.matchMedia('(max-width:1023px)')
+    mediaQuery (maxWidth) {
+      let queryMedia = window.matchMedia('(' + maxWidth + ')')
       if (queryMedia.matches) return true
       return false
+    },
+    updateInfoSelected (artist, track, photo, ranking) {
+      this.nameArtist = artist
+      this.nameTrack = track
+      this.photoArtist = photo
+      this.ranking = ranking
     },
     closeModalInfo () {
       document.getElementById('containerInfo').classList.remove('fixed')
     },
-    getData (artist, track) {
+    getData (artist, track, photo, ranking) {
       trackService.trackGetInfo(artist, track)
         .then(res => {
           this.nameAlbum = res.track.album === undefined ? 'No found' : res.track.album.title
@@ -172,6 +175,10 @@ export default {
           }
           this.isLoading = true
           this.fadeIn()
+          this.updateInfoSelected(artist, track, photo, ranking)
+          setTimeout(() => {
+            this.isUpdated = false
+          }, 3000)
         })
     }
   }
@@ -182,6 +189,7 @@ export default {
 
 @import 'src/scss/general.scss';
 @import 'src/scss/TopArtists/GalleryTopAlbums.scss';
+@import 'src/scss/loader-card.scss';
 @import 'src/scss/media-queries.scss';
 
 .box-hero .tittle span,

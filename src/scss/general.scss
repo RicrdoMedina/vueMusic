@@ -26,7 +26,7 @@ h3{
   background: #de5a22cc;
   width: 100%;
   padding: 1rem 3rem .5rem;
-  transition:all 0.6s ease-out;
+  transition:all .6s ease-out;
   will-change: auto;
 }
 .column.is-6{
@@ -41,7 +41,7 @@ h3{
   color: rgb(181, 181, 181);
   padding-bottom: 2rem;
   overflow: hidden;
-  transition:all 0.6s ease-out;
+  transition:all .6s ease-out;
   will-change: auto;
 }
 
@@ -49,7 +49,7 @@ h3{
 .fadeIn .content-bio,
 .fadeIn .content-info-track,
 .fadeIn .box-hero{
-  transition:all 0.6s ease-in;
+  transition:all .6s ease-in;
 }
 .fadeIn .box-hero{
   background-image: url("../assets/green-dust-and-scratches.png");
@@ -61,7 +61,7 @@ h3{
 }
 .content-bio.is-updated{
   background: rgba(222, 89, 34, 0.72);
-  transition:all 0.6s ease-in;
+  transition:all .6s ease-in;
 }
 .content-info-track{
   padding: .5rem 2rem 4rem;
@@ -98,19 +98,19 @@ h3{
 .content-top-ten article:first-child img{
   border: solid 3px rgba(222, 89, 34, 0.32);
   will-change: auto;
-  transition:all 0.6s ease-out;
+  transition:all .6s ease-out;
 }
 .content-top-ten article:first-child:hover img{
   border: solid 3px rgb(222,89,34);
-  transition:all 0.6s ease-in;
+  transition:all .6s ease-in;
 }
 .content-top-ten article:first-child figure{
-  transition:all 0.6s ease-out;
+  transition:all .6s ease-out;
   will-change: auto;
 }
 .content-top-ten article:first-child:hover figure{
   transform: scale(1.1);
-  transition:all 0.6s ease-in;
+  transition:all .6s ease-in;
 }
 .content-top-ten article:first-child .content-artist{
   border-bottom: none;
@@ -120,7 +120,7 @@ h3{
 }
 .content-top-ten article:first-child .content-artist.is-active img{
   border: solid 3px rgb(222,89,34);
-  transition:all 0.6s ease-in;
+  transition:all .6s ease-in;
 }
 .content-top-ten article:first-child figure{
   position: absolute;
@@ -149,7 +149,7 @@ h3{
 }
 .content-top-ten article:first-child .content-artist.is-active .box-number-one{
   background:rgb(239, 72, 3);
-  transition:all 0.6s ease-in;
+  transition:all .6s ease-in;
 }
 .content-top-ten article:first-child .box-number-one{
   display: flex;
@@ -162,7 +162,7 @@ h3{
   position: relative;
   top: -60px;
   left: 125px;
-  transition:all 0.6s ease-out;
+  transition:all .6s ease-out;
   will-change: auto;
 }
 .content-top-ten article:first-child .info{
@@ -189,16 +189,16 @@ h3{
   border-bottom: solid 1px #ccc;
   padding-top: .3rem;
   cursor: pointer;
-  transition:all 0.6s ease-out;
+  transition:all .6s ease-out;
   will-change: auto;
 }
 .content-top-ten .content-artist:hover{
   background: rgba(222, 89, 34, 0.32);
-  transition:all 0.6s ease-in;
+  transition:all .6s ease-in;
 }
 .content-top-ten .content-artist.is-active{
   background: rgba(222, 89, 34, 0.58);
-  transition:all 0.6s ease-in;
+  transition:all .6s ease-in;
 }
 .content-top-ten .content-artist .box-number{
   width: 10%;
@@ -267,11 +267,11 @@ h3{
   text-align: center;
 }
 .content-info-track .content-image img, .info.toptrack figure{
-  transition:all 0.6s ease-out;
+  transition:all .6s ease-out;
   will-change: auto;
 }
 .content-info-track .content-image:hover img, .info.toptrack:hover figure{
-  transition:all 0.6s ease-in;
+  transition:all .6s ease-in;
   transform: scale(1.1);
 }
 .content-image .artist,.info.toptrack .artist{
@@ -299,7 +299,7 @@ h3{
   display:none;
   cursor: pointer;
   font-size: 2rem;
-  transition:all 0.6s ease-out;
+  transition:all .6s ease-out;
   will-change: auto;
 }
 #containerInfo.fixed .close {
@@ -317,5 +317,5 @@ h3{
   height: 70px;
   align-items: center;
   justify-content: center;
-  transition:all 0.6s ease-in;
+  transition:all .6s ease-in;
 }
