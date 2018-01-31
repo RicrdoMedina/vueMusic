@@ -20,7 +20,7 @@
           .icon-bars(@click="closeModalInfo()", class="close") 
             icon(name="times" scale="2")
           .content-bio(v-bind:class="{ 'is-updated': isUpdated }")
-            .loader
+            #loaderInfo.loader
             article.info.toptrack
               .wrapper-box
                 figure(class='content-image')
@@ -52,6 +52,12 @@ import closeMenuMixin from '@/mixins/CloseMenu'
 
 import dataTopsMixin from '@/mixins/DataTops'
 
+import modalMixin from '@/mixins/Modal'
+
+import mediaQueryMixin from '@/mixins/MediaQuery'
+
+import updateBoxMixin from '@/mixins/updateBox'
+
 import VmLoader from '@/components/shared/Loader.vue'
 
 import VmCardTops from '@/components/CardTops.vue'
@@ -69,7 +75,7 @@ export default {
       bio: ''
     }
   },
-  mixins: [fadeInMixin, loaderMixin, dataTopsMixin, closeMenuMixin],
+  mixins: [fadeInMixin, loaderMixin, dataTopsMixin, closeMenuMixin, modalMixin, mediaQueryMixin, updateBoxMixin],
   components: {
     VmCardTops,
     VmTableTracks,
@@ -106,11 +112,9 @@ export default {
       this.selected = id
       let maxWidth = 'max-width:1023px'
       if (this.mediaQuery(maxWidth)) {
-        setTimeout(() => {
-          document.getElementById('containerInfo').classList.add('fixed')
-        }, 1000)
+        this.openModal()
       }
-      this.isUpdated = true
+      this.updateBox()
       trackService.artistGetInfo(artist)
         .then(res => {
           this.bio = res.artist.bio.summary
@@ -126,17 +130,9 @@ export default {
             this.nameArtistTop = artist
             this.photoArtist = photo
             this.ranking = ranking
-            this.isUpdated = false
+            this.updatedBox()
           }, 3000)
         })
-    },
-    mediaQuery (maxWidth) {
-      let queryMedia = window.matchMedia('(' + maxWidth + ')')
-      if (queryMedia.matches) return true
-      return false
-    },
-    closeModalInfo () {
-      document.getElementById('containerInfo').classList.remove('fixed')
     }
   }
 }

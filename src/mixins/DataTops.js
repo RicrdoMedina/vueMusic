@@ -5,7 +5,6 @@ const dataTopsMixin = {
       tracks: [],
       selected: '',
       isTable: 0,
-      isUpdated: false,
       isLoading: false,
       photoArtist: '',
       ranking: 1

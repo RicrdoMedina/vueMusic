@@ -59,10 +59,7 @@ h3{
 .fadeIn .content-info-track{
   background-image: url("../assets/45-degree-fabric-dark-body.png");
 }
-.content-bio.is-updated{
-  background: rgba(222, 89, 34, 0.72);
-  transition:all .6s ease-in;
-}
+
 .content-info-track{
   padding: .5rem 2rem 4rem;
 }
@@ -73,14 +70,12 @@ h3{
   margin: 0 auto 1.2rem;
   min-height: 300px;
 }
-.content-bio.is-updated article .wrapper-box{
-  transition:all 0.8s ease-out;
-  opacity: 1;
+.content-bio.is-updated > article{
   will-change: auto;
-}
-.content-bio.is-updated article .wrapper-box{
-  transition:all 0.8s ease-in;
   opacity: 0;
+}
+.content-bio.is-updated{
+  background: rgba(222, 89, 34, 0.72);
 }
 .content-bio .bio{
   text-indent: .8rem;

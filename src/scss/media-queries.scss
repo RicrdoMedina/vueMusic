@@ -213,10 +213,3 @@ and (max-width : 1024px) {
     transition:all .6s ease-in;
   }
 }
-@media only screen 
-and (min-width : 1024px) {
-  .content-bio.is-updated{
-    background: rgba(222, 89, 34, 0.72);
-    transition:all .6s ease-in;
-  }
-}

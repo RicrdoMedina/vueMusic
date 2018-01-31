@@ -20,7 +20,7 @@
           .icon-bars(@click="closeModalInfo()", class="close") 
             icon(name="times" scale="2")
           .content-bio(v-bind:class="{ 'is-updated': isUpdated }")
-            .loader
+            #loaderInfo.loader
             article.info.toptrack
               .wrapper-box
                 figure(class='content-image')
@@ -57,6 +57,12 @@ import closeMenuMixin from '@/mixins/CloseMenu'
 
 import dataTopsMixin from '@/mixins/DataTops'
 
+import modalMixin from '@/mixins/Modal'
+
+import updateBoxMixin from '@/mixins/updateBox'
+
+import mediaQueryMixin from '@/mixins/MediaQuery'
+
 import VmLoader from '@/components/shared/Loader.vue'
 
 import VmCardTops from '@/components/CardTops.vue'
@@ -80,7 +86,7 @@ export default {
       artistTracks: []
     }
   },
-  mixins: [fadeInMixin, loaderMixin, dataTopsMixin, closeMenuMixin],
+  mixins: [fadeInMixin, loaderMixin, dataTopsMixin, closeMenuMixin, modalMixin, mediaQueryMixin, updateBoxMixin],
   components: {
     VmCardTops,
     VmTableTracks,
@@ -108,25 +114,15 @@ export default {
       this.getData(artist, track, photo, ranking)
       let maxWidth = 'max-width:1023px'
       if (this.mediaQuery(maxWidth)) {
-        setTimeout(() => {
-          document.getElementById('containerInfo').classList.add('fixed')
-        }, 1000)
+        this.openModal()
       }
-      this.isUpdated = true
-    },
-    mediaQuery (maxWidth) {
-      let queryMedia = window.matchMedia('(' + maxWidth + ')')
-      if (queryMedia.matches) return true
-      return false
+      this.updateBox()
     },
     updateInfoSelected (artist, track, photo, ranking) {
       this.nameArtist = artist
       this.nameTrack = track
       this.photoArtist = photo
       this.ranking = ranking
-    },
-    closeModalInfo () {
-      document.getElementById('containerInfo').classList.remove('fixed')
     },
     getData (artist, track, photo, ranking) {
       trackService.trackGetInfo(artist, track)
@@ -176,9 +172,7 @@ export default {
           this.isLoading = true
           this.fadeIn()
           this.updateInfoSelected(artist, track, photo, ranking)
-          setTimeout(() => {
-            this.isUpdated = false
-          }, 3000)
+          this.updatedBox()
         })
     }
   }
