@@ -2,20 +2,17 @@
   section#sectionMain.section-main(v-bind:class="{ 'is-loaded': isLoading }")
     vm-loader
     .box-hero
-      h1.tittle 
-        span {{ infoTrack.name }}
+      figure(class='content-image')
+        img(v-if="infoArtist && infoArtist.name", v-bind:src="infoArtist.image[5]['#text']", alt="Placeholder image")
+        figcaption
+          p.track {{ infoTrack.name }}
+          p.artist {{ infoArtist.name }}
+          span.listeners {{ infoTrack.listeners | int-to-dec }} listeners
+          span.playcount {{ infoTrack.playcount | int-to-dec }} playcount
     .container.detail-track
       .columns
         .column.is-12-mobile.is-12-tablet.is-6-desktop
           .content-info-track.detail
-            article
-              figure(class='content-image')
-                img(v-if="infoArtist && infoArtist.name", v-bind:src="infoArtist.image[5]['#text']", alt="Placeholder image")
-                figcaption
-                  p.artist {{ infoArtist.name }}
-                  p.track {{ infoTrack.name }}
-                  span.listeners {{ infoTrack.listeners | int-to-dec }} listeners
-                  span.playcount {{ infoTrack.playcount | int-to-dec }} playcount
             article.content-wiki
               h3 Wiki
               p.wiki {{ wiki}}
@@ -142,7 +139,7 @@ export default {
 @import 'src/scss/general.scss';
 @import 'src/scss/TopArtists/GalleryTopAlbums.scss';
 @import 'src/scss/media-queries.scss';
-.box-hero .tittle span,
+.box-hero .content-image,
 .content-info-track article,
 .content-bio > *
 {
@@ -150,12 +147,19 @@ export default {
   transition:all 1s ease-out;
   will-change: auto;
 }
-.fadeIn .box-hero .tittle span,
+.fadeIn .box-hero .content-image,
 .fadeIn .content-info-track article,
 .fadeIn .content-bio > *
 {
   opacity: 1;
   transition:all 1s ease-in;
+}
+.section-main .content-info-track.detail,
+.section-main .content-bio.detail{
+  min-height: 1300px;
+}
+.section-main .content-info-track.detail .content-wiki{
+  margin-top: 0;
 }
 .content-info-track article{
   margin-top: 1.5rem;
@@ -166,11 +170,48 @@ export default {
   margin: 0 auto;
   text-align: center;
 }
-
 .content-info-track .listeners,.content-info-track .playcount{
   font-size: 1rem;
   margin-right: .6rem;
   color: rgb(181, 181, 181);
+}
+.box-hero{
+  padding-bottom: 1rem;
+}
+.box-hero .content-image{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.box-hero .content-image figcaption{
+  margin-left: 2rem;
+}
+.box-hero .content-image  p.track,
+.box-hero .content-image  span.listeners,
+.box-hero .content-image span.playcount{
+  color:#dbdbdb;
+  font-size: 1rem;
+}
+.box-hero .content-image  span.listeners{
+  margin-right: .5rem;
+}
+.box-hero .content-image  span.listeners,
+.box-hero .content-image span.playcount{
+  font-style: oblique;
+}
+.box-hero .content-image  p.track{
+  font-size: 3.4rem;
+  color: #ffdd57f1;
+  font-family: 'Dancing Script', cursive, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+.box-hero .content-image p.artist{
+  color: rgba(253, 181, 80, 0.877);
+  font-family: 'Dancing Script', cursive, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+.box-hero .content-image img {
+  width: 20%;
+  border: solid 6px rgba(253, 181, 80, 0.795);
 }
 .content-wiki p{
   text-align: justify;
@@ -214,8 +255,36 @@ and (max-width : 540px) {
   .section-main .content-info-track{
     margin: 3rem 0 1rem;
   }
+  #sectionMain.section-main  .box-hero .content-image img {
+    width: 60%;
+  }
 }
-
+@media only screen 
+and (max-width : 767px) {
+  .section-main  .box-hero .content-image img {
+    width: 40%;
+  }
+  #sectionMain.section-main  .box-hero .content-image {
+    flex-direction: column;
+  }
+  .box-hero .content-image figcaption {
+    margin-left: 0;
+    width: 100%;
+  }
+  .box-hero .content-image  p.track{
+    font-size: 2.4rem;
+  }
+  .box-hero .content-image  p.artist{
+    font-size: 1.8rem;
+  }
+}
+@media only screen 
+and (min-width : 767px)
+and (max-width : 1024px) {
+  .section-main  .box-hero .content-image img {
+    width: 36%;
+  }
+}
 @media only screen 
 and (max-width : 1024px) {
   .box-hero .tittle{
@@ -228,6 +297,9 @@ and (max-width : 1024px) {
   .section-main .content-bio.detail{
     width: 80%;
     margin: 2rem auto 1rem;
+    position: static;
+    height: auto;
+    min-height: unset;
   }
   .section-main .content-info-track.detail{
     margin: 4rem auto 1rem;
