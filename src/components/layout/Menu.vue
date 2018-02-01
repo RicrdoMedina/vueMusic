@@ -8,7 +8,7 @@
         li 
           router-link(:to="{ path: '/top-tracks' }") Top tracks
         li 
-          a About me
+          router-link(:to="{ path: '/about' }") About me
       .box-social-media
         a(href="#" target="_blank")
           .icon-facebook-square

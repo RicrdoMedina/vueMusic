@@ -174,6 +174,7 @@ export default {
   font-size: 1rem;
   margin-right: .6rem;
   color: rgb(181, 181, 181);
+  font-style:oblique;
 }
 .box-hero{
   padding-bottom: 1rem;
@@ -190,8 +191,8 @@ export default {
 .box-hero .content-image  p.track,
 .box-hero .content-image  span.listeners,
 .box-hero .content-image span.playcount{
-  color:#dbdbdb;
-  font-size: 1rem;
+  color:#ccc;
+  font-size: 1.2rem;
 }
 .box-hero .content-image  span.listeners{
   margin-right: .5rem;
@@ -201,7 +202,7 @@ export default {
   font-style: oblique;
 }
 .box-hero .content-image  p.track{
-  font-size: 3.4rem;
+  font-size: 2.6rem;
   color: #ffdd57f1;
   font-family: 'Dancing Script', cursive, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }

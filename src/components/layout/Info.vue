@@ -1,7 +1,7 @@
 <template lang="pug">
   .box-main
     .columns
-      .column.is-3
+      .column.is-12-mobile.is-12-tablet.is-4-desktop
         .navigate
           h4 navigate
           ul
@@ -12,16 +12,16 @@
             li 
               router-link(:to="{ path: '/top-tracks' }") Top tracks
             li 
-              a About me
+              router-link(:to="{ path: '/about' }") About me
 
-      .column
+      .column.is-12-mobile.is-12-tablet.is-4-desktop
         .content-nota
           h4 Nota
           p.nota Se uso la API Rest de last.fm como servicio de consulta para proporcionar la información de todo el client site.
           .more-info
             span more info:
             a(href="https://www.last.fm/api", target="_blank") &nbsp; https://www.last.fm/api
-      .column.is-3
+      .column.is-12-mobile.is-12-tablet.is-4-desktop
         .info
           h4 info 
           p.mail
@@ -126,7 +126,7 @@ a:hover{
   margin-right: .9rem;
 }
 @media only screen 
-and (max-width : 767px) {
+and (max-width : 1024px) {
   .box-main .navigate,
   .box-main .info{
      margin: .8rem auto 0;
