@@ -1,5 +1,6 @@
 <template lang="pug">
   section#sectionMain.section-main(v-bind:class="{ 'is-loaded': isLoading }")
+    vue-headful(title='About me', description="Library of songs most populars, Find and Browse your favorite music, Top tracks and artists most populars of moment")
     vm-loader
     .box-hero
       h1.tittle
@@ -70,6 +71,7 @@
 import fadeInMixin from '@/mixins/FadeIn'
 import closeMenuMixin from '@/mixins/CloseMenu'
 import VmLoader from '@/components/shared/Loader.vue'
+import vueHeadful from 'vue-headful'
 
 export default {
   name: 'app',
@@ -80,7 +82,8 @@ export default {
   },
   mixins: [closeMenuMixin, fadeInMixin],
   components: {
-    VmLoader
+    VmLoader,
+    vueHeadful
   },
   created () {
     setTimeout(() => {

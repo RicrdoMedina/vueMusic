@@ -5,10 +5,10 @@ import DetailTrack from '@/components/DetailTrack.vue'
 import About from '@/components/About.vue'
 
 const routes = [
-  { path: '/', component: Search, name: 'search' },
-  { path: '/top-artists', component: TopArtist, name: 'top-artists' },
+  { path: '/', component: Search, name: 'search', meta: {title: 'Home'} },
+  { path: '/top-artists', component: TopArtist, name: 'top-artists', meta: {title: 'Home'} },
   { path: '/top-tracks', component: TopTracks, name: 'top-tracks' },
-  { path: '/:artist/:track', component: DetailTrack, name: 'track' },
+  { path: '/track/:track/:artist', component: DetailTrack, name: 'track' },
   { path: '/:about', component: About, name: 'about' }
 ]
 

@@ -1,5 +1,6 @@
 <template lang="pug">
   main
+    vue-headful(title='Find and Browse Music', description="Library of songs most populars, Find and Browse your favorite music, Top tracks and artists most populars of moment")
     section#sectionMain.section-main(v-bind:class="{ 'is-loaded': isLoading }")
       vm-loader
       .columns
@@ -66,6 +67,8 @@ import VmLoader from '@/components/shared/Loader.vue'
 
 import VmCardTracksPopular from '@/components/CardTracks.vue'
 
+import vueHeadful from 'vue-headful'
+
 export default {
   name: 'app',
   data () {
@@ -91,7 +94,8 @@ export default {
   components: {
     VmCardTracksPopular,
     VmLoader,
-    Paginate
+    Paginate,
+    vueHeadful
   },
   created () {
     this.tracksPopular()

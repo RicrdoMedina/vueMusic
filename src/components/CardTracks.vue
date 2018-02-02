@@ -24,7 +24,7 @@ export default {
     goToTrack (objTrack) {
       let track = objTrack.name
       let artist = objTrack.artist.name === undefined ? objTrack.artist : objTrack.artist.name
-      this.$router.push({ name: 'track', params: { artist, track } })
+      this.$router.push({ name: 'track', params: { track, artist } })
     }
   }
 }

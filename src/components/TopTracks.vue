@@ -1,5 +1,6 @@
 <template lang="pug">
   section#sectionMain.section-main(v-bind:class="{ 'is-loaded': isLoading }")
+    vue-headful(title='Top tracks most populars of moment', description="Library of songs most populars, Find and Browse your favorite music, Top tracks and artists most populars of moment")
     vm-loader
     .box-hero
       h1.tittle 
@@ -71,6 +72,8 @@ import VmTableTracks from '@/components/TableTracks.vue'
 
 import VmAlbums from '@/components/Albums.vue'
 
+import vueHeadful from 'vue-headful'
+
 export default {
   name: 'app',
   data () {
@@ -91,7 +94,8 @@ export default {
     VmCardTops,
     VmTableTracks,
     VmAlbums,
-    VmLoader
+    VmLoader,
+    vueHeadful
   },
   created () {
     this.getAll()

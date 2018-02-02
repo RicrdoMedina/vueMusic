@@ -1,5 +1,6 @@
 <template lang="pug">
   section#sectionMain.section-main(v-bind:class="{ 'is-loaded': isLoading }")
+    vue-headful(:title="title", description="Library of songs most populars, Find and Browse your favorite music, Top tracks and artists most populars of moment")
     vm-loader
     .box-hero
       figure(class='content-image')
@@ -57,6 +58,8 @@ import VmTableTracks from '@/components/TableTracks.vue'
 
 import VmAlbums from '@/components/Albums.vue'
 
+import vueHeadful from 'vue-headful'
+
 export default {
   name: 'app',
   data () {
@@ -64,6 +67,7 @@ export default {
       infoTrack: {},
       infoArtist: {},
       topAlbums: {},
+      title: '',
       wiki: 'No avalaible',
       bio: 'No avalaible',
       photoAlbum: '',
@@ -82,7 +86,8 @@ export default {
   components: {
     VmTableTracks,
     VmAlbums,
-    VmLoader
+    VmLoader,
+    vueHeadful
   },
   created () {
     this.getData()
@@ -91,6 +96,7 @@ export default {
     getData () {
       const artist = this.$route.params.artist
       const track = this.$route.params.track
+      this.title = `${track} - ${artist}`
       trackService.trackGetInfo(artist, track)
         .then(res => {
           this.nameAlbum = res.track.album === undefined ? 'No found' : res.track.album.title
