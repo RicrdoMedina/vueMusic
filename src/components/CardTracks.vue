@@ -4,7 +4,7 @@
     .box-card-track(@click="goToTrack(track)")
       .card-image
         figure.image.is-4by3
-          img(v-bind:src="track.image[2]['#text']", alt="Placeholder image")
+          img(v-bind:src="track.image[2]['#text']", v-bind:alt="track.name", v-bind:title="track.name")
       .card-content
         .media
           .media-content

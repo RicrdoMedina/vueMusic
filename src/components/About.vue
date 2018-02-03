@@ -128,7 +128,7 @@ export default {
 }
 .section-main .content-info-track.about,
 .section-main .content-bio.about{
-  min-height: 1000px;
+  min-height: 1050px;
   position: static;
   overflow: hidden;
   padding-top: 2rem;
@@ -142,7 +142,7 @@ export default {
   width: 50%;
 }
 .about ul{
-  font-size: .9rem;
+  font-size: 1rem;
   margin-left: .8rem;
   margin-top: 1rem;
   color: rgb(181,181,181);

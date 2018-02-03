@@ -2,7 +2,7 @@
   .content-artist(@click="selectedTrack(index)")
     .box-number {{ index + 1 }}
     figure.photo-artist
-      img(v-bind:src="item.image[2]['#text']", v-bind:alt="item.name")
+      img(v-bind:src="item.image[2]['#text']", v-bind:alt="item.name", v-bind:title="item.name")
       .box-number-one # {{ index + 1 }}
     .info
       p.name(v-if="item.artist && item.artist.name") {{ item.name + ' - ' + item.artist.name }}

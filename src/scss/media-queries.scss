@@ -180,6 +180,9 @@ and (max-width : 1024px) {
     z-index: 99999;
     transition:all .6s ease-in;
   }
+  #containerInfo.fixed .close {
+    display: flex;
+  }
   .content-bio, .content-info-track {
     width: 100%;
     margin: 5rem auto;

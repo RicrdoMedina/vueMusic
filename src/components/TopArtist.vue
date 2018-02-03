@@ -25,7 +25,7 @@
             article.info.toptrack
               .wrapper-box
                 figure(class='content-image')
-                  img(v-bind:src="photoArtist", alt="Placeholder image")
+                  img(v-bind:src="photoArtist", v-bind:alt="nameArtistTop", v-bind:title="nameArtistTop")
                   .number-top # {{ ranking }}
                 p.artist-top {{ nameArtistTop }}
             article
