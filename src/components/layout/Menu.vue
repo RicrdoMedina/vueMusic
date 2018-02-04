@@ -2,13 +2,13 @@
     nav#menu.menu
       ul
         li 
-          router-link(:to="{ path: '/' }") Home
+          router-link(:to="{ path: '/vueMusic/' }") Home
         li 
-          router-link(:to="{ path: '/top-artists' }") Top artists
+          router-link(:to="{ path: '/vueMusic/top-artists' }") Top artists
         li 
-          router-link(:to="{ path: '/top-tracks' }") Top tracks
+          router-link(:to="{ path: '/vueMusic/top-tracks' }") Top tracks
         li 
-          router-link(:to="{ path: '/about' }") About me
+          router-link(:to="{ path: '/vueMusic/about' }") About me
       .box-social-media
         a(href="#" target="_blank")
           .icon-facebook-square

@@ -5,11 +5,11 @@ import DetailTrack from '@/components/DetailTrack.vue'
 import About from '@/components/About.vue'
 
 const routes = [
-  { path: '/', component: Search, name: 'search', meta: {title: 'Home'} },
-  { path: '/top-artists', component: TopArtist, name: 'top-artists', meta: {title: 'Home'} },
-  { path: '/top-tracks', component: TopTracks, name: 'top-tracks' },
-  { path: '/track/:track/:artist', component: DetailTrack, name: 'track' },
-  { path: '/:about', component: About, name: 'about' }
+  { path: '/vueMusic/', component: Search, name: 'search', meta: {title: 'Home'} },
+  { path: '/vueMusic/top-artists', component: TopArtist, name: 'top-artists', meta: {title: 'Home'} },
+  { path: '/vueMusic/top-tracks', component: TopTracks, name: 'top-tracks' },
+  { path: '/vueMusic/track/:track/:artist', component: DetailTrack, name: 'track' },
+  { path: '/vueMusic/about', component: About, name: 'about' }
 ]
 
 export default routes
