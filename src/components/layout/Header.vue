@@ -4,7 +4,7 @@
       .column
         router-link(:to="{ path: '/' }", class="main-logo")
           figure.content-logo
-            img.logo(src="https://rcrdmedina.github.io/vueMusic/dist/vue-logo.png")
+            img.logo(src="src/assets/vue-logo.png")
 
         .content-icon-menu
           .icon-bars(@click="openMenu")
