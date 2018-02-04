@@ -6,13 +6,13 @@
           h4 navigate
           ul
             li 
-              router-link(:to="{ path: '/' }") Home
+              router-link(:to="{ path: '/vueMusic/' }") Home
             li 
-              router-link(:to="{ path: '/top-artists' }") Top artists
+              router-link(:to="{ path: '/vueMusic/top-artists' }") Top artists
             li 
-              router-link(:to="{ path: '/top-tracks' }") Top tracks
+              router-link(:to="{ path: '/vueMusic/top-tracks' }") Top tracks
             li 
-              router-link(:to="{ path: '/about' }") About me
+              router-link(:to="{ path: '/vueMusic/about' }") About me
 
       .column.is-12-mobile.is-12-tablet.is-4-desktop
         .content-nota
@@ -62,7 +62,7 @@ a:hover{
   right: 0;
   margin-top: 2.8rem;
   background: rgba(0, 0, 0, 0.7);
-  background-image: url("../../assets/dark-mosaic-footer.png");
+  background-image: url("https://rcrdmedina.github.io/vueMusic/dist/dark-mosaic-footer.png");
   color:rgb(222,89,34);
   width: 100%;
   font-size: 1.1rem;

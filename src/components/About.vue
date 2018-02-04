@@ -10,7 +10,7 @@
         .column.is-12-mobile.is-12-tablet.is-6-desktop
           .content-info-track.about
             figure(class='content-image')
-              img(src="../assets/me.png", alt="Ricardo Medina")
+              img(src="https://rcrdmedina.github.io/vueMusic/dist/me.png", alt="Ricardo Medina")
               figcaption
                 p.track Ricardo Medina
                 p.artist Full Stack Developer
@@ -42,23 +42,23 @@
               h3 Mis Habilidades Principales
                 .box-images
                   .content-img
-                    img(src='../assets/html5.png', alt='Html 5')
+                    img(src='https://rcrdmedina.github.io/vueMusic/dist/html5.png', alt='Html 5')
                   .content-img
-                    img(src='../assets/css3.png', alt='CSS 3')
+                    img(src='https://rcrdmedina.github.io/vueMusic/dist/css3.png', alt='CSS 3')
                   .content-img
-                    img(src='../assets/js.png', alt='Javascript')
+                    img(src='https://rcrdmedina.github.io/vueMusic/dist/js.png', alt='Javascript')
                   .content-img
-                    img(src='../assets/jquery.png', alt='jquery')
+                    img(src='https://rcrdmedina.github.io/vueMusic/dist/jquery.png', alt='jquery')
                   .content-img
-                    img(src='../assets/vuejs.jpg', alt='Vue js')
+                    img(src='https://rcrdmedina.github.io/vueMusic/dist/vuejs.jpg', alt='Vue js')
                   .content-img
-                    img(src='../assets/webpack.jpg', alt='Webpack')
+                    img(src='https://rcrdmedina.github.io/vueMusic/dist/webpack.jpg', alt='Webpack')
                   .content-img
-                    img(src='../assets/nodejs.png', alt='Node js')
+                    img(src='https://rcrdmedina.github.io/vueMusic/dist/nodejs.png', alt='Node js')
                   .content-img
-                    img(src='../assets/laravel.png', alt='Laravel')
+                    img(src='https://rcrdmedina.github.io/vueMusic/dist/laravel.png', alt='Laravel')
                   .content-img
-                    img(src='../assets/mysql.png', alt='Mysql')
+                    img(src='https://rcrdmedina.github.io/vueMusic/dist/mysql.png', alt='Mysql')
             article
               h3 Actualmente
               p Me dedico hacer seguimiento de las nuevas tecnologias y aprender aquellas que sean las mas populares en el area, agregandolas a mi stack de trabajo.  Soy freelancer y estoy registrado en workana donde ofrezco mi servicios como web developers.

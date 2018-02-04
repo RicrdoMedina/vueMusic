@@ -4,7 +4,7 @@
     vm-loader
     .box-hero
       figure(class='content-image')
-        img(v-if="infoArtist && infoArtist.name", v-bind:src="infoArtist.image[5]['#text']", alt="Placeholder image")
+        img(v-if="infoArtist && infoArtist.name", v-bind:src="infoArtist.image[5]['#text']", v-bind:alt="infoArtist.name")
         figcaption
           p.track {{ infoTrack.name }}
           p.artist {{ infoArtist.name }}

@@ -11,7 +11,7 @@
             p.title {{ track.name }}
             p.subtitle {{ track.artist.name ? track.artist.name : track.artist }}
         .content
-          img(src="../assets/play-music.png")
+          img(src="https://rcrdmedina.github.io/vueMusic/dist/play-music.png")
           | {{ track.listeners | int-to-dec }} listeners
 </template>
 

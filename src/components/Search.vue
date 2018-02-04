@@ -235,11 +235,11 @@ export default {
   transition:all 1s ease-in;
 }
 .fadeIn .wrapper-results{
-  background-image: url("../assets/45-degree-fabric-dark-body.png");
+  background-image: url("https://rcrdmedina.github.io/vueMusic/dist/45-degree-fabric-dark-body.png");
   transition:all 1s ease-in
 }
 .fadeIn .nav-search{
-  background-image: url("../assets/green-dust-and-scratches.png");
+  background-image: url("https://rcrdmedina.github.io/vueMusic/dist/green-dust-and-scratches.png");
 }
 .nav-search{
   display: flex;
