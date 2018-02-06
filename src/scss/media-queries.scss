@@ -215,7 +215,8 @@ and (max-width : 1024px) {
     opacity: 1;
     transition:all .6s ease-in;
   }
-  #sectionMain .content-bio .loader.is-active, #sectionMain .content-bio .loader.is-active:after {
+  #sectionMain .content-bio #loaderInfo,
+  #sectionMain .content-bio #loaderInfo:after {
     position: fixed;
     top: 40%;
     left: 40%;
