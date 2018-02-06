@@ -215,4 +215,9 @@ and (max-width : 1024px) {
     opacity: 1;
     transition:all .6s ease-in;
   }
+  .content-bio .loader.is-active, .content-bio .loader.is-active:after {
+    position: fixed;
+    top: 40%;
+    left: 40%;
+  }
 }
