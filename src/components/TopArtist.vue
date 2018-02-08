@@ -59,6 +59,8 @@ import mediaQueryMixin from '@/mixins/MediaQuery'
 
 import updateBoxMixin from '@/mixins/updateBox'
 
+import scrollTopElementMixin from '@/mixins/ScrollTopElement'
+
 import VmLoader from '@/components/shared/Loader.vue'
 
 import VmCardTops from '@/components/CardTops.vue'
@@ -78,7 +80,7 @@ export default {
       bio: ''
     }
   },
-  mixins: [fadeInMixin, loaderMixin, dataTopsMixin, closeMenuMixin, modalMixin, mediaQueryMixin, updateBoxMixin],
+  mixins: [fadeInMixin, loaderMixin, dataTopsMixin, closeMenuMixin, modalMixin, mediaQueryMixin, updateBoxMixin, scrollTopElementMixin],
   components: {
     VmCardTops,
     VmTableTracks,
@@ -115,7 +117,9 @@ export default {
     setSelectedTrack (id, artist, track, photo, ranking) {
       this.selected = id
       let maxWidth = 'max-width:1023px'
+      let $contentBio = document.querySelector('.content-bio')
       if (this.mediaQuery(maxWidth)) {
+        this.scrollTop($contentBio)
         this.openModal()
       }
       this.updateBox()

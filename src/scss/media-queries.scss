@@ -224,8 +224,8 @@ and (max-width : 1024px) {
   }
   #sectionMain .content-bio #loaderInfo,
   #sectionMain .content-bio #loaderInfo:after {
-    position: fixed;
-    top: 40%;
-    left: 40%;
+    position: relative;
+    top:30%;
+    left: unset;
   }
 }
