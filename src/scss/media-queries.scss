@@ -78,7 +78,7 @@ and (max-width : 540px) {
 @media only screen 
 and (min-width : 320px) 
 and (max-width : 480px) {
-  .box-top-images figure:first-child, .box-top-images figure {
+  #sectionMain .box-top-images figure:first-child, #sectionMain .box-top-images figure {
     max-width: 200px;
   }
 }
