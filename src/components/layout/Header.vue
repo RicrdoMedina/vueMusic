@@ -2,7 +2,7 @@
   header#header.header
     .columns
       .column
-        router-link(:to="{ path: '/' }", class="main-logo")
+        router-link(:to="{ path: '/vueMusic/' }", class="main-logo")
           figure.content-logo
             img.logo(src="src/assets/vue-logo.png")
 
