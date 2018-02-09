@@ -10,13 +10,13 @@
         li 
           router-link(:to="{ path: '/vueMusic/about' }") About me
       .box-social-media
-        a(href="#" target="_blank")
+        a(href="https://www.facebook.com/profile.php?id=100013340386539" target="_blank")
           .icon-facebook-square
             icon(name="facebook-square" scale="2")
-        a(href="#" target="_blank")
+        a(href="https://twitter.com/RicrdoMedina" target="_blank")
           .icon-twitter-square
             icon(name="twitter-square" scale="2")
-        a(href="#" target="_blank")
+        a(href="https://plus.google.com/u/0/+RicardoMedinaFullStackDeveloper" target="_blank")
           .icon-google-plus-square
             icon(name="google-plus-square" scale="2")
       .box-contact
