@@ -1,0 +1,508 @@
+commit 69d56151ae27e3013678305e2cfd7d9da7a14f85
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Thu Feb 8 22:57:04 2018 -0430
+
+    Agregando build con los link de las redes sociales
+
+commit 1dc75d3e4ca69c894bcf7f1379cda292c43e614a
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Thu Feb 8 22:46:16 2018 -0430
+
+    Se agrego links a mis redes sociales
+
+commit afb96f81814a2dbcde16a5f39940bbd90c47f6d0
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Wed Feb 7 23:31:08 2018 -0430
+
+    Actualizando el build.js
+
+commit 99ac3353cc56c76fdd06928f140e58c3bf5badd6
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Wed Feb 7 23:24:25 2018 -0430
+
+    Agregando link al logo del header link de home
+
+commit 7b7776151a461b003ad7fbb0cd8e84ff5f0bd4c2
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Wed Feb 7 23:22:07 2018 -0430
+
+    Modificando background del hero
+
+commit 44f539cc08015998f6fcc3e8889b0bdfdc821bcb
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Wed Feb 7 23:19:58 2018 -0430
+
+    Modificando background del hero a negro
+
+commit add6a339b635427dcc968b993e91539d3251241f
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Wed Feb 7 23:18:53 2018 -0430
+
+    Cambiando el background del hero a negro
+
+commit 78ac4f0b443c0e6bedf83e78468fbe5d88a828dd
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Wed Feb 7 22:34:18 2018 -0430
+
+    Se ajusto selector que agrega max-width de 200 para las imagenes de el album o los albums de un artista
+
+commit 08b7efa6d1c7eb94ed82f9af2d33f65ff903eec1
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Wed Feb 7 22:03:02 2018 -0430
+
+    Se quito un console.log
+
+commit 0a1507aaf3557c7f56b5699c82056e520af1b6d8
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Wed Feb 7 21:52:53 2018 -0430
+
+    fix scrolltop
+
+commit 0a74c6c961ac834e5e1cbd319ae5b45b7ba14de6
+Merge: 7242f63 f01f8f1
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Wed Feb 7 21:39:43 2018 -0430
+
+    Actualizando archivo README.md luego de eliminar el repo en github y crearlo nuevamente
+
+commit f01f8f1e0ad702b81270369179730cccbc93d9d1
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Wed Feb 7 22:07:43 2018 -0400
+
+    Initial commit
+
+commit 7242f63c0390b54cec01620bc35df52bc107e96b
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Wed Feb 7 21:33:30 2018 -0430
+
+    Se agrego mixin para colocar el scroll en el top del modal donde se muestra la informacion del track o el artista seleccionado
+
+commit a17699283ecf6379d14bf583a216d17ad6e9672d
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Wed Feb 7 19:09:14 2018 -0430
+
+    Fix media queries para mostrar los tops albums con un width de 200px para su correcta visualizacion en smartphone
+
+commit 47521ef9cdb9734cb4a0b283a55b8dab02fa226a
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Wed Feb 7 19:03:47 2018 -0430
+
+    Se agrego media queries para mostrar los tops albums con un width de 200px para su correcta visualizacion en smartphone
+
+commit bb539ef10a11d53abbc50af14853f35e448ff10c
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Wed Feb 7 18:54:37 2018 -0430
+
+    Se agrego etiqueta meta viewport para responsive en el index html
+
+commit 6b578c89a2657868f3af151708594a7d30492fe1
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Mon Feb 5 21:25:25 2018 -0430
+
+    Alineando loader en los componentes TopTracks y TopArtist para la version responsive
+
+commit c099c9cb1956187457ef5a319fbe149d7d044fef
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Mon Feb 5 20:59:50 2018 -0430
+
+    Modificando selector css para agregar estilo responsive a loader que se muestra en los componentes TopTracks y TopArtist cuando se selecciona un artista o track del top
+
+commit 6b9f31b4ba8fedb7a752746e42f1e5aade7eceaa
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Mon Feb 5 20:50:40 2018 -0430
+
+    Agregando css a estilos a loader que se muestra mientras se hace el request del artista o track seleccionado
+
+commit 01e46c729897610ec27184117c1f975127e24906
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Sun Feb 4 12:49:45 2018 -0430
+
+    Subiendo cambios en el src del logo de la web en el Header
+
+commit ac85103711fe468cc4463532929846941b30681b
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Sun Feb 4 12:42:12 2018 -0430
+
+    Se reemplazo los src de las imagenes para produccion
+
+commit 6e970ed542a2989d10b89704f3e438476d94b5d5
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Sun Feb 4 11:53:41 2018 -0430
+
+    Se modifico la url de la api de lastfm para consultar los servicios por https
+
+commit 49b188429bb9bd4bc222f30d63597d4f7c6f119b
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Sun Feb 4 11:47:33 2018 -0430
+
+    Se modifico el archivos routes y el los link en el componente Menu
+
+commit ec0471c70cd9d08743bf1a8edb9e7697a9deb667
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Sun Feb 4 11:27:53 2018 -0430
+
+    Modificacion en el src del index html para visualizacion de la web en github pages
+
+commit 5f02319edf46bc6e25a58499b558e956114ff93f
+Merge: c9cebb1 b03992e
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Sun Feb 4 11:19:12 2018 -0430
+
+    Actualizando archivos del repo
+
+commit b03992ee0f0a3f8c1d1762f1c9a2d448e17d788d
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Sun Feb 4 11:41:02 2018 -0400
+
+    Initial commit
+
+commit c9cebb1711da9ad46b1e1b01e08dc1dad32cae9f
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Sat Feb 3 18:49:50 2018 -0430
+
+    Optimizando responsive y modificando detalles en el disenio
+
+commit 48b75a0dd8a7f1874e616e80e005131147b83ee3
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Fri Feb 2 09:50:24 2018 -0430
+
+    Se agrego title de documento en cada componente de; website, ademas se agrego title dinamico para la ruta que miestra la informacion de un track seleccionado en el componente DetailTrack
+
+commit 93419ec9fd3dddd2cbfed84457b57a4e1c4a955a
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Thu Feb 1 00:31:28 2018 -0430
+
+    Se creo componente About, se agrego estilos para darle disenio y se le dio responsive
+
+commit 02e7a4f0ff8ff5ba2a81a0ecf1395e4124b8350b
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Wed Jan 31 11:41:45 2018 -0430
+
+    Se modifico componente DeatilTrack redisenando el hero para que mostrar el foto del artista, nombre, nombre track, playcount y listeners del track, se agrego responsive para sus correcta visualizacion en table y smartphone
+
+commit 547af5e1a7da20e0aa211529f3c57104a6735e5d
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Wed Jan 31 09:09:01 2018 -0430
+
+    Se mejoro efecto de mostrar y quitar loader en los componentes TopTracks y TopArtist al seleccionar un track o un artista y mostrarlo. Se agrupo en mixins la funcion de mostrar y quitar loader, la funcion para mostrar modal en resposive, y la funcion de media query con js
+
+commit 7e9ecab0221af39bafe81ceb05dbd2154bcc0618
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Tue Jan 30 14:34:31 2018 -0430
+
+    Se agrego loader a modal responsive con la info del top track seleccionado en el componente TopTracks y TopArtist, Se refactorizo el codigo de la funcion setSelectedTrack para mostrar todos los datos de manera coherente dentro del modal al obtener una respuesta del request
+
+commit 80cdad1071d5e20cd192bae7d94c1a48f2fa92d9
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Tue Jan 30 09:37:49 2018 -0430
+
+    Se ordenaron estilos responsive ubicandolos en sus componentes respectivos y agrupando en un archivo llamado media-queries los estilos compartidos por los componentes TopTracks, TopArtist y DetailTrack
+
+commit 46ff7c52d59af2b0bd54792f70929fae2b9ce68a
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Tue Jan 30 00:36:32 2018 -0430
+
+    Se agrego responsive a los componentes principales Search, TopArtist, TopTracks, Info, DetailTracks y CardTracks
+
+commit fc20f8c612b1fc59d4d6c5a5ddedaff152418a76
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Sat Jan 27 12:47:15 2018 -0430
+
+    Agregando ajustes a estilos del website y puliendo detalles de sisenio
+
+commit 42c041092e0998e882bf83ace36ad9ca8eeb6996
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Sat Jan 27 09:22:22 2018 -0430
+
+    Se agrego numero y total de pagina en el encabezado donde se muestran el resultados por busqueda o seleccion de tracks populares por pais
+
+commit 1293e61c64c9a9dc0a780cb8ae88843aa1bfa8e1
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Fri Jan 26 23:18:55 2018 -0430
+
+    Se modifico los componentes TopArtist, TopTracks, DetailTrack agregando un hero con el titulo de la seccion y animacion fadein con background de textura, Se agrego background textura a los componentes Footer, Search e Info
+
+commit e6c9c65de9584207392b99f5178c797e908b412a
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Fri Jan 26 21:00:41 2018 -0430
+
+    Se modifico disenio del componente Search para dar mejor efeto visual colocando que ocupe el 100% de view width
+
+commit ffa6b61f12e28556f208725c86cbf5669c9ca699
+Merge: 966143c 09efd59
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Fri Jan 26 20:42:01 2018 -0430
+
+    Merge branch 'master' of github.com:rcrdmedina/vueMusic
+    Bajando cambios del repo remoto luego de usar git reset soft
+
+commit 966143c4d8a821adc2a0b6df571535211d57fc94
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Fri Jan 26 20:39:26 2018 -0430
+
+    Se crearon mixins para reutilizar funcionalidades comunes, se agrego efeto fadeIn en los elementos de la web, se creo footer con disenio basico
+
+commit 09efd59f0374f20f5da7430ad382995c428eae25
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Wed Jan 24 23:50:31 2018 -0430
+
+    Se agrego animacion fadeIn a todos los elementos del website, Se agruparon funcionalidades comunes en mixins
+
+commit 4fd8bbf8dc36c0694e825080418c4f8dfbb4b94a
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Tue Jan 23 22:39:17 2018 -0430
+
+    Se creo e instalo filtro para convertir la primera letra de cada palabra en mayuscula, se implemento en el componente Search para mostrar el parametro de busqueda formateado
+
+commit 7382591c3df14b7505e65c580c4a99154f1301ea
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Tue Jan 23 20:39:17 2018 -0430
+
+    Se creo e instalo filtro para convertir un valor de entero a decimal, luego se implemeto para convertir los valores de playcount y listeners
+
+commit 34f255a3a9c11585ea1df3db3d5e6dcb82688296
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Tue Jan 23 09:25:35 2018 -0430
+
+    Se instalo y configuro filter para convertir segundos a minutos la duracion de los tracks
+
+commit cbef51d4bb62c9d209c20e0f6cfc44c9185b8884
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Mon Jan 22 22:30:01 2018 -0430
+
+    Se agrego Scroll Behavior a VueRouter esto simplemente para que la página se desplace hacia arriba para todas las rutas de navegación.
+
+commit 934dd981a2fc8997052a235db22ad66e86270099
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Mon Jan 22 12:28:52 2018 -0430
+
+    Se creo componente Menu que contiene el menu lateral, se creo event bus para notificar al componente menu que se abra o se cierre
+
+commit e1ceb2aaeadf1c908b73da06d9805641a7640a60
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Sun Jan 21 17:02:02 2018 -0430
+
+    Se agrego animacion css3 fadeIn a los elementos del home
+
+commit 96a4cb60197bca6ec9c4a48f6106a049d8949ff7
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Sun Jan 21 15:45:27 2018 -0430
+
+    Se instalo y configuro vuejs-paginate para crear paginador, se agrego logica para paginar los resultados de busquedas de track  o seleccionando los tracks papulares de un country, se agrego html y estilos para mejorar disenio del home
+
+commit fdedf6101c2caa17d022ac1d9ad5fb8d90e862dd
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Sat Jan 20 15:46:13 2018 -0430
+
+    Se modifico la logica del select para al realizar una seleccion de country limpiar el input search y si se realiza una busqueda setear el select countries en seleccione
+
+commit b9460c3e731df87c9d8f03f3ca78133dfcc952fa
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Fri Jan 19 20:27:06 2018 -0430
+
+    Se agrego combo select countries para seleccionar los tracks para populares de cada pais en la lista, ademas de incluyo loader para mostrar al realizar la busqueda o seleccionar un pais se muestre miestras se hace el request a la API
+
+commit 1d55a218478c9a3a856f32b8a272f9f3e1b28f3a
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Fri Jan 19 16:06:43 2018 -0430
+
+    Se modifico el componente Header y agrego css a la imagen de logo para centrarla
+
+commit ce922bb26b86c82e92fe22522527ba13ffd1c068
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Fri Jan 19 15:25:21 2018 -0430
+
+    Se agregaron estilos al componente CardTracks para alinear los card content y content media en forma centrada vertical y horizontal
+
+commit f01a16cb42f2a88557919242dbb052798d2ecc4e
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Fri Jan 19 10:15:30 2018 -0430
+
+    Se modifico la funcion getData en el componente DetailTrack para manejar los errores de propiedad undefined para el request del album
+
+commit bff5217a3a6866e0dbe09f148f89674996d02b99
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Fri Jan 19 09:24:54 2018 -0430
+
+    Se modifico efecto hover en los card donde se muestra los tracks
+
+commit 0f0951a5588749243092ef1c46c2ceca18034e83
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Fri Jan 19 08:49:27 2018 -0430
+
+    Se modifico en el servicio de track search el limit de track por request seteandolo en 100, se agrego validacion para cuando no se encuentran resultados de una busqueda
+
+commit 61d26a3aba74c0228b7a8b7d3c9af75a2218a26b
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Fri Jan 19 07:33:45 2018 -0430
+
+    Se agrego Key Modifiers enter en el input de; buscador para realizar busquedas al dar click al button y al precionar enter
+
+commit 3bf219036ed9258c4e3edfe9a50ea7bcc56ffc62
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Wed Jan 17 00:23:56 2018 -0430
+
+    Se modifico buscador para realizar busquedas a media que se escribe en el input, Se agrego loader al componente CardTracks para mostrar mientras se realiza la consulta a la API
+
+commit da9dcd301225f27d2266c35027dae87b479c105f
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Tue Jan 16 19:09:30 2018 -0430
+
+    Se agrego directiva local en el component Search para hacer focus en el input de busqueda
+
+commit dd409850fc97e8e87571c895ef29b107fbe98885
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Tue Jan 16 00:25:23 2018 -0430
+
+    Se refactorizo el componente TopTracks eliminando las directivas v-if y v-else que estaban en el template, y agregando las validaciones necesarias en la funcion getDATA que consulta la informacion de los tracks en la API, se agrego componente loader en los componentes usados en el route de la app
+
+commit 7a1de6baf28920a6a5de43531d444bbb125eddda
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Sun Jan 14 14:35:34 2018 -0430
+
+    Se agrego funcionalidad de al hacer click a un track que fue resultado de una busqueda redireccion a la pagina de detalles del track
+
+commit 8e97914e94e64034dc5e5c1f67a4372b5124afb9
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Sun Jan 14 14:12:43 2018 -0430
+
+    Se modifico animacion del menu lateral, color y background
+
+commit 25b0ec333bcf34cedfde16c968eebb8a064c83c6
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Sun Jan 14 00:19:55 2018 -0430
+
+    Se modifico el header adaptado para mostrar menu lateral derecho, se creo estilos css al menu y se modifico rutas en el route.js para redireccionar correctamente cuando estamos en la ruta programada
+
+commit 1b38e7935253928447615e23ff8bef406dc23b97
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Thu Jan 11 23:42:46 2018 -0430
+
+    Se modifico efecto hover en el componente cardTrack usando el transform scale, se activo mode history en el VueRouter
+
+commit 349f03473b518a023d365fbb77eee2760bf906b7
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Thu Jan 11 22:51:02 2018 -0430
+
+    Se agrego al componente TopArtist que guarde al hacer click sobre un artista la url de la foto del artista, y el numero ranking de la cancion para actualizar el componente CardTops y mostrar esa informacion
+
+commit eefc9c36d9a857f97c9aa80b8eac836a3b2af9e8
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Thu Jan 11 20:42:30 2018 -0430
+
+    Se agrego al componente TopTracks que guarde al hacer click sobre un track la url de la foto del artista, y el numero ranking de la cancion para actualizar el componente CardTops y mostrar esa informacion
+
+commit 8b0fefb64b93bba05d98faccec4fc77720272601
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Tue Jan 9 20:15:42 2018 -0430
+
+    Se modifico css de CardTops para darle disenio al primer elemento que mostrar el Top One Artist y Top One Track
+
+commit a377580fc755a93303707e6453e3827304df3ffa
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Tue Jan 9 20:14:30 2018 -0430
+
+    Se modifico la funcion getData en el componente DetailTrack para obtener toda la informacion necesario a mostrar en la vista
+
+commit 95419f03ea78c78c7007cb5121014dcf6b39db10
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Sun Jan 7 18:20:07 2018 -0430
+
+    Se agrego css propios para el disenio de la app, se implemento comunicacion entre el componente hijo CardTops para que emita un evento click a sus padres TopArtist y TopTracks con la informacion del artista o track seleccionado por el usuario para obtener mas detalles, se crearon e instalaron los componentes Album, TopAlbums, TableTracks, TableTopTracks
+
+commit 0e91538a94e38a2a97ede5b737380a9ceba7fa73
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Sun Jan 7 08:24:46 2018 -0430
+
+    Se creo ruta programada para mostrar los detalles de un track al hacer click
+
+commit 0038eb836780cd6b93f041c0832073e57001a627
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Sat Jan 6 16:01:10 2018 -0430
+
+    Se modifico el archivo de los servicios track.js para cambiando el key de la api que estaba hard code y almacenandolo en una variable
+
+commit 9a1c70258781c007242e306feac4598f790135b0
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Sat Jan 6 15:49:47 2018 -0430
+
+    Se agrego y configuro nuevo servicio para consultar los tracks por localizacion geografica, consultando por default venezuela. Se implemento en el componente Search
+
+commit 8f37f548ec9e7c115a57becad0a658cf78f43069
+Merge: 57b8f16 adb9b06
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Sat Jan 6 14:37:12 2018 -0430
+
+    Vinculando repo local con repo remoto
+
+commit 57b8f16735c7b12efe32c7963c08c5feda8a30ed
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Sat Jan 6 14:27:24 2018 -0430
+
+    Se creo componente CardTops que mostrara los tops tracks y tops artists, se creo carpeta nombrada general en src/scss para agrupar los estilos genericos de la app y otra carpeta con el nombre del componente TopArtists donde se agruparan todos los css personalizados de este componente
+
+commit adb9b0676ac106ed5a5376b0ff15bea386462055
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Sat Jan 6 14:39:21 2018 -0400
+
+    Initial commit
+
+commit 653ccfadb8ca7b8659bb85738e6c5b2bab6f3019
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Fri Jan 5 21:51:54 2018 -0430
+
+    Se crearon los componentes para mostrar el tracks y top artist, ademas se crearon los servicios para cansultar la data del top tracks y top artists
+
+commit 27d21d56e92049bc8221027d56c53f504924222d
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Thu Jan 4 07:38:57 2018 -0430
+
+    Se agrego vue-router al proyecto y se configuro, ademas se uso el compenente Search como principal en el App.vue
+
+commit 50f2c685d49cda50fd09a3311f9e02754c2dc18b
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Tue Jan 2 06:45:56 2018 -0430
+
+    Se agrego funcionalidad al buscador de canciones mostrando los resultados en el mismo componente CardTracksPopular
+
+commit 8399dadb3e662c8de7ac78b484bd61d81491969e
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Mon Jan 1 17:52:02 2018 -0430
+
+    Se crearon y agregaron al App.vue los componentes Searh,CardTracksPopular, MenuOptions. Se implemento comunicacion entre el componente hijo CardTracksPopular y  App.vue
+
+commit 1dc19d2ecf2b72c4a833df8572ad63bf8041530e
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Mon Jan 1 14:38:52 2018 -0430
+
+    Se creo el componet MenuOptions y se importo al App.vue, Se creo servicio para traer de la Api de last fm las canciones del momento y se agrego al hook created del App.vue
+
+commit 9568ea45e98b3728ff9470929c35dd8f7da197cc
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Mon Jan 1 10:20:25 2018 -0430
+
+    Se agrego los card para mostrar los track mas populares al momento
+
+commit ccfd107ec7ac71f432a653269bcdd8df6c937159
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Mon Jan 1 06:51:20 2018 -0430
+
+    Se agrego estilos a los elementos del mene de lista de opciones
+
+commit 7faa93dab861bea7abde35ae167753e85db185d5
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Sun Dec 31 12:22:10 2017 -0430
+
+    Se agrego font-awesome al proyecto, se definio el header, footer y se agrego el input de busqueda
+
+commit 4f74dbd0e5b818dd09ea2a8f8478f0b0ed6f3324
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Sat Dec 30 18:58:31 2017 -0430
+
+    Agregando y probando bulma
+
+commit 72a6307a16e56ac30d6ff8ec78a7664b45d569ca
+Author: Ricardo Medina <rcrdmedina6@gmail.com>
+Date:   Sat Dec 30 18:05:52 2017 -0430
+
+    Iniciando el proyecto vue-music
