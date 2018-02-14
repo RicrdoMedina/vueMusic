@@ -19,6 +19,9 @@
         a(href="https://plus.google.com/u/0/+RicardoMedinaFullStackDeveloper" target="_blank")
           .icon-google-plus-square
             icon(name="google-plus-square" scale="2")
+        a(href="https://www.linkedin.com/in/ricardo-medina-webdeveloper/" target="_blank")
+              .icon-linkedin-square
+                  icon(name="linkedin-square" scale="2")
       .box-contact
         .email 
           strong email: 

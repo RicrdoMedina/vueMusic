@@ -16,8 +16,8 @@
 
       .column.is-12-mobile.is-12-tablet.is-4-desktop
         .content-nota
-          h4 Nota
-          p.nota Se uso la API Rest de last.fm como servicio de consulta para proporcionar la información de todo el client site.
+          h4 Note
+          p.nota The last.fm Rest API was used as a query service to provide information about the entire client site.
           .more-info
             span more info:
             a(href="https://www.last.fm/api", target="_blank") &nbsp; https://www.last.fm/api
@@ -42,6 +42,9 @@
             a(href="https://plus.google.com/u/0/+RicardoMedinaFullStackDeveloper" target="_blank")
               .icon-google-plus-square
                   icon(name="google-plus-square" scale="2")
+            a(href="https://www.linkedin.com/in/ricardo-medina-webdeveloper/" target="_blank")
+              .icon-linkedin-square
+                  icon(name="linkedin-square" scale="2")
 
 </template>
 

@@ -15,31 +15,31 @@
                 p.track Ricardo Medina
                 p.artist Full Stack Developer
             article.content-wiki
-              h3 Sobre mí
+              h3 This is me
               p.wiki 
-                | Soy un desarrollador web con 2 años de experiencia, empecé aprendiendo PHP por mi cuenta debido a mi fuerte vocación e inclinación por las tecnologías web. Desde entonces he crecido como profesional gracias a las oportunidades y experiencias brindadas dentro del ámbito laboral.
+                | Hello, my name is Ricardo, I am a web developer. I have worked in this field for 3 years and I am competent in both front-end and back-end development. I work with the latest tools and methodologies to keep up with current trends.
                 
               p 
-                | Al día de hoy poseo experiencia y habilidades en la creación de páginas web, desarrollo desde cero o rediseño de página actual.
+                | I started in the world of programming learning PHP on my own, that was my starting point to fall in love with this area that teaches you incredible things every day.
 
               p
-                | Implemento responsive web design en todos mis trabajos para que el sitio web se visualice en cualquier dispositivo algo fundamental ahora mismo ya que el mayor porcentaje de las visitas provienen de móviles como tablets y smartphone. Dominio de Html 5 (páginas web semánticas para posicionamiento en los buscadores), CSS3 (diseño y maquetación del sitio), SEO para posicionamiento web, Web performance (formación y experiencia optimizando la velocidad de carga de la web).
+                | I have been working in several companies as a programmer, layout designer and systems analyst thanks to the opportunities and experiences offered in the workplace has allowed me to launch the adventure as a freelance since 2017, filling me with satisfaction to be able to collaborate with various projects allowing me to continue Grow as a professional and gain enriching experiences.
  
 
             
         .column.is-12-mobile.is-12-tablet.is-6-desktop
           .content-bio.about
             article
-              h3 Datos de interés:
+              h3 Of interest:
                 ul
-                  li Valoro todos los proyectos en los que participo con una clara vocación de resultados y calidad de servicio.
-                  li Mi principal objetivo es comprender los requerimientos para cumplir las expectativas.
-                  li Responsabilidad y disciplina. 
-                  li Capacidad de organización.
-                  li Comunicación y trabajo en equipo.
-                  li Actualmente en mi tiempo libre lo dedico a seguir mejorando.
+                  li I value all the projects in which I participate with a clear vocation for results and quality of service.
+                  li My main objective is to understand the requirements to meet expectations.
+                  li Responsibility and discipline. 
+                  li Organizational capacity.
+                  li Communication and teamwork.
+                  li Currently in my free time I dedicate it to continue improving.
             article
-              h3 Mis Habilidades Principales
+              h3 My main skills
                 .box-images
                   .content-img
                     img(src='https://rcrdmedina.github.io/vueMusic/dist/html5.png', alt='Html 5')
@@ -60,8 +60,8 @@
                   .content-img
                     img(src='https://rcrdmedina.github.io/vueMusic/dist/mysql.png', alt='Mysql')
             article
-              h3 Actualmente
-              p Me dedico hacer seguimiento de las nuevas tecnologias y aprender aquellas que sean las mas populares en el area, agregandolas a mi stack de trabajo.  Soy freelancer y estoy registrado en workana donde ofrezco mi servicios como web developers.
+              h3 Currently
+              p I am dedicated to continue improving using my free time to learn the most useful technologies of the medium, adding them to my work stack.
 
               
 </template>
