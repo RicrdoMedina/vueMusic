@@ -65,7 +65,7 @@ a:hover{
   right: 0;
   margin-top: 2.8rem;
   background: rgba(0, 0, 0, 0.7);
-  background-image: url("https://rcrdmedina.github.io/vueMusic/dist/dark-mosaic-footer.png");
+  background-image: url("https://ricrdomedina.github.io/vueMusic/dist/dark-mosaic-footer.png");
   color:rgb(222,89,34);
   width: 100%;
   font-size: 1.1rem;
