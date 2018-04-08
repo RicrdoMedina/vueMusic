@@ -10,7 +10,7 @@
         .column.is-12-mobile.is-12-tablet.is-6-desktop
           .content-info-track.about
             figure(class='content-image')
-              img(src="https://rcrdmedina.github.io/vueMusic/dist/me.png", alt="Ricardo Medina")
+              img(src="https://ricrdomedina.github.io/vueMusic/dist/me.png", alt="Ricardo Medina")
               figcaption
                 p.track Ricardo Medina
                 p.artist Full Stack Developer
@@ -42,23 +42,23 @@
               h3 My main skills
                 .box-images
                   .content-img
-                    img(src='https://rcrdmedina.github.io/vueMusic/dist/html5.png', alt='Html 5')
+                    img(src='https://ricrdomedina.github.io/vueMusic/dist/html5.png', alt='Html 5')
                   .content-img
-                    img(src='https://rcrdmedina.github.io/vueMusic/dist/css3.png', alt='CSS 3')
+                    img(src='https://ricrdomedina.github.io/vueMusic/dist/css3.png', alt='CSS 3')
                   .content-img
-                    img(src='https://rcrdmedina.github.io/vueMusic/dist/js.png', alt='Javascript')
+                    img(src='https://ricrdomedina.github.io/vueMusic/dist/js.png', alt='Javascript')
                   .content-img
-                    img(src='https://rcrdmedina.github.io/vueMusic/dist/jquery.png', alt='jquery')
+                    img(src='https://ricrdomedina.github.io/vueMusic/dist/jquery.png', alt='jquery')
                   .content-img
-                    img(src='https://rcrdmedina.github.io/vueMusic/dist/vuejs.jpg', alt='Vue js')
+                    img(src='https://ricrdomedina.github.io/vueMusic/dist/vuejs.jpg', alt='Vue js')
                   .content-img
-                    img(src='https://rcrdmedina.github.io/vueMusic/dist/webpack.jpg', alt='Webpack')
+                    img(src='https://ricrdomedina.github.io/vueMusic/dist/webpack.jpg', alt='Webpack')
                   .content-img
-                    img(src='https://rcrdmedina.github.io/vueMusic/dist/nodejs.png', alt='Node js')
+                    img(src='https://ricrdomedina.github.io/vueMusic/dist/nodejs.png', alt='Node js')
                   .content-img
-                    img(src='https://rcrdmedina.github.io/vueMusic/dist/laravel.png', alt='Laravel')
+                    img(src='https://ricrdomedina.github.io/vueMusic/dist/laravel.png', alt='Laravel')
                   .content-img
-                    img(src='https://rcrdmedina.github.io/vueMusic/dist/mysql.png', alt='Mysql')
+                    img(src='https://ricrdomedina.github.io/vueMusic/dist/mysql.png', alt='Mysql')
             article
               h3 Currently
               p I am dedicated to continue improving using my free time to learn the most useful technologies of the medium, adding them to my work stack.
