@@ -1,7 +1,7 @@
 
 # Client site Portal de musica online
 
-> Este repositorio contiene el Client site de una App sencilla desarrollada Vue JS para ver los temas más populares asi como artitas usando la API de last.fm.
+> Este repositorio contiene el Client site de una App sencilla desarrollada con Vue JS para ver los temas más populares asi como los artitas top usando la API de last.fm.
 
 ![Captura de la App](./readme-static/captura.jpg)
 
