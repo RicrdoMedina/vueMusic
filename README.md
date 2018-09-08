@@ -1,9 +1,15 @@
 
-# vue-music
+# Client site Portal de musica online
 
-> Client site vue de un portal de music online
+> Este repositorio contiene el Client site de una App sencilla desarrollada Vue JS para ver los temas más populares asi como artitas usando la API de last.fm.
 
-## Build Setup
+![Captura de la App](./readme-static/captura.jpg)
+
+[Ver la aplicación](https://ricrdomedina.github.io/vueMusic/)
+
+## Cómo funciona?
+
+Requiere Node.JS 8
 
 ``` bash
 # install dependencies
@@ -15,3 +21,6 @@ npm run dev
 # build for production with minification
 npm run build
 ```
+## Licencia 
+
+MIT
